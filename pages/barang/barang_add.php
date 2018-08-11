@@ -6,26 +6,22 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Tambah Data Panel</h4>
+                        <h4 class="modal-title" id="myModalLabel">Tambah Data barang</h4>
                     </div>
-				            <!--<div class="box-header with-border">
-				              <h3 class="box-title">Horizontal Form</h3>
-				            </div>
-				             /.box-header -->
-				            <!-- form start -->
+				            
                     <div class="modal-body">
-				            <form class="form-horizontal" enctype="multipart/form-data" novalidate id="formPanel">
+				            <form class="form-horizontal" enctype="multipart/form-data" novalidate id="formBarang">
                         <div class="form-group">
                           <div class="col-sm-3">
-                            <label for="kodepanel">Kode Panel</label>
+                            <label for="kodebarang">Kode Barang</label>
                           </div>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="id_panel" name="id_panel" required>
+                            <input type="text" class="form-control" id="id_barang" name="id_barang" required>
                           </div>
                         </div>
 				                <div class="form-group">
                           <div class="col-sm-3">
-                            <label for="namapanel">Nama</label>
+                            <label for="namabarang">Nama</label>
                           </div>
 				                  <div class="col-sm-8">
 				                    <input type="text" class="form-control" id="nama" name="nama" required>
@@ -33,7 +29,7 @@
 				                </div>
                         <div class="form-group">
                             <div class="col-sm-3">
-                          <label for="hargapokokpanel">Harga Pokok</label>
+                          <label for="hargapokokbarang">Harga Pokok</label>
                         </div>
                           <div class="col-sm-8">
                          <input type="text" class="form-control" id="hargapokok" name="hargapokok" required>
@@ -41,7 +37,7 @@
                         </div>
 				                <div class="form-group">
                             <div class="col-sm-3">
-				                  <label for="hargajualpanel">Harga Jual</label>
+				                  <label for="hargajualbarang">Harga Jual</label>
                         </div>
 				                  <div class="col-sm-8">
 				                    <input type="text" class="form-control" id="hargajual" name="hargajual" required>
@@ -79,12 +75,12 @@
 <script type="text/javascript">
 	$(document).ready(function (){
 
-                      $("#formPanel").on('submit', function(e){
+                      $("#formBarang").on('submit', function(e){
                           e.preventDefault();
                             //alert(disposisine)                       ;
                            						$.ajax({
                                                   type: 'POST',
-                                                  url: 'panel/panel_add_save.php',
+                                                  url: 'barang/barang_add_save.php',
                                                   data: new FormData(this),
                                                   contentType: false,
                                                   cache: false,
@@ -100,7 +96,7 @@
 			                                                exit();
 			                                              }else{
 
-			                                                $("#tablepanel").load('panel/panel_load.php');
+			                                                $("#tablebarang").load('barang/barang_load.php');
                                                                       $('.modal-body').css('opacity', '');
 
                                                             alert('Data Berhasil Disimpan');

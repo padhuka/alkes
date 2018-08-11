@@ -5,12 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <div class="title-header">
-    Data Panel
+    Data Barang
     </div>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">Data Panel</li>
+        <li class="active">Data Barang</li>
       </ol>
     </section>
 
@@ -24,7 +24,7 @@
             </div>
              /.box-header -->
             <div class="box-body">
-              <div id="tablepanel">
+              <div id="tablebarang">
               </div>
             </div>
             <!-- /.box-body -->
@@ -42,7 +42,7 @@
          <div id="ModalDelete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <script type="text/javascript">
             $(document).ready(function (){
-                 $("#tablepanel").load('panel/panel_load.php');
+                 $("#tablebarang").load('barang/barang_load.php');
             });
         </script>
 <style type="text/css">

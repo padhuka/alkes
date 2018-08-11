@@ -2,11 +2,11 @@
             include_once '../../lib/config.php';
             include_once '../../lib/fungsi.php';
       ?>
-      <table id="example1" class="table table-condensed table-bordered table-striped table-hover">
+      <table id="tablebarangload" class="table table-condensed table-bordered table-striped table-hover">
       
                 <thead class="thead-light">
                 <tr>
-                          <th>Kode Panel</th>
+                          <th>Kode Barang</th>
                           <th>Nama</th>
                           <th>Harga Pokok</th>
                           <th>Harga Jual</th>
@@ -18,20 +18,20 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT * FROM t_panel ORDER BY id_panel ASC";
+                                    $sqlcatat = "SELECT * FROM t_barang ORDER BY id_barang ASC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
                         <tr>
-                          <td ><?php echo $catat['id_panel'];?></td>
+                          <td ><?php echo $catat['id_barang'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
                           <td ><?php echo rupiah2($catat['harga_pokok']);?></td>
                           <td ><?php echo rupiah2($catat['harga_jual']);?></td>
                           <td ><?php echo $catat['diskon'];?>%</td>
                           <td ><?php echo $catat['ppn'];?></td>
                           <td >
-                                        <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_panel']; ?>" onclick="open_modal(ideditas='<?php echo $catat['id_panel']; ?>');"><span>Edit</span></button>
-                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_panel']; ?>" onclick="open_del(iddelas='<?php echo $catat['id_panel']; ?>');"><span>Hapus</span></button>
+                                        <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_barang']; ?>" onclick="open_modal(ideditas='<?php echo $catat['id_barang']; ?>');"><span>Edit</span></button>
+                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_barang']; ?>" onclick="open_del(iddelas='<?php echo $catat['id_barang']; ?>');"><span>Hapus</span></button>
 
                                     </td>
                         </tr>
@@ -39,7 +39,7 @@
                 </tfoot>
               </table>
               <script>
-             $('#example1').DataTable({
+             $('#tablebarangload').DataTable({
               "language": {
                       "search": "Cari",
                       "lengthMenu": "Lihat _MENU_ baris per halaman",
@@ -49,9 +49,9 @@
                   }
              });
             $(".open_add").click(function (e){
-                                //var m = $(this).attr("id_panel");
+                                //var m = $(this).attr("id_barang");
                     $.ajax({
-                    url: "panel/panel_add.php",
+                    url: "barang/barang_add.php",
                     type: "GET",
                       success: function (ajaxData){
                         $("#ModalAdd").html(ajaxData);
@@ -61,7 +61,7 @@
             });
            function open_del(){
                                 $.ajax({
-                                    url: "panel/panel_del.php?id_panel="+iddelas,
+                                    url: "barang/barang_del.php?id_barang="+iddelas,
                                     type: "GET",
                                     success: function (ajaxData){
                                         $("#ModalDelete").html(ajaxData);
@@ -71,7 +71,7 @@
             };
             function open_modal(){
                               $.ajax({
-                                  url: "panel/panel_edit.php?id_panel="+ideditas,
+                                  url: "barang/barang_edit.php?id_barang="+ideditas,
                                   type: "GET",
                                   success: function (ajaxData){
                                       $("#ModalEdit").html(ajaxData);

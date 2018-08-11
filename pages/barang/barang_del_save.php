@@ -1,8 +1,8 @@
 <?php
 		//$skrg = date('Y-m-d');
         include_once '../../lib/config.php';
-		$id_panel = $_GET['id_panel'];
+		$id_barang = $_GET['id_barang'];
 		# HAPUS DATA 
-		$sqlhapusasuransi = "DELETE FROM t_panel WHERE id_panel='$id_panel'";
-   		mysql_query( $sqlhapusasuransi );
+		$hapusbarang = "DELETE FROM t_barang WHERE id_barang='$id_barang'";
+   		mysql_query( $hapusbarang );
 ?>
