@@ -19,6 +19,8 @@
                         case 'cash' : include_once 'cash/cash_tab.php'; break;
                         case 'bank' : include_once 'bank/bank_tab.php'; break;
                         case 'laporan' : include_once 'laporan/laporan_tab.php'; break;
+                        ##BARANG##
+                        case 'sales' : include_once 'so/so_tab.php'; break;
                       }
         ?>
 

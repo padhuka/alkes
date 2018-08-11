@@ -22,7 +22,7 @@
             <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:red;padding: 5px 10px;">Barang <i class="fa fa-window-restore dropdown-toggle"></i></button> </a>
             <ul class="dropdown-menu">
               <li class="header"><a href="?p=purchase">Purchase Order</a></li>   
-               <li class="header"><a href="?p=Sales">Sales Order</a></li> 
+               <li class="header"><a href="?p=sales">Sales Order</a></li> 
                <li class="header"><a href="?p=delivery">Delivery Order</a></li> 
                <li class="header"><a href="?p=stock">Kartu Stock</a></li> 
                           </ul>
