@@ -7,7 +7,7 @@
                 <tr>
                           <th>ID</th>
                           <th>Nama</th>
-                          <th>Jenis Kelamin</th>
+              
                           <th>Alamat</th>
                           <th>No.KTP</th>
                           <th>No.Telp</th>
@@ -25,7 +25,7 @@
                         <tr>
                           <td ><?php echo $catat['id_customer'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
-                          <td ><?php echo $catat['jenis_kelamin'];?></td>
+                       
                           <td ><?php echo $catat['alamat'];?></td>
                           <td ><?php echo $catat['no_ktp'];?></td>
                           <td ><?php echo $catat['no_telp'];?></td>

@@ -9,6 +9,7 @@
         $noktpcustomer = trim($_POST['no_ktp']);
         $telpcustomer = trim($_POST['no_telp']);
         $email = trim($_POST['email']);
+        $nonpwp = trim($_POST['npwp']);
 	
         $sqlcek = "SELECT * FROM t_customer WHERE id_customer='$id_customer' AND id_customer<>'$id_customerhid";
         $qrycek = mysql_query($sqlcek);
@@ -16,7 +17,7 @@
         if ($row){
             echo 'y';
         }else{
-		        $sqltbemp = "UPDATE t_customer SET nama='$namacustomer',jenis_kelamin='$jeniskelamin',alamat='$alamatcustomer',no_ktp='$noktpcustomer',no_telp='$telpcustomer',email='$email' WHERE id_customer='$id_customerhid'";
+		        $sqltbemp = "UPDATE t_customer SET nama='$namacustomer',jenis_kelamin='$jeniskelamin',alamat='$alamatcustomer',no_ktp='$noktpcustomer',no_telp='$telpcustomer',email='$email',nonpwp='$nonpwp' WHERE id_customer='$id_customerhid'";
         		mysql_query($sqltbemp);
            // echo 'n';
         }

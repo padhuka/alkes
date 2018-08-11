@@ -23,19 +23,7 @@
                             <input type="text" class="form-control" id="namacustomer" name="namacustomer" required>
                           </div>
                         </div>
-				                <div class="form-group">
-                           <div class="col-sm-3">
-                            <label for="jeniskelamin">Jenis Kelamin</label>
-                          </div>
-                          <div class="col-sm-8">
-                         <label class="radio-inline">
-                              <input type="radio" name="jeniskelamin" value="L" checked="checked">Laki-Laki
-                            </label>
-                            <label class="radio-inline">
-                              <input type="radio"  name="jeniskelamin" value="P">Perempuan
-                            </label>
-                             </div>
-				                </div>
+				         
                         <div class="form-group">
                             <div class="col-sm-3">
                           <label for="alamatcustomer">Alamat</label>
@@ -66,6 +54,14 @@
                         </div>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="email" name="email" required>
+                          </div>
+                        </div>
+                         <div class="form-group">
+                            <div class="col-sm-3">
+                          <label for="nonpwp">No NPWP</label>
+                        </div>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nonpwp" name="nonpwp" required>
                           </div>
                         </div>
 				                <div class="form-group">

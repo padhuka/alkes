@@ -70,6 +70,14 @@
                             <input type="text" class="form-control" id="email" name="email" value="<?php echo $emp['email'];?>" required>
                           </div>
                         </div>
+                                <div class="form-group">
+                            <div class="col-sm-3">
+                          <label for="nonpwp">No. NPWP</label>
+                        </div>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nonpwp" name="nonpwp" value="<?php echo $emp['nonpwp'];?>" required>
+                          </div>
+                        </div>
 				                <div class="form-group">
                                   <div class="modal-footer">
 				                  <div class="col-sm-8">
