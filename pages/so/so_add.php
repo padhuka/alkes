@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                           <div class="col-sm-3">
-                            <label for="namaestimasi">Customer</label>
+                            <label for="namaestimasi">Keterangan</label>
                           </div>
                           <div class="col-sm-7">
                             <textarea id="keterangan" name="keterangan" class="form-control"></textarea>
@@ -111,7 +111,6 @@
                                                                   success: function (ajaxData){
                                                                     $("#ModalSoDet").html(ajaxData);
                                                                     $("#ModalSoDet").modal({backdrop: 'static', keyboard:false});
-                                                                    alert("so/so_detail.php?idso="+hsl);
                                                                   }
                                                                 }); 
 

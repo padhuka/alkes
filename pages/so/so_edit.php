@@ -1,5 +1,6 @@
 <!-- general form elements disabled -->
    <?php
+    include_once '../../lib/sess.php';
     include_once '../../lib/config.php';
     include_once '../../lib/fungsi.php';
     $idso= $_GET['idso'];
@@ -10,9 +11,8 @@
    ?>
 <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header"> 
-
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Edit Data Sales Order <button type="button" class="close" aria-label="Close" onclick="$('#ModalEdit').modal('hide');"><span>&times;</span></button></h4>
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Edit Data Sales Order <button type="button" class="close" aria-label="Close" onclick="$('#ModalEdit').modal('hide');"><span>&times;</span></button></h4>  
                     </div>
                     <!--<div class="box-header with-border">
                       <h3 class="box-title">Horizontal Form</h3>
@@ -23,10 +23,11 @@
                     <form class="form-horizontal" enctype="multipart/form-data" novalidate id="formsoe">
                         <div class="form-group">
                           <div class="col-sm-3">
-                            <label for="kodeestimasi">Tanggal</label>
+                            <label for="kodeestimasi">Tgl Masuk</label>
                           </div>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tgl" name="tgl" value="<?php echo date('d-m-Y' , strtotime($catat['tgl']));?>" readonly>
+                            <input type="text" class="form-control" id="tgl1" name="tgl1" value="<?php echo tampilTanggal(date('Y-m-d' , strtotime($catat['tgl'])));?>" readonly>
+                            <input type="text" class="form-control" id="tgl" name="tgl" value="<?php echo $harinow;?>" readonly>
                           </div>
                         </div>
                         
@@ -35,25 +36,24 @@
                             <label for="namaestimasi">Customer</label>
                           </div>
                           <div class="col-sm-7">
-                            <input type="text" class="form-control" id="Ecustomernm" name="Ecustomernm" readonly value="<?php echo $catat['nama'];?>">
-                            <input type="text" class="form-control" id="Ecustomer" name="Ecustomer" readonly value="<?php echo $catat['fk_customer'];?>">
+                            <input type="text" class="form-control" id="Ecustomernm" name="Ecustomernm" readonly value="<?php echo ($catat['nama'])?>">
+                            <input type="text" class="form-control" id="Ecustomer" name="Ecustomer" readonly value="<?php echo ($catat['fk_customer'])?>">
                           </div>
-                          <button type="button" class="btn btn-primary btn-md data-toggle="modal" data-target="#myModal" onclick="editCust();">Pilih</button>
+                          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="EselectCustomer();">Pilih</button>
                         </div>
-                        
                         <div class="form-group">
                           <div class="col-sm-3">
                             <label for="namaestimasi">Keterangan</label>
                           </div>
                           <div class="col-sm-7">
-                            <textarea id="Eketerangan" name="Eketerangan" class="form-control"><?php echo $catat['keterangan'];?></textarea>
+                            <textarea id="Eketerangan" name="Eketerangan" class="form-control"><?php echo ($catat['keterangan'])?></textarea>
                             
                           </div>
+                          
                         </div>
-                       
-                          <input type="hidden" class="form-control" id="idsoe" name="idsoe" value="<?php echo $idso;?>" readonly>
-                          <input type="hidden" class="form-control" id="unamee" name="unamee" value="<?php echo $sesuname;?>" readonly>
-                                             
+                        
+                         <input type="hidden" class="form-control" id="idsoe" name="idsoe" value="<?php echo $idso;?>" readonly>
+                          <input type="hidden" class="form-control" id="uname" name="uname" value="<?php echo $sesuname;?>" readonly>                        
                         <div class="form-group">
                            <div class="modal-footer">
                           <div class="col-sm-8">
@@ -79,22 +79,21 @@
 </div>
 <?php include_once 'so_customer_edit_tab.php';?>
 <script type="text/javascript">
-  selectKategorie();
-
-  
-  function editCust(){ 
+  function EselectCustomer(){ 
     $("#ModalCustEdit").modal({backdrop: 'static',keyboard:false});   
   }
   $(document).ready(function (){
 
                       $("#formsoe").on('submit', function(e){
+
                           var chs= $("#customernm").val();
+                          
                           if (chs==''){
                             alert('Data ada yang belum diisi');
                             return false;
                           }
                           e.preventDefault();
-                            //alert(disposisine)                       ;
+                            //alert(disposisine)  
                                       $.ajax({
                                                   type: 'POST',
                                                   url: 'so/so_edit_save.php',
@@ -108,7 +107,7 @@
 
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalEdit').modal('hide'); 
-                                                            var hsl=data.trim();       
+                                                            var hsl=data.trim();     
 
                                                              $.ajax({
                                                                 url: "so/so_detail.php?idso="+hsl,
@@ -131,9 +130,6 @@
 </script>
 
 <style type="text/css">
-  .modal-open .modal {
-    overflow-y: hidden;
-  }
   .modal-footer {
     padding-top: 10px;
     padding-bottom: 0px;
@@ -145,6 +141,10 @@
     background-color: lightcoral;
     text-align: center;
     font-weight: bold;
+  }
+  .modal-content {
+    /*height: auto;
+     width: 700px;*/
   }
   .modal-dialog {
     margin-bottom: 0px;
