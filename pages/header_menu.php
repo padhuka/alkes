@@ -21,10 +21,10 @@
            <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
             <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:red;padding: 5px 10px;">Barang <i class="fa fa-window-restore dropdown-toggle"></i></button> </a>
             <ul class="dropdown-menu">
-              <li class="header"><a href="?p=kwitansi">Purchase Order</a></li>   
-               <li class="header"><a href="?p=cash">Sales Order</a></li> 
-               <li class="header"><a href="?p=bank">Delivery Order</a></li> 
-               <li class="header"><a href="?p=bank">Kartu Stock</a></li> 
+              <li class="header"><a href="?p=purchase">Purchase Order</a></li>   
+               <li class="header"><a href="?p=Sales">Sales Order</a></li> 
+               <li class="header"><a href="?p=delivery">Delivery Order</a></li> 
+               <li class="header"><a href="?p=stock">Kartu Stock</a></li> 
                           </ul>
           </li><?php } ?>
 
@@ -49,7 +49,7 @@
            <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
             <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:red;padding: 5px 10px;">Master <i class="fa fa-gears dropdown-toggle"></i></button> </a>
             <ul class="dropdown-menu">
-              <li class="header"><a href="?p=panel">Barang</a></li>  
+              <li class="header"><a href="?p=barang">Barang</a></li>  
               <li class="header"><a href="?p=supplier">Supplier</a></li>
               <li class="header"><a href="?p=partnerbank">Partner Bank</a></li>
               <li class="header"><a href="?p=satuan">Satuan</a></li>
