@@ -6,10 +6,8 @@
                 <thead class="thead-light">
                 <tr>
                           <th>No</th>
-                          <th>Tgl Masuk</th>
-                          <th>No Chasis</th>
-                          <th>No Mesin</th>
-                          <th>No Polisi</th>
+                          <th>Tgl</th>
+                          <th>Customer</th>
                           <th>Total Sales Order</th>
 
                      
@@ -19,29 +17,29 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT  FROM t_penjualan WHERE tgl_batal='0000-00-00 00:00:00' ORDER BY e.id_penjualan DESC";
+                                    $sqlcatat = "SELECT  * FROM t_penjualan p 
+                                    LEFT JOIN t_customer c on p.fk_customer=c.id_customer
+                                    WHERE tgl_batal='0000-00-00 00:00:00' ORDER BY id_penjualan DESC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
 
                                 ?>
                         <tr>
-                          <td><button type="button" class="btn btn-link" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_est(idestimasi='<?php echo $catat['id_penjualan']; ?>');"><span><?php echo ($catat['id_penjualan']);?></span></button></td>
+                          <td><button type="button" class="btn btn-link" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_so(idso='<?php echo $catat['id_penjualan']; ?>');"><span><?php echo ($catat['id_penjualan']);?></span></button></td>
                        
                           <td ><?php echo date('d-m-Y' , strtotime($catat['tgl']));?></td>
-                          <td ><?php echo $catat['fk_customer'];?></td>
-                          <td ><?php echo $catat['fk_no_mesin'];?></td>
-                          <td ><?php echo $catat['fk_no_polisi'];?></td>
-                           <td ><?php echo rupiah2($catat['total_netto_harga_jasa']);?></td>
+                          <td ><?php echo $catat['nama'];?></td>
+                           <td ><?php echo rupiah2($catat['total_netto_jual_barang']);?></td>
                           <td >
-                                        <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_modal(idestimasi='<?php echo $catat['id_penjualan']; ?>');"><span>Edit</span></button>
+                                        <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_modal(idso='<?php echo $catat['id_penjualan']; ?>');"><span>Edit</span></button>
 
-                                         <?php if ($catat['no_kwitansi_or'] =='') { ?>
+                                         
 
-                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_del(idestimasi='<?php echo $catat['id_penjualan']; ?>');"><span>Batal</span></button> 
+                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_del(idso='<?php echo $catat['id_penjualan']; ?>');"><span>Batal</span></button> 
 
-                                         <?php }?>
+                                         
 
-                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="cetak_est(idestimasi='<?php echo $catat['id_penjualan']; ?>');"><span>Cetak</span></button>
+                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="cetak_est(idso='<?php echo $catat['id_penjualan']; ?>');"><span>Cetak</span></button>
 
                                     </td>
                         </tr>
@@ -49,7 +47,7 @@
                 </tfoot>
               </table>
               <script>
-            $('#estimasi1').DataTable({
+            $('#so1').DataTable({
               "language": {
                       "search": "Cari",
                       "lengthMenu": "Lihat _MENU_ baris per halaman",
@@ -61,7 +59,7 @@
            
            function open_add(){
               $.ajax({
-                    url: "estimasi/estimasi_add.php",
+                    url: "so/so_add.php",
                     type: "GET",
                       success: function (ajaxData){
                         $("#ModalAdd").html(ajaxData);
@@ -72,7 +70,7 @@
               
            function open_del(x){
                                 $.ajax({
-                                    url: "estimasi/estimasi_del.php?idestimasi="+x,
+                                    url: "so/so_del.php?idso="+x,
                                     type: "GET",
                                     success: function (ajaxData){
                                         $("#ModalDelete").html(ajaxData);
@@ -82,7 +80,7 @@
             };
             function open_modal(y){
                               $.ajax({
-                                  url: "estimasi/estimasi_edit.php?idestimasi="+y,
+                                  url: "so/so_edit.php?idso="+y,
                                   type: "GET",
                                   success: function (ajaxData){
                                       $("#ModalEdit").html(ajaxData);
@@ -93,7 +91,7 @@
               
             function open_est(z){
                               $.ajax({
-                                  url: "estimasi/estimasi_show.php?idestimasi="+z,
+                                  url: "so/so_show.php?idso="+z,
                                   type: "GET",
                                   success: function (ajaxData){
                                       $("#ModalShow").html(ajaxData);
@@ -104,7 +102,7 @@
 
             function cetak_est(q){
                               $.ajax({
-                                  url: "estimasi/estimasi_print.php?idestimasi="+q,
+                                  url: "so/so_print.php?idso="+q,
                                   type: "GET",
                                   success: function (ajaxData){
                                       $("#ModalEstPrint").html(ajaxData);

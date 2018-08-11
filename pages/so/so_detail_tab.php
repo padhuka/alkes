@@ -14,22 +14,16 @@
                 </thead>
                 <tbody>  
                 <?php 
-                  $idestimasi= $_GET['idestimasi'];
-                  $sqlest= "SELECT * FROM t_estimasi WHERE id_estimasi = '$idestimasi'";
+                  $idso= $_GET['idso'];
+                  $sqlest= "SELECT * FROM t_penjualan WHERE id_penjualan = '$idso'";
                   $hest= mysql_fetch_array(mysql_query($sqlest));
                 ?>              
                         <tr>
                           <td>Part</td>
-                          <td><?php echo rupiah2($hest['total_gross_harga_part']);?></td>
-                          <td><?php echo rupiah2($hest['total_diskon_rupiah_part']);?></td>
-                          <td><?php echo rupiah2($hest['total_netto_harga_part']);?></td>
+                          <td><?php echo rupiah2($hest['total_gross_jual_barang']);?></td>
+                          <td><?php echo rupiah2($hest['total_diskon_jual_barang']);?></td>
+                          <td><?php echo rupiah2($hest['total_netto_jual_barang']);?></td>
                         </tr>
-                        <tr>
-                          <td>Panel</td>
-                          <td><?php echo rupiah2($hest['total_gross_harga_panel']);?></td>
-                          <td><?php echo rupiah2($hest['total_diskon_rupiah_panel']);?></td>
-                          <td><?php echo rupiah2($hest['total_netto_harga_panel']);?></td>
-                        </tr>                    	
                 </tfoot>
               </table>
               <script>

@@ -5,15 +5,17 @@
     include_once '../../lib/config.php';
     include_once '../../lib/fungsi.php';
 
-    $idestimasi=explode('-',$_GET['idestimasi']);
+    $idso=$_GET['idso'];
 
-    $sqles = "SELECT * FROM t_estimasi WHERE id_estimasi='$idestimasi[0]'";
+    $sqles = "SELECT  * FROM t_penjualan p 
+              LEFT JOIN t_customer c on p.fk_customer=c.id_customer
+              WHERE id_penjualan='$idso'";
     $hes = mysql_fetch_array(mysql_query($sqles));
    ?>
 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Estimasi <button type="button" class="close" aria-label="Close" onclick="$('#ModalEstimasiDet').modal('hide');"><span>&times;</span></button></h4>   
+                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Sales Order <button type="button" class="close" aria-label="Close" onclick="$('#ModalSoDet').modal('hide');"><span>&times;</span></button></h4>   
                     </div>
                     
                     <div class="modal-body">
@@ -24,13 +26,8 @@
                           <td>
                          <th class="col-sm-6">
                         <tr> <th>Tgl Masuk</th> <td ><?php echo tampilTanggal(substr($hes['tgl'],0,10));?></td></tr>
-                        <tr> <th>No Chasis</th> <td ><?php echo $hes['fk_no_chasis'];?></td></tr>
-                        <tr> <th>No Mesin</th>  <td ><?php echo $hes['fk_no_mesin'];?></td></tr>
-                        <tr> <th>No Polisi</th> <td ><?php echo $hes['fk_no_polisi'];?></td></tr>
-                        <tr> <th>No Warna</th>   <td ><?php echo $idestimasi[1];?></td> </tr>
-                        <tr> <th>kategori</th>   <td ><?php echo $hes['kategori'];?></td> </tr>
-                        <tr> <th>Asuransi</th>   <td ><?php echo $hes['fk_no_polisi'];?></td> </tr>
-                          <tr> <th>KM Masuk</th>   <td ><?php echo $hes['km_masuk'];?></td> </tr>
+                        <tr> <th>Customer</th>  <td ><?php echo $hes['nama'];?></td></tr>
+                        <tr> <th>Keterangan</th> <td ><?php echo $hes['keterangan'];?></td></tr>
                         </th>
                        </td>
                         </table>
@@ -40,12 +37,11 @@
                     <hr>
                                            
                   </div>                  
-                <div id="tableestimasidetail"></div>                
+                <div id="tablesodetail"></div>                
                 <div class="form-group">
                            <div class="modal-footer">
                                 <div class="but">
-                                    <button type="button" class="btn btn-primary" name="part" onclick="parte('<?php echo $idestimasi[0];?>');">&nbsp;Part&nbsp;</button>
-                                    <button type="button" class="btn btn-primary" name="panel" onclick="panele('<?php echo $idestimasi[0];?>');">Panel</button>
+                                    <button type="button" class="btn btn-primary" name="part" onclick="barange('<?php echo $idso[0];?>');">&nbsp;Barang&nbsp;</button>
                                 </div>
                             </div>
                 </div> 
@@ -59,19 +55,18 @@
                 <br>
         </div>
 </div>
-        <div id="ModalAddPanelx" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-        <div id="ModalAddPartx" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+        <div id="ModalAddBarangx" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
         <script type="text/javascript">
             $(document).ready(function (){
-                 var idestimasie='<?php echo $idestimasi[0];?>';
-                 $("#tableestimasidetail").load('estimasi/estimasi_detail_tab.php?idestimasi='+idestimasie);
+                 var idsoe='<?php echo $idso;?>';
+                 $("#tablesodetail").load('so/so_detail_tab.php?idso='+idsoe);
             });
 
-            function panele(x){
+            function barange(x){
 
               $.ajax({
-                    url: "estimasi/panel_tab.php?idestimasine="+x,
+                    url: "estimasi/panel_tab.php?idsone="+x,
                     type: "GET",
                       success: function (ajaxData){
                         $("#ModalAddPanelx").html(ajaxData);
@@ -82,7 +77,7 @@
 
             function parte(y){
               $.ajax({
-                    url: "estimasi/part_tab.php?idestimasine="+y,
+                    url: "estimasi/part_tab.php?idsone="+y,
                     type: "GET",
                       success: function (ajaxData){
                         $("#ModalAddPartx").html(ajaxData);
