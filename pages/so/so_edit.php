@@ -27,7 +27,7 @@
                           </div>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="tgl1" name="tgl1" value="<?php echo tampilTanggal(date('Y-m-d' , strtotime($catat['tgl'])));?>" readonly>
-                            <input type="text" class="form-control" id="tgl" name="tgl" value="<?php echo $harinow;?>" readonly>
+                            <input type="hidden" class="form-control" id="tgl" name="tgl" value="<?php echo $harinow;?>" readonly>
                           </div>
                         </div>
                         
@@ -37,7 +37,7 @@
                           </div>
                           <div class="col-sm-7">
                             <input type="text" class="form-control" id="Ecustomernm" name="Ecustomernm" readonly value="<?php echo ($catat['nama'])?>">
-                            <input type="text" class="form-control" id="Ecustomer" name="Ecustomer" readonly value="<?php echo ($catat['fk_customer'])?>">
+                            <input type="hidden" class="form-control" id="Ecustomer" name="Ecustomer" readonly value="<?php echo ($catat['fk_customer'])?>">
                           </div>
                           <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="EselectCustomer();">Pilih</button>
                         </div>
@@ -86,7 +86,7 @@
 
                       $("#formsoe").on('submit', function(e){
 
-                          var chs= $("#customernm").val();
+                          var chs= $("#Ecustomernm").val();
                           
                           if (chs==''){
                             alert('Data ada yang belum diisi');

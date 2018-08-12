@@ -3,16 +3,16 @@
            
       ?>
     
-    <div id="ModalPilihPart" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog">
+    <div id="ModalPilihBarang" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog">
       <div class="col-md-14">
                 <div class="modal-content">
                     <div class="modal-header">
                          
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data part <button type="button" class="close" aria-label="Close" onclick="$('#ModalPilihPart').modal('hide');"><span>&times;</span></button></h4>                        
+                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Barang <button type="button" class="close" aria-label="Close" onclick="$('#ModalPilihBarang').modal('hide');"><span>&times;</span></button></h4>                        
                     </div>
 
                   <div class="box">
-                <table id="partestimasi" class="table table-condensed table-bordered table-striped table-hover">
+                <table id="barangestimasi" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                 <tr>
                         
@@ -26,7 +26,7 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT * FROM t_part ORDER BY id_part ASC";
+                                    $sqlcatat = "SELECT * FROM t_barang ORDER BY id_barang ASC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                       $diskon= ($catat['diskon']/100)*$catat['harga_jual'];
@@ -36,11 +36,11 @@
                         <tr>
                         
                           <td><?php echo $catat['nama'];?></td>
-                          <td><?php echo rupiah2($catat['harga_beli']);?></td>
+                          <td><?php echo rupiah2($catat['harga_pokok']);?></td>
                           <td><?php echo rupiah2($catat['harga_jual']);?></td>
                      
                           <td>
-                                        <button type="button" class="btn btn btn-default btn-circle" onclick="pilihparte('<?php echo $catat['id_part'];?>','<?php echo $catat['nama'];?>','<?php echo $catat['harga_jual'];?>','<?php echo $hartot;?>','<?php echo $catat['diskon'];?>');">Pilih</button>
+                                        <button type="button" class="btn btn btn-default btn-circle" onclick="pilihbarange('<?php echo $catat['id_barang'];?>','<?php echo $catat['nama'];?>','<?php echo $catat['harga_jual'];?>','<?php echo $hartot;?>','<?php echo $catat['diskon'];?>');">Pilih</button>
 
                                     </td>
                         </tr>
@@ -53,7 +53,7 @@
               </div>
               </div>              
               <script type="text/javascript">
-                $('#partestimasi').DataTable({
+                $('#barangestimasi').DataTable({
                    "language": {
                       "search": "Cari",
                       "lengthMenu": "Lihat _MENU_ baris per halaman",
@@ -63,15 +63,15 @@
                   },
                    "pageLength": 5,
                 });
-                function pilihparte(a,b,c,d,e){
+                function pilihbarange(a,b,c,d,e){
                   //alert(c);
-                              $("#part").val(a);
-                              $("#partnm").val(b);
-                              $("#hargapokokp").val(c);
-                              $("#hargatotalp").val(d);                              
-                              $("#diskonp").val(e);
+                              $("#barang").val(a);
+                              $("#barangnm").val(b);
+                              $("#hargapokok").val(c);
+                              $("#hargatotal").val(d);                              
+                              $("#diskon").val(e);
                               $("#qty").val('1');
-                              $("#ModalPilihPart").modal('hide');
+                              $("#ModalPilihBarang").modal('hide');
                               /*$.ajax({
                               url: "suratmasuk/suratmasuk_add.php",
                               type: "GET",

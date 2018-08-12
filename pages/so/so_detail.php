@@ -41,7 +41,7 @@
                 <div class="form-group">
                            <div class="modal-footer">
                                 <div class="but">
-                                    <button type="button" class="btn btn-primary" name="part" onclick="barange('<?php echo $idso[0];?>');">&nbsp;Barang&nbsp;</button>
+                                    <button type="button" class="btn btn-primary" name="part" onclick="barange('<?php echo $idso;?>');">&nbsp;Barang&nbsp;</button>
                                 </div>
                             </div>
                 </div> 
@@ -63,25 +63,14 @@
                  $("#tablesodetail").load('so/so_detail_tab.php?idso='+idsoe);
             });
 
-            function barange(x){
-
+           
+            function barange(y){
               $.ajax({
-                    url: "estimasi/panel_tab.php?idsone="+x,
+                    url: "so/barang_tab.php?idsone="+y,
                     type: "GET",
                       success: function (ajaxData){
-                        $("#ModalAddPanelx").html(ajaxData);
-                        $("#ModalAddPanelx").modal({backdrop: 'static',keyboard: false});
-                      }
-                    });
-              }
-
-            function parte(y){
-              $.ajax({
-                    url: "estimasi/part_tab.php?idsone="+y,
-                    type: "GET",
-                      success: function (ajaxData){
-                        $("#ModalAddPartx").html(ajaxData);
-                        $("#ModalAddPartx").modal('show',{backdrop: 'true'});
+                        $("#ModalAddBarangx").html(ajaxData);
+                        $("#ModalAddBarangx").modal('show',{backdrop: 'true'});
                       }
                     });
               }

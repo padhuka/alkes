@@ -24,7 +24,7 @@
                           </div>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="tgl1" name="tgl1" value="<?php echo tampilTanggal($harinow);?>" readonly>
-                            <input type="text" class="form-control" id="tgl" name="tgl" value="<?php echo $harinow;?>" readonly>
+                            <input type="hidden" class="form-control" id="tgl" name="tgl" value="<?php echo $harinow;?>" readonly>
                           </div>
                         </div>
                         
@@ -34,7 +34,7 @@
                           </div>
                           <div class="col-sm-7">
                             <input type="text" class="form-control" id="customernm" name="customernm" readonly>
-                            <input type="text" class="form-control" id="customer" name="customer" readonly>
+                            <input type="hidden" class="form-control" id="customer" name="customer" readonly>
                           </div>
                           <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectCustomer();">Pilih</button>
                         </div>
@@ -97,14 +97,13 @@
                                                   contentType: false,
                                                   cache: false,
                                                   processData:false,
-                                                  success: function(data){
-                                                        $("#tableso").load('so/so_load.php');
+                                                  success: function(data){                                                        
                                                         $('.modal-body').css('opacity', '');
 
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAdd').modal('hide'); 
-                                                            var hsl=data.trim();     
-
+                                                            //var hsl=data.trim();     
+                                                            $("#tableso").load('so/so_load.php');
                                                              $.ajax({
                                                                 url: "so/so_detail.php?idso="+hsl,
                                                                 type: "GET",

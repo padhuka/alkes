@@ -1,8 +1,8 @@
 <?php
     include_once '../../lib/config.php';
     //include_once '../../lib/fungsi.php';
-    $id = $_GET['idestimasi'];
-    $sqlemp = "SELECT * FROM t_estimasi WHERE id_estimasi='$id'";
+    $id = $_GET['idso'];
+    $sqlemp = "SELECT * FROM t_penjualan WHERE id_penjualan='$id'";
     $resemp = mysql_query( $sqlemp );
     $emp = mysql_fetch_array( $resemp );
 
@@ -37,15 +37,14 @@
                 <script type="text/javascript">
                   $(document).ready(function (){
                         $(".save_submit").click(function (e){
-
                            $.ajax({
-                                url: 'estimasi/estimasi_del_save.php?idestimasi=<?php echo $id;?>',
+                                url: 'so/so_del_save.php?idso=<?php echo $id;?>',
                                 type: 'GET',
                                 success: function (response){
                                       //alert('panel/panel_del_save.php?id_panel='+id_panel);
-                                     $("#tableestimasi").load('estimasi/estimasi_load.php');
+                                     $("#tableso").load('so/so_load.php');
                                      $('.modal-body').css('opacity', '');
-                                      alert('Data Berhasil Dihapus');
+                                      alert('Data Berhasil Dibatalkan');
                                       $('#ModalDelete').modal('hide');
                                   }
                             });

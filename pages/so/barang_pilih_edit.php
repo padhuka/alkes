@@ -3,30 +3,30 @@
             include_once '../../lib/fungsi.php';
            
       ?>
-    <div id="ModalPilihPartEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog">
+    <div id="ModalPilihBarangEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog">
       <div class="col-md-14">
                 <div class="modal-content">
                     <div class="modal-header">
                          
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Part <button type="button" class="close" aria-label="Close" onclick="$('#ModalPilihPartEdit').modal('hide');"><span>&times;</span></button></h4>                        
+                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Barang <button type="button" class="close" aria-label="Close" onclick="$('#ModalPilihBarangEdit').modal('hide');"><span>&times;</span></button></h4>                        
                     </div>
 
                   <div class="box">
-                <table id="partestimasip" class="table table-condensed table-bordered table-striped table-hover">
+                <table id="tablebarangedit" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                 <tr>
-                       
+                        
                           <th>Nama</th>
                           <th>Harga Pokok</th>
                           <th>Harga Jual</th>
-                      
+                        
                           <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT * FROM t_part ORDER BY id_part ASC";
+                                    $sqlcatat = "SELECT * FROM t_barang ORDER BY id_barang ASC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                       $diskon= ($catat['diskon']/100)*$catat['harga_jual'];
@@ -36,11 +36,11 @@
                         <tr>
                         
                           <td><?php echo $catat['nama'];?></td>
-                          <td><?php echo rupiah2($catat['harga_beli']);?></td>
+                          <td><?php echo rupiah2($catat['harga_pokok']);?></td>
                           <td><?php echo rupiah2($catat['harga_jual']);?></td>
-                         
+                     
                           <td>
-                                        <button type="button" class="btn btn btn-default btn-circle" onclick="pilihpartepx('<?php echo $catat['id_part'];?>','<?php echo $catat['nama'];?>','<?php echo $catat['harga_jual'];?>','<?php echo $hartot;?>','<?php echo $catat['diskon'];?>');">Pilih</button>
+                                        <button type="button" class="btn btn btn-default btn-circle" onclick="pilihbaranged('<?php echo $catat['id_barang'];?>','<?php echo $catat['nama'];?>','<?php echo $catat['harga_jual'];?>','<?php echo $hartot;?>','<?php echo $catat['diskon'];?>');">Pilih</button>
 
                                     </td>
                         </tr>
@@ -53,7 +53,7 @@
               </div>
               </div>              
               <script type="text/javascript">
-                $('#partestimasip').DataTable({
+                $('#tablebarangedit').DataTable({
                    "language": {
                       "search": "Cari",
                       "lengthMenu": "Lihat _MENU_ baris per halaman",
@@ -65,22 +65,14 @@
                    "pageLength": 5
                 });
 
-                function pilihpartepx(a,b,c,d,e){
-                              $("#parte").val(a);
-                              $("#partnme").val(b);
-                              $("#hargapokokep").val(c);
-                              $("#hargatotalep").val(d);                              
-                              $("#diskonep").val(e);
-                              $("#qtye").val('1');
-                              $("#ModalPilihPartEdit").modal('hide');
-                              /*$.ajax({
-                              url: "suratmasuk/suratmasuk_add.php",
-                              type: "GET",
-                                success: function (ajaxData){
-                                  $("#ModalAdd").html(ajaxData);
-                                  $("#ModalAdd").modal('show',{backdrop: 'true'});
-                                }
-                              });*/
+               function pilihbaranged(a,b,c,d,e){
+                              $("#barangE").val(a);
+                              $("#barangnmE").val(b);
+                              $("#hargapokokE").val(c);
+                              $("#hargatotalE").val(d);                              
+                              $("#diskonE").val(e);
+                              $("#qtyE").val('1');
+                              $("#ModalPilihBarangEdit").modal('hide');
                       }; 
               </script>
 <style type="text/css">

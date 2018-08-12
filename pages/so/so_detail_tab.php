@@ -19,7 +19,7 @@
                   $hest= mysql_fetch_array(mysql_query($sqlest));
                 ?>              
                         <tr>
-                          <td>Part</td>
+                          <td>Barang</td>
                           <td><?php echo rupiah2($hest['total_gross_jual_barang']);?></td>
                           <td><?php echo rupiah2($hest['total_diskon_jual_barang']);?></td>
                           <td><?php echo rupiah2($hest['total_netto_jual_barang']);?></td>
