@@ -1,31 +1,29 @@
 <?php
         include_once '../../lib/config.php';
         include_once '../../lib/fungsi.php';
-         //$ip = ; // Ambil IP Address dari User
-        //$id_penjualan = trim($_POST['id_penjualan']);
-        $customer = trim($_POST['customer']);;
+   
+        $supplier = trim($_POST['supplier']);;
         $tgl = trim($_POST['tgl']);
+        $nodelivery = trim($_POST['nodelivery']);
         $keterangan = trim($_POST['keterangan']);
-        
-        //message_back($id_penjualan);
-        //$kodeawal = 'est_'.$hrini.'_';
+
         $hrn2= date('dmy' , strtotime($hrini));
-  //EST.BR.020818.000001
-        $kodeawal2 = 'SO_MH.';
-        $kodeawal = 'SO_MH.'.$hrn2.'.';
-        //$sqljur = "SELECT * FROM t_penjualan WHERE id_penjualan LIKE '$kodeawal%' ORDER BY id_penjualan DESC";
-        $sqljur = "SELECT * FROM t_penjualan WHERE id_penjualan LIKE '$kodeawal2%' ORDER BY id_penjualan DESC";
+
+        $kodeawal2 = 'PO_MH.';
+        $kodeawal = 'PO_MH.'.$hrn2.'.';
+
+        $sqljur = "SELECT * FROM t_pembelian WHERE id_pembelian LIKE '$kodeawal2%' ORDER BY id_pembelian DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );
-        if (empty($jur['id_penjualan'])){
+        if (empty($jur['id_pembelian'])){
             $kodeakhir = '000001';
         }else{
             # GENERATE
-            $kode = $jur['id_penjualan'];
+            $kode = $jur['id_pembelian'];
             $pecah = explode('.',$kode);
             $nilbaru = $pecah[2] + 1;
             $panj = strlen($nilbaru);
-            //message_back($panj);
+
             switch($panj){
                 default : break;
                 case '1' : $kodeakhir='00000'.$nilbaru; break;
@@ -40,7 +38,7 @@
         $kodebaru = $kodeawal.$kodeakhir;     
 
         
-            $sqltbemp = "INSERT INTO t_penjualan (id_penjualan,fk_customer,keterangan,tgl) VALUES ('$kodebaru','$customer','$keterangan','$tgl')";
+            $sqltbemp = "INSERT INTO t_pembelian (id_pembelian,tgl,no_delivery_order,fk_supplier,keterangan) VALUES ('$kodebaru','$tgl','$nodelivery','$supplier','$keterangan')";
             mysql_query($sqltbemp);
             echo $kodebaru;        
 ?>
