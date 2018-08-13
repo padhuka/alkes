@@ -11,8 +11,8 @@
         //$kodeawal = 'est_'.$hrini.'_';
         $hrn2= date('dmy' , strtotime($hrini));
   //EST.BR.020818.000001
-        $kodeawal2 = 'SO_BR.';
-        $kodeawal = 'SO_BR.'.$hrn2.'.';
+        $kodeawal2 = 'SO_MH.';
+        $kodeawal = 'SO_MH.'.$hrn2.'.';
         //$sqljur = "SELECT * FROM t_penjualan WHERE id_penjualan LIKE '$kodeawal%' ORDER BY id_penjualan DESC";
         $sqljur = "SELECT * FROM t_penjualan WHERE id_penjualan LIKE '$kodeawal2%' ORDER BY id_penjualan DESC";
         $resultjur = mysql_query( $sqljur );
