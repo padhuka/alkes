@@ -89,7 +89,7 @@
                               });
             };
               
-            function open_est(z){
+            function open_so(z){
                               $.ajax({
                                   url: "so/so_show.php?idso="+z,
                                   type: "GET",
