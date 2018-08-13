@@ -91,7 +91,7 @@
                               });
             };
               
-            function open_est(z){
+            function open_po(z){
                               $.ajax({
                                   url: "po/po_show.php?idpo="+z,
                                   type: "GET",

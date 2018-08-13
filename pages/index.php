@@ -21,6 +21,7 @@
                         case 'laporan' : include_once 'laporan/laporan_tab.php'; break;
                         ##BARANG##
                         case 'sales' : include_once 'so/so_tab.php'; break;
+                        case 'purchase' : include_once 'po/po_tab.php'; break;
                       }
         ?>
 
