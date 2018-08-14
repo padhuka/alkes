@@ -67,7 +67,7 @@
                        <div class="form-group">
                       <div class="modal-footer">
                       <div class="but">
-                        <button type="button" class="btn btn-primary" name="close" onclick="barangshow('<?php echo $idso;?>')">Barang</button>
+                        <button type="button" class="btn btn-primary" name="close" onclick="barangshow('<?php echo $idso;?>')">Barang</button><p></p>
                                     <button type="button" class="btn btn-primary" name="close" onclick="$('#ModalShow').modal('hide');">Close</button>
                      </div>
                      </div>

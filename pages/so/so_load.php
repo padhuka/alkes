@@ -39,7 +39,7 @@
 
                                          
 
-                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="cetak_est(idso='<?php echo $catat['id_penjualan']; ?>');"><span>Cetak</span></button>
+                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="cetak_so(idso='<?php echo $catat['id_penjualan']; ?>');"><span>Cetak</span></button>
 
                                     </td>
                         </tr>
@@ -100,13 +100,13 @@
                               });
             };
 
-            function cetak_est(q){
+            function cetak_so(q){
                               $.ajax({
                                   url: "so/so_print.php?idso="+q,
                                   type: "GET",
                                   success: function (ajaxData){
-                                      $("#ModalEstPrint").html(ajaxData);
-                                      $("#ModalEstPrint").modal({backdrop: 'static',keyboard: false});
+                                      $("#ModalSoPrint").html(ajaxData);
+                                      $("#ModalSoPrint").modal({backdrop: 'static',keyboard: false});
                                   }
                               });
             };
