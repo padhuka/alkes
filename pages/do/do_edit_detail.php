@@ -3,33 +3,33 @@
    // include_once '../../lib/sess.php';
     include_once '../../lib/config.php';
     include_once '../../lib/fungsi.php';
-    $idso= $_GET['idso'];
- //   $sqlpan= "SELECT * FROM t_penjualan WHERE id_penjualan='$idso'";
+    $iddo= $_GET['iddo'];
+ //   $sqlpan= "SELECT * FROM t_pkb WHERE id_pkb='$iddo'";
  //  $catat= mysql_fetch_array(mysql_query($sqlpan));
   
    ?>
 <div class="modal-dialog">
            <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Sales Order <button type="button" class="close" aria-label="Close" onclick="$('#ModalShow').modal('hide');"><span>&times;</span></button></h4>                    
+                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Edit Delivery Order <button type="button" class="close" aria-label="Close" onclick="$('#ModalEdit').modal('hide');"><span>&times;</span></button></h4>                    
                     </div>
                   <?php
-                                    $j=1;
-                                    $sqlcatat = "SELECT * FROM t_penjualan e 
+                                   $j=1;
+                                    $sqlcatat = "SELECT * FROM t_delivery_order e 
                                                   left join t_customer c
                                                   on e.fk_customer=c.id_customer
-                                                  where e.id_penjualan='$idso'";
+                                                  where e.id_delivery_order='$iddo'";
                                     $rescatat = mysql_query( $sqlcatat );
                                     $catat = mysql_fetch_array( $rescatat )
                                 ?>
                     <div class="modal-body">
-                      <div class="modal-title-detail">Sales Order</div>
+                      <div class="modal-title-detail">Data Delivery Order</div>
                       <div class="row">
                        <div class="col-sm-6">
-                       <table id="estimasishow" class="table table-condensed table-bordered table-striped table-hover">
+                       <table id="pkbshow" class="table table-condensed table-bordered table-striped table-hover">
                        <td>
                          <th class="col-sm-6">
-                        <tr> <th>No Sales Order</th> <td ><?php echo $catat['id_penjualan'];?></td></tr>
+                        <tr> <th>No Delivery Order</th> <td ><?php echo $catat['id_delivery_order'];?></td></tr>
                         <tr> <th>Tgl Masuk</th> <td ><?php echo date('d-m-Y' , strtotime($catat['tgl']));?></td></tr>
                         <tr> <th>Nama Customer</th>  <td ><?php echo $catat['nama'];?></td></tr>
                         </th>
@@ -39,7 +39,7 @@
 
                       </div>
 
-                       <div class="modal-title-detail">NILAI SALES ORDER</div>
+                       <div class="modal-title-detail">NILAI DELIVERY ORDER</div>
                       <div class="row">
                        <div class="col-sm-12">
                        <table id="estimasishow" class="table table-condensed table-bordered table-striped table-hover">
@@ -60,36 +60,43 @@
                         </th>
                        </td>
                       </table>
-                           </div>
+                         </div>
+
                       </div>
 
-                                          
+                        <div class="form-group">
+                     <div class="modal-footer">
+                     <div class="but">
+                                    <button type="button" class="btn btn-primary" name="part" onclick="dobarangedit('<?php echo $iddo;?>');">&nbsp;Barang&nbsp;</button>
+                     </div>
+                     </div>
+                     </div>
                        <div class="form-group">
                       <div class="modal-footer">
                       <div class="but">
-                        <button type="button" class="btn btn-primary" name="close" onclick="barangshow('<?php echo $idso;?>')">Barang</button><p></p>
-                                    <button type="button" class="btn btn-primary" name="close" onclick="$('#ModalShow').modal('hide');">Close</button>
+                                    <button type="button" class="btn btn-primary" name="close" onclick="$('#ModalEdit').modal('hide');">Close</button>
                      </div>
                      </div>
                      </div>
                </div>
            </div>
            </div>      
-           <div id="ModalBarangShow" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+           <div id="ModalAddDoBarang" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
 <script type="text/javascript">
-   
-            function barangshow(y){
+           
+            function dobarangedit(x){
               $.ajax({
-                    url: "so/barang_show_tab.php?idsone="+y,
+                    url: "do/barang_tab.php?iddo="+x,
                     type: "GET",
                       success: function (ajaxData){
-                        $("#ModalBarangShow").html(ajaxData);
-                        $("#ModalBarangShow").modal({backdrop: 'static', keyboard:false});
+                        $("#ModalAddDoBarang").html(ajaxData);
+                        $("#ModalAddDoBarang").modal({backdrop: 'static',keyboard: false});
                       }
                     });
               }
-              
 
+              
   
 </script>        
 
