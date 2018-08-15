@@ -102,7 +102,7 @@
 
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAdd').modal('hide'); 
-                                                            //var hsl=data.trim();     
+                                                            var hsl=data.trim();     
                                                             $("#tableso").load('so/so_load.php');
                                                              $.ajax({
                                                                 url: "so/so_detail.php?idso="+hsl,
