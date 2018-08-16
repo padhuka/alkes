@@ -41,7 +41,7 @@
 
                                          
 
-                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_pembelian']; ?>" onclick="cetak_est(idpo='<?php echo $catat['id_pembelian']; ?>');"><span>Cetak</span></button>
+                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_pembelian']; ?>" onclick="cetak_po(idpo='<?php echo $catat['id_pembelian']; ?>');"><span>Cetak</span></button>
 
                                     </td>
                         </tr>
@@ -102,13 +102,13 @@
                               });
             };
 
-            function cetak_est(q){
+            function cetak_po(q){
                               $.ajax({
                                   url: "po/po_print.php?idpo="+q,
                                   type: "GET",
                                   success: function (ajaxData){
-                                      $("#ModalEstPrint").html(ajaxData);
-                                      $("#ModalEstPrint").modal({backdrop: 'static',keyboard: false});
+                                      $("#ModalPoPrint").html(ajaxData);
+                                      $("#ModalPoPrint").modal({backdrop: 'static',keyboard: false});
                                   }
                               });
             };
