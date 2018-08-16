@@ -13,8 +13,12 @@
 		    $sqltbemp = "INSERT INTO t_pembelian_detail (fk_pembelian,fk_barang,gross_beli_barang,diskon_beli_barang,netto_beli_barang,qty) VALUES ('$idpo','$id_barang','$hargajual','$hargadiskon','$total','$qty')";
             mysql_query($sqltbemp);
             
-            //echo 'n';
-            //jml barang
+            //UPDATE STOK
+             $sqlupdatestok = "INSERT INTO t_stok_akhir (fk_barang,masuk,hpp) VALUES ('$id_barang','$qty','$hargajual')";
+             mysql_query($sqlupdatestok);
+
+
+
             $sqlbarang= "SELECT sum(gross_beli_barang*qty) AS totjualbarang,sum(diskon_beli_barang*qty) AS totdiskonbarang,sum(netto_beli_barang) AS totestimasibarang FROM t_pembelian_detail WHERE fk_pembelian = '$idpo'";
             $hbarang= mysql_fetch_array(mysql_query($sqlbarang));
             //jml barang
@@ -25,5 +29,6 @@
 
             $updatebarang = "UPDATE t_pembelian set total_gross_beli_barang='$totgrosbarang', total_diskon_beli_barang='$totdiskonbarang', total_netto_beli_barang='$totnettobarang' WHERE id_pembelian='$idpo'";
             mysql_query($updatebarang);
+
 
 ?>
