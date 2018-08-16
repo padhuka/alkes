@@ -16,8 +16,8 @@
             //UPDATE STOK
 
             // SELECT DETAIL
-             $sqlupdatestok = "INSERT INTO t_stok_akhir (fk_barang,masuk,hpp) VALUES ('$id_barang','$qty','$hargabeli')";
-             mysql_query($sqlupdatestok);
+             // $sqlupdatestok = "INSERT INTO t_stok_akhir (fk_barang,masuk,hpp) VALUES ('$id_barang','$qty','$hargabeli')";
+             // mysql_query($sqlupdatestok);
 
 
 

@@ -14,8 +14,8 @@
          $updatebarang = "UPDATE t_pembelian_detail SET fk_barang='$id_barang',qty='$qty',gross_beli_barang='$hargabeli', diskon_barang='$diskon',diskon_beli_barang='$hargadiskon',netto_beli_barang='$total' WHERE id='$id'";
             mysql_query($updatebarang);
             
-              $sqlupdatestokE = "UPDATE t_stok_akhir set fk_barang='$id_barang',masuk='$qty', hpp='$hargabeli'";
-             mysql_query($sqlupdatestokE);
+             //  $sqlupdatestokE = "UPDATE t_stok_akhir set fk_barang='$id_barang',masuk='$qty', hpp='$hargabeli'";
+             // mysql_query($sqlupdatestokE);
 
             //echo $updatebarang;
 
