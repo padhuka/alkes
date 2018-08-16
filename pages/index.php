@@ -23,6 +23,7 @@
                         case 'sales' : include_once 'so/so_tab.php'; break;
                         case 'purchase' : include_once 'po/po_tab.php'; break;
                         case 'delivery' : include_once 'do/do_tab.php'; break;
+                        case 'stock' : include_once 'stock/stock_tab.php'; break;
                       }
         ?>
 
