@@ -6,7 +6,9 @@
 
     $sqlpan= "SELECT * FROM t_penjualan_detail WHERE id='$id'";
     $hslpan= mysql_fetch_array(mysql_query($sqlpan));
-    $diskones=100/($hslpan['gross_jual_barang']/$hslpan['diskon_jual_barang']);
+    $diskones=@(100/($hslpan['gross_jual_barang']/$hslpan['diskon_jual_barang']));
+    if ($diskones==''){$diskones=0;}
+    //$diskones=100/($hslpan['gross_jual_barang']/$hslpan['diskon_jual_barang']);
 
     $snm = "SELECT * FROM t_barang WHERE id_barang='$hslpan[fk_barang]'";
     $hnm = mysql_fetch_array(mysql_query($snm));
