@@ -5,25 +5,27 @@
 		$id_barang = trim($_POST['barang']);
         $idpo = trim($_POST['idpo']);
         $diskon = trim($_POST['diskon']);
-        $hargajual= trim($_POST['hargapokok']);
+        $hargabeli= trim($_POST['hargapokok']);
         $qty= trim($_POST['qty']);
-        $hargadiskon= ($diskon*$hargajual)/100;
+        $belidiskon= ($diskon*$hargabeli)/100;
         $total= trim($_POST['hargatotal']);
       
-		    $sqltbemp = "INSERT INTO t_pembelian_detail (fk_pembelian,fk_barang,gross_beli_barang,diskon_beli_barang,netto_beli_barang,qty) VALUES ('$idpo','$id_barang','$hargajual','$hargadiskon','$total','$qty')";
+		    $sqltbemp = "INSERT INTO t_pembelian_detail (fk_pembelian,fk_barang,gross_beli_barang,diskon_barang,diskon_beli_barang,netto_beli_barang,qty) VALUES ('$idpo','$id_barang','$hargabeli','$diskon','$belidiskon','$total','$qty')";
             mysql_query($sqltbemp);
             
             //UPDATE STOK
-             $sqlupdatestok = "INSERT INTO t_stok_akhir (fk_barang,masuk,hpp) VALUES ('$id_barang','$qty','$hargajual')";
+
+            // SELECT DETAIL
+             $sqlupdatestok = "INSERT INTO t_stok_akhir (fk_barang,masuk,hpp) VALUES ('$id_barang','$qty','$hargabeli')";
              mysql_query($sqlupdatestok);
 
 
 
-            $sqlbarang= "SELECT sum(gross_beli_barang*qty) AS totjualbarang,sum(diskon_beli_barang*qty) AS totdiskonbarang,sum(netto_beli_barang) AS totestimasibarang FROM t_pembelian_detail WHERE fk_pembelian = '$idpo'";
+            $sqlbarang= "SELECT sum(gross_beli_barang*qty) AS totalbelibarang,sum(diskon_beli_barang*qty) AS totdiskonbarang,sum(netto_beli_barang) AS totestimasibarang FROM t_pembelian_detail WHERE fk_pembelian = '$idpo'";
             $hbarang= mysql_fetch_array(mysql_query($sqlbarang));
             //jml barang
 
-            $totgrosbarang=$hbarang['totjualbarang'];
+            $totgrosbarang=$hbarang['totalbelibarang'];
             $totdiskonbarang=$hbarang['totdiskonbarang'];
             $totnettobarang=$hbarang['totestimasibarang'];
 

@@ -1,7 +1,7 @@
 <!-- general form elements disabled -->
    <?php
     include_once '../../lib/config.php';
-    $idpo=$_GET['idpo'];
+    $idpop=$_GET['idpo'];
     $id=$_GET['id'];
     echo $id;
 
@@ -49,7 +49,7 @@
                           <label for="hargajualbarang">Diskon</label>
                         </div>
                           <div class="col-sm-3">
-                            <input type="text" class="form-control" id="diskonE" name="diskonE" value="<?php echo $hslpan['diskon_beli_barang'];?>" required onchange="kalipE();">
+                            <input type="text" class="form-control" id="diskonE" name="diskonE" value="<?php echo $hslpan['diskon_barang'];?>" required onchange="kalipE();">
                               </div>%
 
                         </div>
@@ -75,7 +75,7 @@
                            <div class="modal-footer">
                           <div class="col-sm-8">
                             <input type="hidden" class="form-control" id="idE" name="idE" value="<?php echo $id;?>" required>
-                            <input type="hidden" class="form-control" id="idpoE" name="idpoE" value="<?php echo $idpo;?>" required>
+                            <input type="hidden" class="form-control" id="idpop" name="idpop" value="<?php echo $idpop;?>" required>
                             <button type="submit" class="btn btn-primary save_submit" name="Submit" value="SIMPAN">Simpan</button>
                                     <button type="button" class="btn btn-primary" onclick="$('#ModalEditBarang').modal('hide');">&nbsp;Batal&nbsp;</button>
                           </div>
@@ -111,13 +111,13 @@
                                                   success: function(data){  
                                                       //var hsl = data.trim();
                                                       //alert(hsl);
-                                                      $("#pobarang").load('po/barang_load.php?idpo=<?php echo $idpo;?>');
+                                                      $("#pobarang").load('po/barang_load.php?idpo=<?php echo $idpop;?>');
                                                       $("#tablepo").load('po/po_load.php');
                                                       $('.modal-body').css('opacity', '');
 
                                                       alert('Data Berhasil Disimpan');
                                                       $('#ModalEditBarang').modal('hide');
-                                                      $("#tablepodetail").load('po/po_detail_tab.php?idpo=<?php echo $idpo;?>');
+                                                      $("#tablepodetail").load('po/po_detail_tab.php?idpo=<?php echo $idpop;?>');
                                                   }
                                                       
                                                 });

@@ -70,7 +70,7 @@
                                       $("#ModalEditBarang").html(ajaxData);
                                       $("#ModalEditBarang").modal({backdrop: 'static', keyboard:false});
                                   }
-                             
+
                               });
             };
       </script>
