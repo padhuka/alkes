@@ -2,7 +2,7 @@
         include_once '../../lib/config.php';
         include_once '../../lib/fungsi.php';
 
-        $idpkb = trim($_POST['idpkb']);
+        $id_delivery_order = trim($_POST['iddo']);
      
         $hrn2= date('dmy' , strtotime($hrini));
         $kodeawal2 = 'SI_BR.';
@@ -32,25 +32,18 @@
         
         $kodebaru = $kodeawal.$kodeakhir;     
 
-         $sqlest = "SELECT * FROM t_pkb WHERE id_pkb='$idpkb'";
+         $sqlest = "SELECT * FROM t_delivery_order WHERE id_delivery_order='$id_delivery_order'";
          $hsl= mysql_fetch_array(mysql_query($sqlest));
-
-            $grosspanel = $hsl['total_gross_harga_panel'];
-            $diskonpanel = $hsl['total_diskon_rupiah_panel'];
-            $nettopanel = $hsl['total_netto_harga_panel'];
-            $grosspart = $hsl['total_gross_harga_part'];
-            $diskonpart = $hsl['total_diskon_rupiah_part'];
-            $nettopart = $hsl['total_netto_harga_part'];
-            $grosstotal = $hsl['total_gross_harga_jasa'];
-            $diskontotal = $hsl['total_diskon_rupiah_jasa'];
-            $nettototal = $hsl['total_netto_harga_jasa'];
+            $grosstotal = $hsl['total_gross_jual_barang'];
+            $diskontotal = $hsl['total_diskon_jual_barang'];
+            $nettototal = $hsl['total_netto_jual_barang'];
 
             $ppn = $nettototal*10/100;
             $payment = $nettototal+$ppn;
 
         
-        $sqltbemp = "INSERT INTO t_kwitansi (no_kwitansi,fk_pkb,total_gross_panel,total_gross_part,total_diskon_panel,total_diskon_part,total_netto_panel,total_netto_part,total_ppn_kwitansi,total_kwitansi,total_payment) VALUES ('$kodebaru','$idpkb','$grosspanel','$grosspart','$diskonpanel','$diskonpart','$nettopanel','$nettopart',$ppn,'$nettototal',$payment)";
-
+        $sqltbemp = "INSERT INTO t_kwitansi (no_kwitansi,fk_delivery_order,total_gross_barang,total_diskon_barang,total_netto_barang,total_ppn_kwitansi,total_kwitansi) VALUES ('$kodebaru','$id_delivery_order','$grosstotal','$diskontotal','$nettototal','$ppn','$payment')";
+        echo $sqltbemp;
             mysql_query($sqltbemp);
          
         

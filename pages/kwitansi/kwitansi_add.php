@@ -12,16 +12,13 @@
                  
                     <div class="modal-body">
                       
-                      <div class="modal-title-detail">DATA PKB</div>
+                      <div class="modal-title-detail">DATA DELIVERY ORDER</div>
                       <div class="row">
                        <div class="col-sm-6">
                        <table id="pkbshow" class="table table-condensed table-bordered table-striped table-hover">
                        <td>
                          <th class="col-sm-8">
-                        <tr> <th>No PKB</th> <td><input type="text" class="form-control" name="idpkb" id="idpkb" readonly> <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="kwitansi();">Pilih</button></td></tr>
-                        <tr> <th>No Chasis</th>  <td ><label id="chasis"></label></td></tr>
-                        <tr> <th>No Mesin</th> <td ><label id="mesin"></label></td></tr>
-                        
+                        <tr> <th>No DO</th> <td><input type="text" class="form-control" name="iddo" id="iddo" readonly> <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="kwitansi();">Pilih</button></td></tr> 
                         </th>
                        </td>
                        </table>
@@ -31,9 +28,9 @@
                           <td>
                          <th class="col-sm-6">
 
-                        <tr> <th>Kategori </th> <td ><label id="kategori"></label></td></tr>
-                        <tr> <th>Asuransi</th>  <td ><label id="asuransi"></label></td></tr>
+                        <tr> <th>Tanggal Delivery Order</th> <td ><label id="tgl"></label></td></tr>
                         <tr> <th>Nama Customer</th> <td ><label id="nama"></label></td></tr>
+                        <tr> <th>Telp</th>   <td ><label id="telp"></label></td> </tr>
                         </th>
                        </td>
                                </table>
@@ -41,23 +38,12 @@
 
                       </div>
 
-                       <div class="modal-title-detail">NILAI OR </div>
+                       <div class="modal-title-detail">NILAI DELIVERY ORDER </div>
                       <div class="row">
                        <div class="col-sm-12">
                        <table id="kwitansiform" class="table table-condensed table-bordered table-striped table-hover">
                        <td >
                          <th class="col-sm-2">
-                        <tr> 
-                            <th>Nilai Panel</th><td><label id="grosspanel"></label></td> 
-                            <th>Disc Panel</th><td ><label id="diskonpanel"></label></td>
-                            <th>Total Netto</th> <td><label id="nettopanel"></label></td>
-                        </tr>
-                        
-                        <tr> 
-                          <th>Nilai Part</th><td><label id="grosspart"></label></td>
-                          <th>Disc Part</th> <td><label id="diskonpart"></label></td>
-                          <th>Total Netto</th> <td><label id="nettopart"></label></td>
-                        </tr>
                         <tr class="total"> 
                           <th>Total Gross</th><td><label id="grosstotal"></label></td>
                           <th>Total Diskon</th> <td><label id="diskontotal"></label></td>
@@ -89,17 +75,17 @@
              </form>
            </div>
            </div>      
-           <?php include_once 'kwitansi_pkb_tab.php';?>
+           <?php include_once 'kwitansi_do_tab.php';?>
 
             <script type="text/javascript">
               function kwitansi(){ 
-                $("#ModalPkb").modal({backdrop: 'static',keyboard:false});   
+                $("#ModalDo").modal({backdrop: 'static',keyboard:false});   
               }
               
             $(document).ready(function (){
 
                       $("#formkwitansi").on('submit', function(e){
-                          var ides=  $("#idpkb").val();
+                          var ides=  $("#iddo").val();
                           if (ides==''){
                             alert('Data ada yang belum diisi');
                             return false;

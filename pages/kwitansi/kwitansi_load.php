@@ -7,9 +7,7 @@
                 <tr>
                           <th>No Kwitansi</th>
                           <th>Tanggal</th>
-                          <th>No PKB</th>
-                              <th>No Mesin</th>
-                          <th>No Chasis</th>
+                          <th>No DO</th>
                           <th>Nama Customer</th>
                           <th>Total</th>
                           <th>PPN</th>
@@ -21,12 +19,10 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT k.no_kwitansi, k.tgl_kwitansi,p.id_pkb,p.kategori,p.fk_no_chasis,p.fk_no_mesin,c.nama,k.total_kwitansi,k.total_ppn_kwitansi,k.total_payment,k.tgl_batal FROM t_kwitansi k 
-                                      INNER JOIN t_pkb p ON k.fk_pkb=p.id_pkb 
+                                    $sqlcatat = "SELECT k.total_netto_barang,k.no_kwitansi, k.tgl_kwitansi,p.id_delivery_order,c.nama,k.total_kwitansi,k.total_ppn_kwitansi,k.total_payment,k.tgl_batal FROM t_kwitansi k 
+                                      INNER JOIN t_delivery_order p ON k.fk_delivery_order=p.id_delivery_order 
                                       INNER JOIN t_customer c ON p.fk_customer=c.id_customer
                                       WHERE k.tgl_batal='0000:00:00 00:00:00'";
-
-
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
@@ -34,15 +30,13 @@
                           <td><button type="button" class="btn btn-link" id="<?php echo $catat['no_kwitansi']; ?>" onclick="open_kwitansi(idkwitansi='<?php echo $catat['no_kwitansi']; ?>');"><span><?php echo ($catat['no_kwitansi']);?></span></button></td>
                        
                           <td ><?php echo date('d-m-Y',strtotime($catat['tgl_kwitansi']));?></td>
-<!--                           <td ><?php echo $catat['id_pkb'];?></td> --> 
-                      <td><button type="button" class="btn btn-link" id="<?php echo $catat['id_pkb']; ?>" onclick="open_pkb(idpkb='<?php echo $catat['id_pkb']; ?>');"><span><?php echo ($catat['id_pkb']);?></span></button></td>
+<!--                           <td ><?php echo $catat['id_delivery_order'];?></td> --> 
+                      <td><button type="button" class="btn btn-link" id="<?php echo $catat['id_delivery_order']; ?>" onclick="open_delivery_order(iddelivery_order='<?php echo $catat['id_delivery_order']; ?>');"><span><?php echo ($catat['id_delivery_order']);?></span></button></td>
                    
-                          <td ><?php echo $catat['fk_no_chasis'];?></td>
-                          <td ><?php echo $catat['fk_no_mesin'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
-                          <td ><?php echo rupiah2($catat['total_kwitansi']);?></td>
+                          <td ><?php echo $catat['total_netto_barang'];?></td>
                           <td ><?php echo rupiah2($catat['total_ppn_kwitansi']);?></td>
-                          <td ><?php echo rupiah2($catat['total_payment']);?></td>
+                          <td ><?php echo rupiah2($catat['total_kwitansi']);?></td>
                           <td >
                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['no_kwitansi']; ?>" onclick="cetak_kw(idkwitansi='<?php echo $catat['no_kwitansi']; ?>');"><span>Cetak</span></button>
                                          <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['no_kwitansi']; ?>" onclick="open_del(idkwitansi='<?php echo $catat['no_kwitansi']; ?>');"><span>Batal</span></button>
@@ -85,13 +79,24 @@
                                 });
             };
                          
-            function open_pkb(z){
+            function open_delivery_order(z){
                               $.ajax({
-                                  url: "pkb/pkb_show.php?idpkb="+z,
+                                  url: "do/do_show.php?iddo="+z,
                                   type: "GET",
                                   success: function (ajaxData){
                                       $("#ModalShow").html(ajaxData);
                                       $("#ModalShow").modal({backdrop: 'static',keyboard: false});
+                                  }
+                              });
+            };
+
+            function open_kwitansi(z){
+                              $.ajax({
+                                  url: "kwitansi/kwitansi_show.php?idkwitansi="+z,
+                                  type: "GET",
+                                  success: function (ajaxData){
+                                      $("#ModalShowKw").html(ajaxData);
+                                      $("#ModalShowKw").modal({backdrop: 'static',keyboard: false});
                                   }
                               });
             };
