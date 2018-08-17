@@ -15,16 +15,13 @@
    ?>
    <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT *,kw.nilai_kwitansi as nilaior, c.alamat AS alamatcustomer,c.no_telp AS telpcustomer,c.nama AS nmcustomer,d.nama AS nmasuransi FROM t_kwitansi e
-                                    LEFT JOIN t_pkb a ON e.fk_pkb=a.id_pkb
-                                    LEFT JOIN t_customer c ON a.fk_customer=c.id_customer 
-                                    LEFT JOIN t_asuransi d ON a.fk_asuransi=d.id_asuransi
-                                    LEFT JOIN t_kwitansi_or kw ON a.fk_estimasi=kw.fk_estimasi
+                                    $sqlcatat = "SELECT e.*, c.alamat AS alamatcustomer,c.no_telp AS telpcustomer,c.nama AS nmcustomer FROM t_kwitansi e
+                                    LEFT JOIN t_delivery_order a ON e.fk_delivery_order=a.id_delivery_order
+                                    LEFT JOIN t_customer c ON a.fk_customer=c.id_customer
                                     WHERE e.no_kwitansi='$no_kwitansi'";
                                     $rescatat = mysql_query( $sqlcatat );
                                     $catat = mysql_fetch_array( $rescatat );
-                                    $idpkb=$catat['id_pkb'];
-
+                                    $iddelivery_order=$catat['fk_delivery_order'];
                                 ?>
                                <table width="100%" style="font-size: 12px">
                                  <tr><td align="center" style="font-size: 20px; text-align: center;"><u>INVOICE</u></td></tr>                                  
