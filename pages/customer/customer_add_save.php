@@ -4,7 +4,7 @@
 		 //$ip = ; // Ambil IP Address dari User
 		//$id_customer = trim($_POST['id_customer']);
         $namacustomer = trim($_POST['namacustomer']);
-        $jeniskelamin = trim($_POST['jeniskelamin']);
+       // $jeniskelamin = trim($_POST['jeniskelamin']);
         $alamatcustomer = trim($_POST['alamat']);
         $noktpcustomer = trim($_POST['no_ktp']);
         $telpcustomer = trim($_POST['no_telp']);
@@ -12,8 +12,8 @@
         $nnpwp = trim($_POST['npwp']);
         //message_back($id_customer);
 		$hrn2= date('dmy' , strtotime($hrini));
-        $kodeawal2 = 'CUST_.';
-        $kodeawal = 'CUST_.'.$hrn2.'.';
+        $kodeawal2 = 'CUST_MH.';
+        $kodeawal = 'CUST_MH.'.$hrn2.'.';
         //$sqljur = "SELECT * FROM t_estimasi WHERE id_estimasi LIKE '$kodeawal%' ORDER BY id_estimasi DESC";
         $sqljur = "SELECT * FROM t_customer WHERE id_customer LIKE '$kodeawal2%' ORDER BY id_customer DESC";
         $resultjur = mysql_query( $sqljur );
@@ -42,6 +42,6 @@
 
 
         
-		    $sqltbemp = "INSERT INTO t_customer (id_customer,nama,jenis_kelamin,alamat,no_ktp,no_telp,email,npwp) VALUES ('$kodebaru','$namacustomer','$jeniskelamin','$alamatcustomer','$noktpcustomer','$telpcustomer','$email','$npwp')";
+		    $sqltbemp = "INSERT INTO t_customer (id_customer,nama,alamat,no_ktp,no_telp,email,npwp) VALUES ('$kodebaru','$namacustomer','$alamatcustomer','$noktpcustomer','$telpcustomer','$email','$npwp')";
             mysql_query($sqltbemp);
 ?>
