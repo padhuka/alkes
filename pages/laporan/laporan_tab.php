@@ -33,21 +33,9 @@
                         <td>Report</td><td>Field</td><td></td>
                     </tr>
                     <tr>
-                        <td width="30%" >&nbsp;<label style="font-size: 16px;">PKB</label></td><td>
-                              <table border="0"><tr><td>Periode :</td><td><div class="input-group date">
-                            <div class="input-group date">
-                              <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                              </div>
-                              <input type="text" class="form-control pull-right" id="tglpkb1" name="tglpkb1" required value="<?php echo $harinow;?>">
-                            </div></td><td>-</td><td><div class="input-group date">
-                            <div class="input-group date">
-                              <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                              </div>
-                              <input type="text" class="form-control pull-right" id="tglpkb2" name="tglpkb2" required value="<?php echo $harinow;?>">
-                            </div> </td></tr></table>
-                            </td><td align="center" style="font-weight: bold; font-size: 14px;"><span style="cursor: pointer;" onclick="eksporpkb()">Generate</span></strong></span></td>
+                        <td width="30%" >&nbsp;<label style="font-size: 16px;">Piutang</label></td><td>
+                              
+                            </td><td align="center" style="font-weight: bold; font-size: 14px;"><span style="cursor: pointer;" onclick="eksporpiutang()">Generate</span></strong></span></td>
                     </tr>
                     <tr>
                         <td width="30%" >&nbsp;<label style="font-size: 16px;">Pembayaran Cash</label></td><td>
@@ -115,8 +103,8 @@
       var x =$('#tglbank1').val(); var y= $('#tglbank2').val();      
       window.location = "laporan/ekspor_bank.php?tgl1="+x+"&tgl2="+y;
     }
-    function eksporpkb(){
-      var x =$('#tglpkb1').val(); var y= $('#tglpkb2').val();      
+    function eksporpiutang(){
+      var x =$('#tglpiutang1').val(); var y= $('#tglpiutang2').val();      
       window.location = "laporan/ekspor_pkb.php?tgl1="+x+"&tgl2="+y;
     }
     
