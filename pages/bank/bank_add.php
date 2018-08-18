@@ -28,37 +28,6 @@
                           </div>
                         </div> 
                     
-                        <div class="form-group">
-                          <div class="col-sm-3">
-                            <label for="tipetransaksi">Tipe Transaksi</label>
-                          </div>
-                            <div class="col-sm-8">
-                                <select id="tipetransaksi" name="tipetransaksi"> 
-
-                              <option value="Pelunasan" onclick="$('#buttonPelunasan').show();$('#buttonTitipan').hide();$('#showPkb').hide();$('#showKwitansi').show();$('#nokwitansi').val('');">Pelunasan</option>                         
-                                <option value="Titipan" onclick="$('#buttonTitipan').show();$('#buttonPelunasan').hide();$('#showKwitansi').hide();$('#showPkb').show();$('#nopkb').val('');">Titipan</option>
-                                
-                                </select>  
-
-                                
-                               
-                               
-                                                       
-                              </div>
-                        </div>
-
-                        <div class="form-group" id="showPkb">
-                          <div class="col-sm-3">
-                            <label for="namapkb">No Ref</label>
-                          </div>
-                            <div class="col-sm-7">
-                                <!-- <input type="hidden" class="form-control" id="nopkb" name="asuransi">  -->
-                                <input type="text" class="form-control" id="idpkb" name="idpkb" readonly> 
-                                </div>
-                                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectPkb();" id="buttonTitipan">Pilih</button>
-                              
-                        </div>
-                    
                           <div class="form-group" id="showKwitansi">
                           <div class="col-sm-3">
                             <label for="nokwitansi">No Ref</label>
@@ -70,9 +39,6 @@
                                   <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectKwi();" id="buttonPelunasan">Pilih</button>
                              
                         </div>
-
-
-
 
                            <div class="form-group">
                             <div class="col-sm-3">
@@ -122,10 +88,7 @@
                           </div>
                         </div>
 
-
-
-
-                          <div class="form-group">
+                      <div class="form-group">
                             <div class="col-sm-3">
                           <label for="keterangan">Keterangan</label>
                         </div>
@@ -147,13 +110,10 @@
               
         </div>
 </div>
-<?php include_once 'bank_pkb_tab.php';?>
 <?php include_once 'bank_kwitansi_tab.php';?>
 <?php include_once 'bank_partner_tab.php';?>
 
 <script type="text/javascript">
-  $('#buttonTitipan').hide();
-  $('#showPkb').hide();
   $('#buttonPartner').hide();
   $('#showPartner').hide();
 
@@ -167,9 +127,7 @@
     $("#ModalBankKwitansi").modal({backdrop: 'static',keyboard:false});   
 
   }
-  function selectPkb(){ 
-    $("#ModalBankPkb").modal({backdrop: 'static',keyboard:false});   
-  }
+ 
   function selectPartner(){ 
     $("#ModalBankP").modal({backdrop: 'static',keyboard:false});   
   }
@@ -177,13 +135,7 @@
   $(document).ready(function (){
 
                       $("#formbank").on('submit', function(e){
-                          var chs= $("#chasis").val();
-                          var km=  $("#kmmasuk").val();
-                          if (chs==''){
-                            alert('Data ada yang belum diisi');
-                            return false;
-                          }
-                          e.preventDefault();
+                            e.preventDefault();
                             //alert(disposisine)                       ;
                                       $.ajax({
                                                   type: 'POST',
@@ -199,7 +151,7 @@
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAdd').modal('hide'); 
                                                             var hsl=data.trim();       
-                                                              alert(hsl);
+                                                              //alert(hsl);
                                                            
                                                   }
                                                       

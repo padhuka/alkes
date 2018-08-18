@@ -52,7 +52,7 @@
                   <td colspan="2" onclick="location='#'" rowspan="3">
                       <div>
 
-                          <div class="kanan" style="top:0px"><img style="height:20px" src="../file/panahkanan.png"></div>
+                          <div class="kanan" style="left:60px"><img style="height:20px" src="../file/panahkanan.png"></div>
                           Delivery Order  
                         </div>
           </td>
@@ -67,7 +67,7 @@
               <tr>
                   <td colspan="2" onclick="location='#'">
                       <div>
-                         <div class="kanan"><img style="height:20px;padding-left:5px" src="../file/panahkanan.png"></div>
+                         <div class="kanan" style="left: 60px"><img style="height:20px;padding-left:5px" src="../file/panahkanan.png"></div>
               Cetak Kwitansi
             </div>
           </td>

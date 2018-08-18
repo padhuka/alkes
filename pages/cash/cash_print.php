@@ -27,14 +27,7 @@
                           </div>
                         </div> 
                     
-                        <div class="form-group">
-                          <div class="col-sm-3">
-                            <label for="tipetransaksi">Tipe Transaksi</label>
-                          </div>
-                            <div class="col-sm-8">
-                                <?php echo $catat['tipe_transaksi'];?>
-                            </div>
-                        </div>
+                       
 
                         <div class="form-group" id="showPkb">
                           <div class="col-sm-3">

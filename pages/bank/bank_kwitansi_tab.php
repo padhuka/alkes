@@ -23,9 +23,7 @@
                 <tbody>
                 <?php
                                    $j=1;
-                                   $sqlcatat = "SELECT no_kwitansi as no_kwitansi,total_payment as nilai from t_kwitansi
-                                    UNION
-                                    SELECT no_kwitansi_or as no_kwitansi ,nilai_kwitansi as nilai from t_kwitansi_or";
+                                   $sqlcatat = "SELECT no_kwitansi as no_kwitansi,total_kwitansi as nilai from t_kwitansi";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>

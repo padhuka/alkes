@@ -6,8 +6,7 @@
                 <thead class="thead-light">
                 <tr>
                           <th>No Bukti</th>
-                          <th>Tgl</th>
-                          <th>Tipe Transaksi</th>
+                          <th>Tgl</th>             
                           <th>Di Terima Dari</th>
                           <th>No Ref</th>
                           <th>Total</th>
@@ -29,7 +28,6 @@
                           <td><button type="button" class="btn btn-link" id="<?php echo $catat['no_bukti']; ?>" onclick="open_bank(nobukti='<?php echo $catat['no_bukti']; ?>');"><span><?php echo ($catat['no_bukti']);?></span></button></td>
                        
                           <td ><?php echo date('d-m-Y' , strtotime($catat['tgl_transaksi']));?></td>
-                          <td ><?php echo $catat['tipe_transaksi'];?></td>
                           <td ><?php echo $catat['diterima_dari'];?></td>
                           <td ><?php echo $catat['no_ref'];?></td>
                           

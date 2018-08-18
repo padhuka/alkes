@@ -19,7 +19,7 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT k.total_netto_barang,k.no_kwitansi, k.tgl_kwitansi,p.id_delivery_order,c.nama,k.total_kwitansi,k.total_ppn_kwitansi,k.total_payment,k.tgl_batal FROM t_kwitansi k 
+                                    $sqlcatat = "SELECT k.total_netto_barang,k.no_kwitansi, k.tgl_kwitansi,p.id_delivery_order,c.nama,k.total_kwitansi,k.total_ppn_kwitansi,k.tgl_batal FROM t_kwitansi k 
                                       INNER JOIN t_delivery_order p ON k.fk_delivery_order=p.id_delivery_order 
                                       INNER JOIN t_customer c ON p.fk_customer=c.id_customer
                                       WHERE k.tgl_batal='0000:00:00 00:00:00'";
