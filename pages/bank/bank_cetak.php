@@ -21,10 +21,10 @@
                                 ?>
                                 <table width="100%" align="center" border="0">
                                   <tr>
-                                    <td width="50%"><u style="font-size: 14px;"><strong>GEMILANG BODY & PAINT</strong><br>
+                                    <td width="50%"><u style="font-size: 14px;"><strong>PT. MH. MEDIKA</strong><br>
                                     </u>
-                                    Jl. Setia Budi No.152 <br>
-                                    Srondol Kulon Semarang
+                                    Jl. Sumbing RT.03/RW09 Mojosongo<br>
+                                    Surakarta Tlp.0271-9224110
                                     </td>
                                     <td width="50%" align="center">
                                     No. Kwitansi : <?php echo $nobukti;?>
@@ -52,7 +52,7 @@
                                       <td>
                                           <table width="100%" border="0"  align="center">
                                             <tr>
-                                              <td align="center">Semarang, <?php echo tampilTanggal(substr($catat['tgl_transaksi'],0,10));?><br><br><br><br>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</td>
+                                              <td align="center">Surakarta, <?php echo tampilTanggal(substr($catat['tgl_transaksi'],0,10));?><br><br><br><br>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</td>
                                             </tr>
                                         </table>
                                       </td>
