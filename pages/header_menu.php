@@ -12,14 +12,14 @@
       <div class="navbar-custom-menu" style="padding: 0 0 0 0;margin: 0 auto;">
         <ul class="nav navbar-nav" style="list-style: none;padding: 0;margin: 0 auto;font-size: 1px;margin-top: 8px;">
          
-          <li style="display: block;margin:0;padding:0;float: left;"><a href="index.php" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:red;padding: 5px 10px;">Home <i class="fa fa-home"></i></button></a></li>
+          <li style="display: block;margin:0;padding:0;float: left;"><a href="index.php" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:firebrick;padding: 5px 10px;">Home <i class="fa fa-home"></i></button></a></li>
           <?php if ($seskdlvl=='Umum' || $seskdlvl=='Admin'){?>
-          <li style="display: block;margin:0;padding:0;float: left;"><a href="?p=customer" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:red;padding: 5px 10px;">Kartu Pelanggan <i class="fa fa-user-plus"></i></button></a></li>
+          <li style="display: block;margin:0;padding:0;float: left;"><a href="?p=customer" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:firebrick;padding: 5px 10px;">Kartu Pelanggan <i class="fa fa-user-plus"></i></button></a></li>
           <?php } ?>
 
           <?php if ($seskdlvl=='Admin'){?>
            <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
-            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:red;padding: 5px 10px;">Barang <i class="fa fa-window-restore dropdown-toggle"></i></button> </a>
+            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:firebrick;padding: 5px 10px;">Barang <i class="fa fa-window-restore dropdown-toggle"></i></button> </a>
             <ul class="dropdown-menu">
               <li class="header"><a href="?p=purchase">Purchase Order</a></li>   
                <li class="header"><a href="?p=sales">Sales Order</a></li> 
@@ -33,7 +33,7 @@
         
          <?php if ($seskdlvl=='Admin'){?>
            <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
-            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:red;padding: 5px 10px;">Finance <i class="fa fa-usd dropdown-toggle"></i></button> </a>
+            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:firebrick;padding: 5px 10px;">Finance <i class="fa fa-usd dropdown-toggle"></i></button> </a>
             <ul class="dropdown-menu">
               <li class="header"><a href="?p=kwitansi">Kwitansi</a></li>   
                <li class="header"><a href="?p=cash">Cash</a></li> 
@@ -42,12 +42,12 @@
           </li><?php } ?>
 
           <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
-            <a href="?p=laporan" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:red;padding: 5px 10px;">Laporan <i class="fa fa-gears dropdown-toggle"></i></button> </a>
+            <a href="?p=laporan" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:firebrick;padding: 5px 10px;">Laporan <i class="fa fa-gears dropdown-toggle"></i></button> </a>
 
           </li>
           <?php if ($seskdlvl=='Admin'){?>
            <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
-            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:red;padding: 5px 10px;">Master <i class="fa fa-gears dropdown-toggle"></i></button> </a>
+            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:firebrick;padding: 5px 10px;">Master <i class="fa fa-gears dropdown-toggle"></i></button> </a>
             <ul class="dropdown-menu">
               <li class="header"><a href="?p=barang">Barang</a></li>  
               <li class="header"><a href="?p=supplier">Supplier</a></li>
@@ -58,7 +58,7 @@
           </li><?php } ?>
 
           <li class="dropdown" style="display: block;margin:0;padding:0;float: left;" class="dropdown notifications-menu">
-            <a href="login/logout.php" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:red;padding: 5px 10px;">Logout <i class="fa fa-sign-out"></i></button></a></li>
+            <a href="login/logout.php" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:firebrick;padding: 5px 10px;">Logout <i class="fa fa-sign-out"></i></button></a></li>
 
           </li>
 
@@ -89,8 +89,8 @@
     background-color: #ecf0f5;
     font-family: sans-serif;
    }
-   .skin-red-light .main-header .navbar {
-    background-color:#1585c3;
+   .skin--light .main-header .navbar {
+    background-color:#3cae20;
    }
 
 

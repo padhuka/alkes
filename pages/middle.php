@@ -19,55 +19,47 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <!--<div class="box-header">
-              <h3 class="box-title"></h3>
-            </div>
-             /.box-header -->
+
             <div class="box-body" style="padding: 100px">
               
               <tr>
-    <td width="20"></td>
-    <td valign="top">
-      <table id="flowchart" align="center">
-              <tbody><tr>
-                  <td onclick="location='#'" colspan="2">
-                      <div><!--bercabang, set sendiri left nya -->
-                          <div class="bawah" style="left:0px"><img style="height:20px" src="../file/panahbawah.png"></div>
-              Kartu Pelanggan
-            </div>
-          </td>
-                </tr>
-              <tr>
-                  
-                  <td colspan="2" onclick="location='#'">
-                      <div>
-                         
-                          <div class="bawah"><img style="height:20px" src="../file/panahbawah.png"></div>
-              Sales Order
-            </div>
-          </td>
-             
-                </tr>
-              <tr>
-                  <td colspan="2" onclick="location='#'" rowspan="3">
-                      <div>
+              <td width="20"></td>
+              <td valign="top">
+                <table id="flowchart" align="center">
+                        <tbody>
+                          <tr>
+                            <td onclick="location='#'" colspan="2">
+                                <div><!--bercabang, set sendiri left nya -->
+                                    <div class="bawah" style="top:40px"><img style="height:25px" src="../file/panahbawah.png">
+                                    </div>Kartu Pelanggan
+                                 </div>
+                            </td>
+                           </tr>
+                          <tr>                  
+                            <td colspan="2" onclick="location='#'">
+                                <div>                         
+                                    <div class="bawah" style="top:40px"><img style="height:25px" src="../file/panahbawah.png"></div>
+                                Sales Order
+                              </div>
+                           </td>
+                          </tr>
 
-                          <div class="kanan" style="left:60px"><img style="height:20px" src="../file/panahkanan.png"></div>
-                          Delivery Order  
-                        </div>
-          </td>
-       
-                </tr>
-              <tr>
-                  
-               
-          </td>
-                  
-                </tr>
+                        <tr>                 
+                        <td colspan="2" onclick="location='#'" rowspan="3">
+                              <div>
+                                  <div class="kanan" style="left:110px"><img style="height:25px" src="../file/panahkanan.png"></div>
+                                  Delivery Order  
+                                </div>          
+                              </td>       
+                        </tr>
+
+                        <tr>             
+                          </td>                  
+                         </tr>
               <tr>
                   <td colspan="2" onclick="location='#'">
                       <div>
-                         <div class="kanan" style="left: 60px"><img style="height:20px;padding-left:5px" src="../file/panahkanan.png"></div>
+                         <div class="kanan" style="left: 110px"><img style="height:25px;padding-left:5px" src="../file/panahkanan.png"></div>
               Cetak Kwitansi
             </div>
           </td>
@@ -102,6 +94,9 @@
   </div>
        
 <style type="text/css">
+  .box {
+    background: #ecf0f5;
+  }
   .btn {
     font-weight: bold;
     padding-bottom: 0px;
@@ -122,8 +117,8 @@
   font-size:12px;
   letter-spacing:1px;
   border:inset;
-  width:120px;
-  height:55px;
+  width:220px;
+  height:80px;
   text-align:center;
   padding:5px;
   cursor:pointer;
