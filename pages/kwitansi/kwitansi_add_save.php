@@ -43,7 +43,7 @@
 
         
         $sqltbemp = "INSERT INTO t_kwitansi (no_kwitansi,fk_delivery_order,total_gross_barang,total_diskon_barang,total_netto_barang,total_ppn_kwitansi,total_kwitansi) VALUES ('$kodebaru','$id_delivery_order','$grosstotal','$diskontotal','$nettototal','$ppn','$payment')";
-        echo $sqltbemp;
+        //echo $sqltbemp;
             mysql_query($sqltbemp);
          
         
