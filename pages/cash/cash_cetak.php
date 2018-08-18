@@ -52,7 +52,7 @@
                                       <td>
                                           <table width="100%" border="0"  align="center">
                                             <tr>
-                                              <td align="center">Semarang, <?php echo tampilTanggal(substr($catat['tgl_transaksi'],0,10));?><br><br><br><br>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</td>
+                                              <td align="center">Surakarta, <?php echo tampilTanggal(substr($catat['tgl_transaksi'],0,10));?><br><br><br><br>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</td>
                                             </tr>
                                         </table>
                                       </td>
