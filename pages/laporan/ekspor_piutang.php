@@ -22,13 +22,13 @@ header("Content-Disposition: attachment; filename=reportcash.xls");
                                     </td>                                   
                                   </tr>                                   
                                 </table>
-                                    <span style="font-size: 20px;font-weight: bold;"><center>Laporan PIUTANG</center></span>
+                                    <span style="font-size: 20px;font-weight: bold;"><center>Laporan Piutang</center></span>
                                 <br>
       <table id="tablepkb1" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                 <tr>
                           <th>No DO</th>
-                          <th>Tgl DO</th>
+                          <th>Tanggal DO</th>
                           <th>Nama Customer</th>
                           <th>Piutang</th>
                 </tr>
@@ -40,23 +40,31 @@ header("Content-Disposition: attachment; filename=reportcash.xls");
                                     $tgl1=$_GET['tgl1'];
                                     $tgl2=$_GET['tgl2'];
                                     $j=1;
-                                    $sqlcatat = "SELECT p.*,c.nama,k.no_kwitansi FROM t_pkb p
+                                    $jml=0;
+                                    $sqlcatat = "SELECT p.*,c.nama,k.no_kwitansi,t.no_bukti as bukticash, b.no_bukti as buktibank  FROM t_delivery_order p
                                    LEFT JOIN t_customer c ON p.fk_customer=c.id_customer
-                                   LEFT JOIN t_kwitansi k ON p.id_pkb=k.fk_pkb
-                                   WHERE p.tgl_batal='0000-00-00 00:00:00' AND substring(tgl,1,10)>='$tgl1' AND  substring(tgl,1,10)<='$tgl2' 
-                                   ORDER BY p.id_pkb DESC";
+                                   LEFT JOIN t_kwitansi k ON p.id_delivery_order=k.fk_delivery_order
+                                   LEFT JOIN t_cash t ON k.no_kwitansi=t.no_ref
+                                   LEFT JOIN t_bank b ON k.no_kwitansi=b.no_ref
+                                   WHERE p.tgl_batal='0000-00-00 00:00:00' 
+                                   ORDER BY p.id_delivery_order DESC";
                                    	$rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
+                                      if ($catat['bukticash']<>'' OR $catat['buktibank']<>''){
+                                        $jml=$jml+$catat['total_netto_jual_barang'];
                                 ?>
                         <tr>
-                          <td><?php echo ($catat['id_pkb']);?></td>                       
-                          <td ><?php echo date('d-m-Y',strtotime($catat['tgl']));?></td>
-                          <td ><?php echo $catat['fk_no_chasis'];?></td>
-                          <td ><?php echo $catat['fk_no_mesin'];?></td>                          
-                          <td ><?php echo $catat['fk_no_polisi'];?></td>
+                          <td><?php echo ($catat['id_delivery_order']);?></td>     
+                          <td ><?php echo date('d-m-Y' , strtotime($catat['tgl']));?></td>     
                           <td ><?php echo $catat['nama'];?></td>
-                          
+                          <td ><?php echo $catat['total_netto_jual_barang'];?>
                         </tr>
-                    <?php }?>
+
+                    <?php }
+                  }?>
+                  <tr><td></td><td></td><td>Total</td><td><?php echo $jml;?></td></tr>
                 </tfoot>
+              </table>
+              <table>
+                
               </table>

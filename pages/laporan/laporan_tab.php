@@ -105,7 +105,7 @@
     }
     function eksporpiutang(){
       var x =$('#tglpiutang1').val(); var y= $('#tglpiutang2').val();      
-      window.location = "laporan/ekspor_pkb.php?tgl1="+x+"&tgl2="+y;
+      window.location = "laporan/ekspor_piutang.php?tgl1="+x+"&tgl2="+y;
     }
     
   </script>
