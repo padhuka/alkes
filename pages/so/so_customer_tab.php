@@ -42,7 +42,7 @@
               </div>
               </div>
               <script type="text/javascript">
-                $('#tableChasis').DataTable({
+                $('#customer1').DataTable({
                   "pageLength": 5,
                     "language": {
                       "search": "Cari",
