@@ -104,7 +104,7 @@
                                                             $('#ModalAdd').modal('hide'); 
                                                             var hsl=data.trim();     
                                                             $("#tableso").load('so/so_load.php');
-                                                             $.ajax({
+                                                              $.ajax({
                                                                 url: "so/so_detail.php?idso="+hsl,
                                                                 type: "GET",
                                                                   success: function (ajaxData){

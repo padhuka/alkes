@@ -54,6 +54,9 @@
 
             }
 
+            $sqlstatus= "INSERT INTO t_status_so(fk_penjualan,status) VALUES ('$idso','PROSES DO')";
+            mysql_query($sqlstatus); 
+
             
         
 ?>

@@ -42,5 +42,8 @@
         
             $sqltbemp = "INSERT INTO t_penjualan (id_penjualan,fk_customer,keterangan,tgl) VALUES ('$kodebaru','$customer','$keterangan','$tgl')";
             mysql_query($sqltbemp);
-            echo $kodebaru;        
+            echo $kodebaru; 
+
+             $sqlstatus= "INSERT INTO t_status_so(fk_penjualan) VALUES ('$kodebaru')";
+                mysql_query($sqlstatus);       
 ?>

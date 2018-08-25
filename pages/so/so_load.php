@@ -8,6 +8,7 @@
                           <th>No</th>
                           <th>Tgl</th>
                           <th>Customer</th>
+                          <th>Status Sales Order</th>
                           <th>Total Sales Order</th>
 
                      
@@ -18,7 +19,14 @@
                 <?php
                                     $j=1;
                                     $sqlcatat = "SELECT  * FROM t_penjualan p 
-                                    LEFT JOIN t_customer c on p.fk_customer=c.id_customer
+                                    LEFT JOIN t_customer c ON p.fk_customer=c.id_customer
+                                    LEFT JOIN (SELECT id, fk_penjualan, status
+                                      FROM t_status_so
+                                      WHERE id IN (
+                                      SELECT MAX(id)
+                                      FROM t_status_so
+                                      GROUP BY fk_penjualan
+                                    ))AS state ON p.id_penjualan=state.fk_penjualan
                                     WHERE tgl_batal='0000-00-00 00:00:00' ORDER BY id_penjualan DESC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
@@ -29,16 +37,16 @@
                        
                           <td ><?php echo date('d-m-Y' , strtotime($catat['tgl']));?></td>
                           <td ><?php echo $catat['nama'];?></td>
-                           <td ><?php echo rupiah2($catat['total_netto_jual_barang']);?></td>
+                          <td ><?php echo $catat['status'];?></td>
+                          <td ><?php echo rupiah2($catat['total_netto_jual_barang']);?></td>
                           <td >
+                                  <?php if ($catat['approved']==0){?>
                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_modal(idso='<?php echo $catat['id_penjualan']; ?>');"><span>Edit</span></button>
-
-                                         
 
                                          <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_del(idso='<?php echo $catat['id_penjualan']; ?>');"><span>Batal</span></button> 
 
-                                         
-
+                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_approved(idso='<?php echo $catat['id_penjualan']; ?>');"><span>Approve</span></button>
+                                      <?php }?>
                                          <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="cetak_so(idso='<?php echo $catat['id_penjualan']; ?>');"><span>Cetak</span></button>
 
                                     </td>
@@ -98,6 +106,16 @@
                                       $("#ModalShow").modal({backdrop: 'static',keyboard: false});
                                   }
                               });
+            };
+            function open_approved(x){
+                                $.ajax({
+                                    url: "so/so_approved.php?idso="+x,
+                                    type: "GET",
+                                    success: function (ajaxData){
+                                        $("#ModalApproved").html(ajaxData);
+                                        $("#ModalApproved").modal({backdrop: 'static',keyboard: false});
+                                    }
+                                });
             };
 
             function cetak_so(q){
