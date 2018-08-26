@@ -51,8 +51,8 @@
                           <th>Tgl</th>
                           <th>Customer</th>
                           <th>Customer</th>                          
-                          <th>Total Sales Order</th>
-                          <th>Status Sales Order</th>
+                          <th>Total SO</th>
+                          <th>Status SO</th>
                      
                           <th><button type="button" class="btn btn btn-default btn-circle" onclick="open_add();"><span>Tambah</span></button></th>
                 </tr>
