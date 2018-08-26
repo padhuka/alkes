@@ -15,7 +15,7 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT FX.fk_barang,FX.nama,(FX.qty - X.qty) as qty FROM (
+                                    $sqlcatat = "SELECT FX.fk_barang,FX.nama,(FX.qty - ifnull(X.qty,0)) as qty FROM (
                                        SELECT * FROM
                                        (
                                        SELECT pd.fk_barang,b.nama, sum(pd.qty) as qty,cast('masuk' as char(5))as tipe from t_pembelian_detail pd
@@ -27,7 +27,7 @@
                                        LEFT join t_delivery_order o ON o.id_delivery_order=od.fk_delivery_order
                                        LEFT join t_barang g ON od.fk_barang=g.id_barang
                                        WHERE o.tgl_batal='0000-00-00 00:00:00' GROUP BY od.fk_barang) as STOK WHERE tipe='masuk') AS FX
-                                       JOIN  (SELECT * FROM (
+                                       LEFT JOIN  (SELECT * FROM (
                                         SELECT * FROM
                                        (
                                        SELECT pd.fk_barang,b.nama,sum(pd.qty) as qty,cast('masuk' as char(5))as tipe from t_pembelian_detail pd

@@ -7,7 +7,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                          
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Delivery Orderx <button type="button" class="close" aria-label="Close" onclick="$('#ModalDo').modal('hide');"><span>&times;</span></button></h4>                        
+                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Delivery Order <button type="button" class="close" aria-label="Close" onclick="$('#ModalDo').modal('hide');"><span>&times;</span></button></h4>                        
                     </div>
 
                   <div class="box">
@@ -24,9 +24,10 @@
                 <tbody>
                 <?php
                                   $j=1;
-                                    $sqlcatat = "SELECT  * FROM t_delivery_order p 
+                                    $sqlcatat = "SELECT p.*,c.* FROM t_delivery_order p 
                                     LEFT JOIN t_customer c on p.fk_customer=c.id_customer
-                                    WHERE tgl_batal='0000-00-00 00:00:00' ORDER BY id_delivery_order DESC";
+                                    LEFT JOIN t_kwitansi k on p.id_delivery_order=k.fk_delivery_order
+                                    WHERE p.tgl_batal='0000-00-00 00:00:00' AND k.fk_delivery_order IS NULL";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>

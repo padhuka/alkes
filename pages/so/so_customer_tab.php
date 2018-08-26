@@ -1,9 +1,8 @@
      <div id="ModalCustomer" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
      <div class="modal-dialog">
       <div class="col-md-14">
-                <div class="modal-content" >
-                    <div class="modal-header">
-                         
+                <div class="modal-content">
+                    <div class="modal-header"> 
                         <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Customer <button type="button" class="close" aria-label="Close" onclick="$('#ModalCustomer').modal('hide');"><span>&times;</span></button></h4>                        
                     </div>
 
@@ -14,10 +13,7 @@
                 <tr>
                           <th>ID</th>
                           <th>Nama</th>
-              
-                          <th>Alamat</th>
-                          <th>No.Telp</th>
-                          <th>E-mail</th>
+                          <th>No.Telp</th>               
                           <th></th>
                 </tr>
                 </thead>
@@ -31,10 +27,7 @@
                         <tr>
                           <td ><?php echo $catat['id_customer'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
-                       
-                          <td ><?php echo $catat['alamat'];?></td>
-                          <td ><?php echo $catat['no_telp'];?></td>
-                          <td ><?php echo $catat['email'];?></td>
+                          <td ><?php echo $catat['no_telp'];?></td>       
                           <td>
                                         <button type="button" class="btn btn btn-default btn-circle" onclick="selectCust('<?php echo $catat['id_customer'];?>','<?php echo $catat['nama'];?>');">Pilih</button>
 
@@ -49,7 +42,7 @@
               </div>
               </div>
               <script type="text/javascript">
-                $('#tableChasis').DataTable({
+                $('#customer1').DataTable({
                   "pageLength": 5,
                     "language": {
                       "search": "Cari",

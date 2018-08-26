@@ -8,7 +8,7 @@
       <div class="col-md-14">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Estimasi <button type="button" class="close" aria-label="Close" onclick="$('#ModalSo').modal('hide');"><span>&times;</span></button></h4>
+                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data SO <button type="button" class="close" aria-label="Close" onclick="$('#ModalSo').modal('hide');"><span>&times;</span></button></h4>
                     </div>
                   <div class="box">
                 <table id="sopilih" class="table table-condensed table-bordered table-striped table-hover">
@@ -24,9 +24,14 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT  * FROM t_penjualan p 
+                                    $sqlcatat = "SELECT p.*,c.* FROM t_penjualan p 
                                     LEFT JOIN t_customer c on p.fk_customer=c.id_customer
+<<<<<<< HEAD
                                     WHERE tgl_batal='0000-00-00 00:00:00' AND approved='1' ORDER BY id_penjualan DESC";
+=======
+                                    LEFT JOIN t_delivery_order d ON d.fk_penjualan=p.id_penjualan
+                                    WHERE p.tgl_batal='0000-00-00 00:00:00' AND d.fk_penjualan IS NULL";
+>>>>>>> 782024d1e5cb77c7335e2ea93ad4bfaa83ea8993
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
 
