@@ -23,7 +23,10 @@
                 <tbody>
                 <?php
                                    $j=1;
-                                   $sqlcatat = "SELECT no_kwitansi as no_kwitansi,total_kwitansi as nilai from t_kwitansi";
+                                   $sqlcatat = "SELECT k.no_kwitansi as no_kwitansi,k.total_kwitansi as nilai from t_kwitansi k
+                                   LEFT JOIN t_bank b ON k.no_kwitansi=b.no_ref 
+                                   LEFT JOIN t_cash c ON k.no_kwitansi=c.no_ref 
+                                   WHERE b.no_ref IS NULL AND c.no_ref IS NULL";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
