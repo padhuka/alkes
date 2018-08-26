@@ -50,8 +50,9 @@
                           <th>No</th>
                           <th>Tgl</th>
                           <th>Customer</th>
-                          <th>Status Sales Order</th>
-                          <th>Total Sales Order</th>
+                        
+                          <th>Total SO</th>
+                          <th>Status SO</th>
 
                      
                           <th><button type="button" class="btn btn btn-default btn-circle" onclick="open_add();"><span>Tambah</span></button></th>
@@ -79,8 +80,9 @@
                        
                           <td ><?php echo date('d-m-Y' , strtotime($catat['tgl']));?></td>
                           <td ><?php echo $catat['nama'];?></td>
-                          <td ><?php echo $catat['status'];?></td>
+                       
                           <td ><?php echo rupiah2($catat['total_netto_jual_barang']);?></td>
+                          <td ><?php echo $catat['status'];?></td>
                           <td >
                                   <?php if ($catat['approved']==0){?>
                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_modal(idso='<?php echo $catat['id_penjualan']; ?>');"><span>Edit</span></button>

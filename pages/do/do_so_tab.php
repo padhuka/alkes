@@ -26,12 +26,8 @@
                                     $j=1;
                                     $sqlcatat = "SELECT p.*,c.* FROM t_penjualan p 
                                     LEFT JOIN t_customer c on p.fk_customer=c.id_customer
-<<<<<<< HEAD
-                                    WHERE tgl_batal='0000-00-00 00:00:00' AND approved='1' ORDER BY id_penjualan DESC";
-=======
                                     LEFT JOIN t_delivery_order d ON d.fk_penjualan=p.id_penjualan
-                                    WHERE p.tgl_batal='0000-00-00 00:00:00' AND d.fk_penjualan IS NULL";
->>>>>>> 782024d1e5cb77c7335e2ea93ad4bfaa83ea8993
+                                    WHERE p.tgl_batal='0000-00-00 00:00:00' AND approved='1' AND d.fk_penjualan IS NULL  ORDER BY id_penjualan DESC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
 

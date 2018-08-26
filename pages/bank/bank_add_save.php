@@ -43,4 +43,12 @@
             $sqltbemp = "INSERT INTO t_bank (no_bukti,tgl_transaksi,diterima_dari,via_bayar,fk_partner_bank,no_ref,total,keterangan) VALUES ('$kodebaru','$tgltransaksi','$diterimadari','$viabayar','$partnerbank','$noref','$total','$keterangan')";
             mysql_query($sqltbemp);
             //echo $kodebaru.'-'.$warnanm;        
+
+           $getIdSO = "SELECT do.fk_penjualan FROM t_kwitansi k 
+            LEFT JOIN t_delivery_order do ON k.fk_delivery_order=do.id_delivery_order
+            WHERE k.no_kwitansi='$noref'";
+            $result = mysql_fetch_array(mysql_query($getIdSO));
+            $so = $result['fk_penjualan'];
+            $updatestatus = "INSERT INTO t_status_so (fk_penjualan,status) VALUES ('$so','LUNAS')";
+            mysql_query($updatestatus);  
 ?>
