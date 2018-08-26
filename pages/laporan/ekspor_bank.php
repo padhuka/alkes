@@ -14,13 +14,13 @@ header("Content-Disposition: attachment; filename=reportbank.xls");
             include_once '../../lib/fungsi.php';
       ?>
       <table width="100%" align="center" border="0">
-                                  <tr>
-                                    <td width="50%"><u style="font-size: 20px;"><strong>GEMILANG BODY & PAINT</strong><br>
+                                   <tr>
+                                    <td width="50%"><u style="font-size: 20px;"><strong>PT. MH Medika</strong><br>
                                     </u>
-                                    Jl. Setia Budi No.152 <br>
-                                    Srondol Kulon Semarang
+                                      Jl. Sumbing Rt.03 Rw.09 Mojosongo<br>
+                                      Surakarta Tlp. 0271-9224110, 081229875951<br>
                                     </td>                                   
-                                  </tr>                                   
+                                  </tr>                                
                                 </table>
                                     <span style="font-size: 20px;font-weight: bold;"><center>Laporan Bank</center></span>
                                 <br>
