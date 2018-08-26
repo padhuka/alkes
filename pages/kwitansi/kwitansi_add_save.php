@@ -5,8 +5,8 @@
         $id_delivery_order = trim($_POST['iddo']);
      
         $hrn2= date('dmy' , strtotime($hrini));
-        $kodeawal2 = 'SI_BR.';
-        $kodeawal = 'SI_BR.'.$hrn2.'.';
+        $kodeawal2 = 'SI_MH.';
+        $kodeawal = 'SI_MH.'.$hrn2.'.';
         $sqljur = "SELECT * FROM t_kwitansi WHERE no_kwitansi LIKE '$kodeawal2%' ORDER BY no_kwitansi DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );
