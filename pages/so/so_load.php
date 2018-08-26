@@ -18,9 +18,9 @@
                  <div class="form-group">
         <div class="col-sm-4">
           <div class="input-group input-daterange">
-              <input type="text" id="min" class="form-control" value="<?php echo date('d-m-Y');?>">
+              <input type="text" id="min" class="form-control" value="<?php //echo date('d-m-Y');?>">
               <span class="input-group-addon">to</span>
-              <input type="text" id="max" class="form-control" value="<?php echo date('d-m-Y');?>">
+              <input type="text" id="max" class="form-control" value="<?php //echo date('d-m-Y');?>">
            </div>
         </div>
              </td>
@@ -50,10 +50,9 @@
                           <th>No</th>
                           <th>Tgl</th>
                           <th>Customer</th>
-                        
-                          <th>Total SO</th>
-                          <th>Status SO</th>
-
+                          <th>Customer</th>                          
+                          <th>Total Sales Order</th>
+                          <th>Status Sales Order</th>
                      
                           <th><button type="button" class="btn btn btn-default btn-circle" onclick="open_add();"><span>Tambah</span></button></th>
                 </tr>
@@ -80,7 +79,6 @@
                        
                           <td ><?php echo date('d-m-Y' , strtotime($catat['tgl']));?></td>
                           <td ><?php echo $catat['nama'];?></td>
-                       
                           <td ><?php echo rupiah2($catat['total_netto_jual_barang']);?></td>
                           <td ><?php echo $catat['status'];?></td>
                           <td >
