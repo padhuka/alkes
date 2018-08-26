@@ -49,8 +49,7 @@
                 <tr>
                           <th>No</th>
                           <th>Tgl</th>
-                          <th>Customer</th>
-                          <th>Customer</th>                          
+                          <th>Customer</th>            
                           <th>Total SO</th>
                           <th>Status SO</th>
                      
