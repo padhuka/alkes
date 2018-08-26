@@ -3,7 +3,7 @@
 header("Content-type: application/vnd-ms-excel");
  
 // Mendefinisikan nama file ekspor "hasil-export.xls"
-header("Content-Disposition: attachment; filename=reportcash.xls");
+header("Content-Disposition: attachment; filename=reportpiutang.xls");
  
 // Tambahkan table
 //include 'data.php';
@@ -27,9 +27,13 @@ header("Content-Disposition: attachment; filename=reportcash.xls");
       <table id="tablepkb1" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                 <tr>
+                          <th>Nama Customer</th>
+                          <th>No Kwitansi</th>
+                          <th>Tgl Kwitansi</th>
                           <th>No DO</th>
                           <th>Tanggal DO</th>
-                          <th>Nama Customer</th>
+                          <th>No SO</th>
+                          <th>Tanggal SO</th>
                           <th>Piutang</th>
                 </tr>
                 </thead>
@@ -41,28 +45,35 @@ header("Content-Disposition: attachment; filename=reportcash.xls");
                                     $tgl2=$_GET['tgl2'];
                                     $j=1;
                                     $jml=0;
-                                    $sqlcatat = "SELECT p.*,c.nama,k.no_kwitansi,t.no_bukti as bukticash, b.no_bukti as buktibank  FROM t_delivery_order p
-                                   LEFT JOIN t_customer c ON p.fk_customer=c.id_customer
-                                   LEFT JOIN t_kwitansi k ON p.id_delivery_order=k.fk_delivery_order
-                                   LEFT JOIN t_cash t ON k.no_kwitansi=t.no_ref
-                                   LEFT JOIN t_bank b ON k.no_kwitansi=b.no_ref
-                                   WHERE p.tgl_batal='0000-00-00 00:00:00' 
-                                   ORDER BY p.id_delivery_order DESC";
+                                    $sqlcatat = "SELECT c.nama as nama_customer,k.no_kwitansi,k.tgl_kwitansi,d.id_delivery_order,d.tgl as tgl_do,p.id_penjualan,p.tgl as tgl_so,k.total_kwitansi as piutang FROM t_kwitansi k 
+                                            LEFT JOIN t_delivery_order d ON k.fk_delivery_order=d.id_delivery_order
+                                            LEFT JOIN t_penjualan p ON d.fk_penjualan=p.id_penjualan 
+                                            LEFT JOIN t_customer c ON d.fk_customer=c.id_customer
+                                            INNER JOIN (SELECT * FROM t_status_so
+                                                 WHERE id IN (
+                                                 SELECT MAX(id)
+                                                 FROM t_status_so
+                                                 GROUP BY fk_penjualan
+                                                 ) AND status !='LUNAS') AS s ON s.fk_penjualan=p.id_penjualan";
                                    	$rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
-                                      if ($catat['bukticash']<>'' OR $catat['buktibank']<>''){
-                                        $jml=$jml+$catat['total_netto_jual_barang'];
+                                     {
+                                       $jml=$jml+$catat['piutang'];     
                                 ?>
                         <tr>
-                          <td><?php echo ($catat['id_delivery_order']);?></td>     
-                          <td ><?php echo date('d-m-Y' , strtotime($catat['tgl']));?></td>     
-                          <td ><?php echo $catat['nama'];?></td>
-                          <td ><?php echo $catat['total_netto_jual_barang'];?>
+                          <td><?php echo ($catat['nama_customer']);?></td>    
+                           <td><?php echo ($catat['no_kwitansi']);?></td> 
+                          <td ><?php echo date('d-m-Y' , strtotime($catat['tgl_kwitansi']));?></td>     
+                          <td ><?php echo $catat['id_delivery_order'];?></td>
+                          <td ><?php echo date('d-m-Y' , strtotime($catat['tgl_do']));?></td> 
+                          <td ><?php echo $catat['id_penjualan'];?></td>
+                          <td ><?php echo date('d-m-Y' , strtotime($catat['tgl_so']));?></td> 
+                          <td ><?php echo $catat['piutang'];?>
                         </tr>
 
                     <?php }
                   }?>
-                  <tr><td></td><td></td><td>Total</td><td><?php echo $jml;?></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td>TOTALPIUTANG</td><td><?php echo $jml;?></td></tr>
                 </tfoot>
               </table>
               <table>
