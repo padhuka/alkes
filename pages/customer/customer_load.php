@@ -9,7 +9,7 @@
                           <th>Nama</th>
               
                           <th>Alamat</th>
-                          <th>No.KTP</th>
+                          <th>Kota</th>
                           <th>No.Telp</th>
                           <th>E-mail</th>
                           <th><button type="button" class="btn btn btn-default btn-circle open_add"><span>Tambah</span></button></th>
@@ -18,16 +18,17 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT * FROM t_customer ORDER BY id_customer ASC";
+                                    $sqlcatat = "SELECT c.*,k.nama as city FROM t_customer c
+                                    LEFT JOIN t_city k ON c.fk_city=k.id_city
+                                    ORDER BY id_customer ASC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
                         <tr>
                           <td ><?php echo $catat['id_customer'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
-                       
                           <td ><?php echo $catat['alamat'];?></td>
-                          <td ><?php echo $catat['no_ktp'];?></td>
+                          <td ><?php echo $catat['city'];?></td>
                           <td ><?php echo $catat['no_telp'];?></td>
                           <td ><?php echo $catat['email'];?></td>
                           <td >

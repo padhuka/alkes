@@ -4,8 +4,8 @@
     	$id_customer = trim($_POST['id_customer']);
         $id_customerhid = trim($_POST['id_customerhid']);
         $namacustomer = trim($_POST['namacustomer']);
-        $jeniskelamin = trim($_POST['jeniskelamin']);
         $alamatcustomer = trim($_POST['alamat']);
+        $city = trim($_POST['city']);
         $noktpcustomer = trim($_POST['no_ktp']);
         $telpcustomer = trim($_POST['no_telp']);
         $email = trim($_POST['email']);
@@ -17,7 +17,8 @@
         if ($row){
             echo 'y';
         }else{
-		        $sqltbemp = "UPDATE t_customer SET nama='$namacustomer',jenis_kelamin='$jeniskelamin',alamat='$alamatcustomer',no_ktp='$noktpcustomer',no_telp='$telpcustomer',email='$email',nonpwp='$nonpwp' WHERE id_customer='$id_customerhid'";
+		        $sqltbemp = "UPDATE t_customer SET nama='$namacustomer',alamat='$alamatcustomer',fk_city='$city',no_ktp='$noktpcustomer',no_telp='$telpcustomer',email='$email',npwp='$nonpwp' WHERE id_customer='$id_customerhid'";
+                echo $sqltbemp;
         		mysql_query($sqltbemp);
            // echo 'n';
         }

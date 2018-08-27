@@ -6,6 +6,7 @@
         $namacustomer = trim($_POST['namacustomer']);
        // $jeniskelamin = trim($_POST['jeniskelamin']);
         $alamatcustomer = trim($_POST['alamat']);
+        $city = trim($_POST['city']);
         $noktpcustomer = trim($_POST['no_ktp']);
         $telpcustomer = trim($_POST['no_telp']);
         $email = trim($_POST['email']);
@@ -42,6 +43,7 @@
 
 
         
-		    $sqltbemp = "INSERT INTO t_customer (id_customer,nama,alamat,no_ktp,no_telp,email,npwp) VALUES ('$kodebaru','$namacustomer','$alamatcustomer','$noktpcustomer','$telpcustomer','$email','$npwp')";
+		    $sqltbemp = "INSERT INTO t_customer (id_customer,nama,alamat,fk_city,no_ktp,no_telp,email,npwp) VALUES ('$kodebaru','$namacustomer','$alamatcustomer','$city','$noktpcustomer','$telpcustomer','$email','$npwp')";
+            echo $sqltbemp;
             mysql_query($sqltbemp);
 ?>
