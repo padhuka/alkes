@@ -53,6 +53,7 @@
               <li class="header"><a href="?p=supplier">Supplier</a></li>
               <li class="header"><a href="?p=partnerbank">Partner Bank</a></li>
               <li class="header"><a href="?p=satuan">Satuan</a></li>
+               <li class="header"><a href="?p=city">Kota</a></li>
                 
             </ul>
           </li><?php } ?>
