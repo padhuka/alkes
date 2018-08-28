@@ -6,6 +6,10 @@
     $sqlemp = "SELECT * FROM t_customer WHERE id_customer='$id_customer'";
     $resemp = mysql_query( $sqlemp );
     $emp = mysql_fetch_array( $resemp );
+   
+    $namacity=mysql_query("SELECT * FROM t_city WHERE id_city='$emp[fk_city]'");
+    $cityselect=mysql_fetch_array($namacity);
+    $cityname=$cityselect['nama'];
   ?>
 <div class="modal-dialog">
                 <div class="modal-content">
@@ -24,20 +28,7 @@
                             <input type="text" class="form-control" id="namacustomer" name="namacustomer" value="<?php echo $emp['nama'];?>" >
                           </div>
                         </div>
-                          <div class="form-group">
-                           <div class="col-sm-3">
-                            <label for="jeniskelamin">Jenis Kelamin</label>
-                          </div>
-                          <div class="col-sm-8">
-                         <label class="radio-inline">
-                              <input type="radio" name="jeniskelamin" checked="checked" value="L">Laki-Laki
-                            </label>
-                            <label class="radio-inline">
-                              <input type="radio"  name="jeniskelamin" value="P">Perempuan
-                            </label>
-                             </div>
-                        </div>
-				               
+	            
                         <div class="form-group">
                             <div class="col-sm-3">
                           <label for="alamatcustomer">Alamat</label>
@@ -46,6 +37,18 @@
                             <textarea input type="text" class="form-control" id="alamat" name="alamat" required> <?php echo $emp['alamat'];?></textarea>                         
                           </div>
                         </div>
+
+                          <div class="form-group">
+                          <div class="col-sm-3">
+                            <label for="namakota">Kota</label>
+                          </div>
+                          <div class="col-sm-7">
+                            <input type="hidden" class="form-control" id="city" name="city" value="<?php echo $emp['fk_city'];?>" readonly>
+                            <input type="text" class="form-control" id="citynm" name="citynm"  value="<?php echo $cityname;?>"  readonly>
+                          </div>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectcity();">Pilih</button>
+                        </div>
+
 				                <div class="form-group">
                             <div class="col-sm-3">
 				                  <label for="noktp" >No KTP</label>
@@ -75,7 +78,7 @@
                           <label for="nonpwp">No. NPWP</label>
                         </div>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nonpwp" name="nonpwp" value="<?php echo $emp['nonpwp'];?>" required>
+                            <input type="text" class="form-control" id="npwp" name="npwp" value="<?php echo $emp['npwp'];?>" required>
                           </div>
                         </div>
 				                <div class="form-group">
@@ -93,7 +96,11 @@
 				</div>
 
 </div>
+<?php include_once 'customer_city_tab.php';?>
 <script type="text/javascript">
+  function selectcity(){  
+    $("#ModalCity").modal('show',{backdrop: 'true'});   
+  }
 	$(document).ready(function (){
 
                       $("#formCustomer").on('submit', function(e){

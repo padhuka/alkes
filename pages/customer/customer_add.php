@@ -32,6 +32,16 @@
                             <textarea type="text" class="form-control" id="alamat" name="alamat" required></textarea>
                           </div>
                         </div>
+                         <div class="form-group">
+                          <div class="col-sm-3">
+                            <label for="kota">Kota</label>
+                          </div>
+                          <div class="col-sm-7">
+                            <input type="hidden" class="form-control" id="city" name="city" readonly>
+                            <input type="text" class="form-control" id="citynm" name="citynm" readonly>
+                          </div>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectcity();">Pilih</button>
+                        </div>
 				                <div class="form-group">
                             <div class="col-sm-3">
 				                  <label for="telpcustomer">No KTP</label>
@@ -77,7 +87,12 @@
 				          </div>
 				</div>
 </div>
+<?php include_once 'customer_city_tab.php';?>
+
 <script type="text/javascript">
+ function selectcity(){  
+    $("#ModalCity").modal({backdrop: 'static',keyboard: false});   
+  }
 	$(document).ready(function (){
 
                       $("#formCustomer").on('submit', function(e){
