@@ -12,6 +12,7 @@
                         case 'supplier' : include_once 'supplier/supplier_tab.php'; break;
                         case 'satuan' : include_once 'satuan/satuan_tab.php'; break;
                         case 'city' : include_once 'city/city_tab.php'; break;
+                        case 'area' : include_once 'area/area_tab.php'; break;
                         case 'barang' : include_once 'barang/barang_tab.php'; break;
                         case 'customer' : include_once 'customer/customer_tab.php'; break;
                         case 'partnerbank' : include_once 'partnerbank/partnerbank_tab.php'; break;
