@@ -4,6 +4,7 @@
 		 //$ip = ; // Ambil IP Address dari User
 		$id_barang = trim($_POST['id_barang']);
         $nama = trim($_POST['nama']);
+        $satuan = trim($_POST['satuan']);
         $harga_pokok = trim($_POST['hargapokok']);
         $harga_jual= trim($_POST['hargajual']);
         $diskon = trim($_POST['diskon']);
@@ -16,7 +17,7 @@
         if ($row){
             echo 'y';
         }else{
-		    $sqltbemp = "INSERT INTO t_barang (id_barang,nama,harga_pokok,harga_jual,diskon,ppn) VALUES ('$id_barang','$nama','$harga_pokok','$harga_jual','$diskon','$ppn')";
+		    $sqltbemp = "INSERT INTO t_barang (id_barang,nama,fk_satuan,harga_pokok,harga_jual,diskon,ppn) VALUES ('$id_barang','$nama','$satuan','$harga_pokok','$harga_jual','$diskon','$ppn')";
             mysql_query($sqltbemp);
             //echo 'n';
         }
