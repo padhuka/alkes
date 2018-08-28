@@ -6,6 +6,7 @@
         $customer = trim($_POST['customer']);;
         $tgl = trim($_POST['tgl']);
         $keterangan = trim($_POST['keterangan']);
+        $marketing = trim($_POST['marketing']);
         
         //message_back($id_penjualan);
         //$kodeawal = 'est_'.$hrini.'_';
@@ -40,7 +41,7 @@
         $kodebaru = $kodeawal.$kodeakhir;     
 
         
-            $sqltbemp = "INSERT INTO t_penjualan (id_penjualan,fk_customer,keterangan,tgl) VALUES ('$kodebaru','$customer','$keterangan','$tgl')";
+            $sqltbemp = "INSERT INTO t_penjualan (id_penjualan,fk_customer,fk_marketing,keterangan,tgl) VALUES ('$kodebaru','$customer','$marketing','$keterangan','$tgl')";
             mysql_query($sqltbemp);
             echo $kodebaru; 
 

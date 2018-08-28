@@ -40,6 +40,16 @@
                         </div>
                         <div class="form-group">
                           <div class="col-sm-3">
+                            <label for="namaestimasi">Marketing</label>
+                          </div>
+                          <div class="col-sm-7">
+                            <input type="text" class="form-control" id="marketingnm" name="marketingnm" readonly>
+                            <input type="hidden" class="form-control" id="marketing" name="marketing" readonly>
+                          </div>
+                          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectMarketing();">Pilih</button>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-3">
                             <label for="namaestimasi">Keterangan</label>
                           </div>
                           <div class="col-sm-7">
@@ -75,9 +85,13 @@
         </div>
 </div>
 <?php include_once 'so_customer_tab.php';?>
+<?php include_once 'so_marketing_tab.php';?>
 <script type="text/javascript">
   function selectCustomer(){ 
     $("#ModalCustomer").modal({backdrop: 'static',keyboard:false});   
+  }
+  function selectMarketing(){ 
+    $("#ModalMarketing").modal({backdrop: 'static',keyboard:false});   
   }
   $(document).ready(function (){
 

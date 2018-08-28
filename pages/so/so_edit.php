@@ -4,8 +4,9 @@
     include_once '../../lib/config.php';
     include_once '../../lib/fungsi.php';
     $idso= $_GET['idso'];
-    $sqlpan= "SELECT  * FROM t_penjualan p 
+    $sqlpan= "SELECT  *,c.nama AS nmcust, m.nama AS nmmarketing FROM t_penjualan p 
               LEFT JOIN t_customer c on p.fk_customer=c.id_customer
+              LEFT JOIN t_marketing m ON p.fk_marketing=m.id_marketing
               WHERE id_penjualan='$idso'";
     $catat= mysql_fetch_array(mysql_query($sqlpan));
    ?>
@@ -36,10 +37,20 @@
                             <label for="namaestimasi">Customer</label>
                           </div>
                           <div class="col-sm-7">
-                            <input type="text" class="form-control" id="Ecustomernm" name="Ecustomernm" readonly value="<?php echo ($catat['nama'])?>">
+                            <input type="text" class="form-control" id="Ecustomernm" name="Ecustomernm" readonly value="<?php echo ($catat['nmcust'])?>">
                             <input type="hidden" class="form-control" id="Ecustomer" name="Ecustomer" readonly value="<?php echo ($catat['fk_customer'])?>">
                           </div>
                           <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="EselectCustomer();">Pilih</button>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-sm-3">
+                            <label for="namaestimasi">Marketing</label>
+                          </div>
+                          <div class="col-sm-7">
+                            <input type="text" class="form-control" id="marketingnmE" name="marketingnmE" readonly value="<?php echo ($catat['nmmarketing'])?>">
+                            <input type="hidden" class="form-control" id="marketingE" name="marketingE" readonly value="<?php echo ($catat['fk_marketing'])?>">
+                          </div>
+                          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectMarketingE();">Pilih</button>
                         </div>
                         <div class="form-group">
                           <div class="col-sm-3">
@@ -78,9 +89,13 @@
         </div>
 </div>
 <?php include_once 'so_customer_edit_tab.php';?>
+<?php include_once 'so_marketing_tabE.php';?>
 <script type="text/javascript">
   function EselectCustomer(){ 
     $("#ModalCustEdit").modal({backdrop: 'static',keyboard:false});   
+  }
+  function selectMarketingE(){ 
+    $("#ModalMarketingE").modal({backdrop: 'static',keyboard:false});   
   }
   $(document).ready(function (){
 

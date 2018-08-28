@@ -2,54 +2,14 @@
             include_once '../../lib/config.php';
             include_once '../../lib/fungsi.php';
       ?>
-       <!-- <table class="border " width="100%" style=" border: 1px solid lightgray ; border-collapse: collapse;"> 
-      <tbody>
-        <tr>
-            <td style="padding-left: 15px;font-weight: bold;">
-              PERIODE
-            </td>
-            <td style="padding-left: 15px;font-weight: bold;">
-              CARI
-            </td>
-        </tr>
-             
-        <tr>
-          <td >
-                 <div class="form-group">
-        <div class="col-sm-4">
-          <div class="input-group input-daterange">
-              <input type="text" id="min" class="form-control" value="<?php //echo date('d-m-Y');?>">
-              <span class="input-group-addon">to</span>
-              <input type="text" id="max" class="form-control" value="<?php //echo date('d-m-Y');?>">
-           </div>
-        </div>
-             </td>
-             <td>
-               
-            <div class="col-sm-10">
-               <input type="text" id="mySearch" class="form-control" value="">
-            </div>
-             </td>
-        </tr>
-       <tr>
-            <td style="padding-left: 15px;">
-             &nbsp;
-            </td>
-            <td style="padding-left: 15px;">
-          &nbsp;
-            </td>
-        </tr>
-      
-      </tbody>
-
-       </div> 
-      </table> -->
+       
       <table id="so1" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                 <tr>
                           <th>No</th>
                           <th>Tgl</th>
                           <th>Customer</th>            
+                          <th>Marketing</th>            
                           <th>Total SO</th>
                           <th>Status SO</th>
                      
@@ -59,8 +19,9 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT  * FROM t_penjualan p 
+                                    $sqlcatat = "SELECT  *,c.nama AS nmcust, m.nama AS nmmarketing FROM t_penjualan p 
                                     LEFT JOIN t_customer c ON p.fk_customer=c.id_customer
+                                    LEFT JOIN t_marketing m ON p.fk_marketing=m.id_marketing
                                     LEFT JOIN (SELECT id, fk_penjualan, status
                                       FROM t_status_so
                                       WHERE id IN (
@@ -77,7 +38,8 @@
                           <td><button type="button" class="btn btn-link" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_so(idso='<?php echo $catat['id_penjualan']; ?>');"><span><?php echo ($catat['id_penjualan']);?></span></button></td>
                        
                           <td ><?php echo date('d-m-Y' , strtotime($catat['tgl']));?></td>
-                          <td ><?php echo $catat['nama'];?></td>
+                          <td ><?php echo $catat['nmcust'];?></td>
+                          <td ><?php echo $catat['nmmarketing'];?></td>
                           <td ><?php echo rupiah2($catat['total_netto_jual_barang']);?></td>
                           <td ><?php echo $catat['status'];?></td>
                           <td >
