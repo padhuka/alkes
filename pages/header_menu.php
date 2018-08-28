@@ -55,7 +55,7 @@
               <li class="header"><a href="?p=satuan">Satuan</a></li>
               <li class="header"><a href="?p=city">Kota</a></li>
               <li class="header"><a href="?p=area">Area</a></li>
-                
+              <li class="header"><a href="?p=marketing">Marketing</a></li>
             </ul>
           </li><?php } ?>
 
