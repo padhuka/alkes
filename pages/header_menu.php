@@ -53,9 +53,15 @@
               <li class="header"><a href="?p=supplier">Supplier</a></li>
               <li class="header"><a href="?p=partnerbank">Partner Bank</a></li>
               <li class="header"><a href="?p=satuan">Satuan</a></li>
+              <li class="header"><a href="">-----------------------</a></li>
               <li class="header"><a href="?p=city">Kota</a></li>
               <li class="header"><a href="?p=area">Area</a></li>
               <li class="header"><a href="?p=marketing">Marketing</a></li>
+              <li class="header"><a href="">-----------------------</a></li>
+              <li class="header"><a href="?p=divisi">Divisi</a></li>
+              <li class="header"><a href="?p=mayor">Mayor</a></li>
+              <li class="header"><a href="?p=minor">Minor</a></li>
+              <li class="header"><a href="?p=group">Group</a></li>
             </ul>
           </li><?php } ?>
 

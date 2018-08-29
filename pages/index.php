@@ -14,6 +14,12 @@
                         case 'city' : include_once 'city/city_tab.php'; break;
                         case 'area' : include_once 'area/area_tab.php'; break;
                         case 'marketing' : include_once 'marketing/marketing_tab.php'; break;
+
+                        case 'divisi' : include_once 'divisi/divisi_tab.php'; break;
+                        case 'minor' : include_once 'minor/minor_tab.php'; break;
+                        case 'mayor' : include_once 'mayor/mayor_tab.php'; break;
+                        case 'group' : include_once 'group/group_tab.php'; break;
+                        //======================================
                         case 'barang' : include_once 'barang/barang_tab.php'; break;
                         case 'customer' : include_once 'customer/customer_tab.php'; break;
                         case 'partnerbank' : include_once 'partnerbank/partnerbank_tab.php'; break;
