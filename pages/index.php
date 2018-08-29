@@ -19,6 +19,7 @@
                         case 'partnerbank' : include_once 'partnerbank/partnerbank_tab.php'; break;
                         case 'customer' : include_once 'customer/customer_tab.php'; break;
                         case 'kwitansi' : include_once 'kwitansi/kwitansi_tab.php'; break;
+                        case 'rekapkwitansi' : include_once 'rekapkwitansi/rekapkwitansi_tab.php'; break;
                         case 'cash' : include_once 'cash/cash_tab.php'; break;
                         case 'bank' : include_once 'bank/bank_tab.php'; break;
                         case 'laporan' : include_once 'laporan/laporan_tab.php'; break;
