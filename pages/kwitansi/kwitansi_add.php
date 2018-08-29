@@ -14,6 +14,7 @@
                       
                       <div class="modal-title-detail">DATA DELIVERY ORDER</div>
                       <div class="row">
+
                        <div class="col-sm-6">
                        <table id="pkbshow" class="table table-condensed table-bordered table-striped table-hover">
                        <td>
@@ -21,10 +22,12 @@
                         <tr> <th>No DO</th> <td><input type="text" class="form-control" name="iddo" id="iddo" readonly> <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="kwitansi();">Pilih</button></td></tr> 
                         </th>
                        </td>
+
                        </table>
-                           </div>
-                            <div class="col-sm-6">
-                               <table id="pkbshow" class="table table-condensed table-bordered table-striped table-hover">
+                        </div>
+
+                        <div class="col-sm-6">
+                        <table id="pkbshow" class="table table-condensed table-bordered table-striped table-hover">
                           <td>
                          <th class="col-sm-6">
 
@@ -32,12 +35,31 @@
                         <tr> <th>Nama Customer</th> <td ><label id="nama"></label></td></tr>
                         <tr> <th>Telp</th>   <td ><label id="telp"></label></td> </tr>
                         </th>
-                       </td>
-                               </table>
+                        </td>
+                        </table>
+                        </div>
+                        
+                      </div>
+                      <div class="row">
+                         <div class="col-sm-6">
+                          <div class="form-group">
+                           <div class="col-sm-3">
+                            <label for="ppnlabel">PPN</label>
+                          </div>
+                          <div class="col-sm-8">
+                         <label class="radio-inline">
+                              <input type="radio" name="ppn" value="Y" checked="checked">Include PPN
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio"  name="ppn" value="N">Exclude PPN
+                            </label>
+                             </div>
+                        </div>
                          </div>
-
                       </div>
 
+
+                    
                        <div class="modal-title-detail">NILAI DELIVERY ORDER </div>
                       <div class="row">
                        <div class="col-sm-12">
@@ -81,11 +103,12 @@
               function kwitansi(){ 
                 $("#ModalDo").modal({backdrop: 'static',keyboard:false});   
               }
-              
+             
             $(document).ready(function (){
 
                       $("#formkwitansi").on('submit', function(e){
                           var ides=  $("#iddo").val();
+                      
                           if (ides==''){
                             alert('Data ada yang belum diisi');
                             return false;

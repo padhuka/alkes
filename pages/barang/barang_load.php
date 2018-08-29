@@ -8,6 +8,7 @@
                 <tr>
                           <th>Kode Barang</th>
                           <th>Nama</th>
+                          <th>Satuan</th>
                           <th>Harga Pokok</th>
                           <th>Harga Jual</th>
                           <th>Diskon</th>
@@ -18,13 +19,16 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT * FROM t_barang ORDER BY id_barang ASC";
+                                    $sqlcatat = "SELECT b.*,s.nama as satuan FROM t_barang b
+                                    LEFT JOIN t_satuan s ON b.fk_satuan=s.id_satuan
+                                    ORDER BY id_barang ASC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
                         <tr>
                           <td ><?php echo $catat['id_barang'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
+                          <td ><?php echo $catat['satuan'];?></td>
                           <td ><?php echo rupiah2($catat['harga_pokok']);?></td>
                           <td ><?php echo rupiah2($catat['harga_jual']);?></td>
                           <td ><?php echo $catat['diskon'];?>%</td>

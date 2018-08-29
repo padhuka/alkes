@@ -6,6 +6,10 @@
     $sqlemp = "SELECT * FROM t_barang WHERE id_barang='$id_barang'";
     $resemp = mysql_query( $sqlemp );
     $emp = mysql_fetch_array( $resemp );
+
+    $namasatuan=mysql_query("SELECT * FROM t_city WHERE id_city='$emp[fk_city]'");
+    $satuanselect=mysql_fetch_array($namasatuan);
+    $satuannm=$satuanselect['nama'];
   ?>
 <div class="modal-dialog">
                 <div class="modal-content">
@@ -32,6 +36,16 @@
 				                    <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $emp['nama'];?>" required>
 				                  </div>
 				                </div>
+                            <div class="form-group">
+                          <div class="col-sm-3">
+                            <label for="satuan">Satuan</label>
+                          </div>
+                          <div class="col-sm-7">
+                            <input type="hidden" class="form-control" id="satuan" name="satuan" value="<?php echo $emp['fk_satuan'];?>" readonly>
+                            <input type="text" class="form-control" id="satuannm" name="satuannm"  value="<?php echo $satuannm;?>"  readonly>
+                          </div>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectsatuan();">Pilih</button>
+                        </div>
                         <div class="form-group">
                             <div class="col-sm-3">
                           <label for="hargapokokbarang">Harga Pokok</label>
@@ -79,7 +93,11 @@
 				</div>
 
 </div>
+<?php include_once 'barang_satuan_tab.php';?>
 <script type="text/javascript">
+  function selectsatuan(){  
+    $("#ModalSatuan").modal('show',{backdrop: 'true'});   
+  }
 	$(document).ready(function (){
 
                       $("#formBarang").on('submit', function(e){

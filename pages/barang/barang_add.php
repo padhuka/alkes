@@ -27,6 +27,16 @@
 				                    <input type="text" class="form-control" id="nama" name="nama" required>
 				                  </div>
 				                </div>
+                          <div class="form-group">
+                          <div class="col-sm-3">
+                            <label for="satuan">Satuan</label>
+                          </div>
+                          <div class="col-sm-7">
+                            <input type="hidden" class="form-control" id="satuan" name="satuan" readonly>
+                            <input type="text" class="form-control" id="satuannm" name="satuannm" readonly>
+                          </div>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectsatuan();">Pilih</button>
+                        </div>
                         <div class="form-group">
                             <div class="col-sm-3">
                           <label for="hargapokokbarang">Harga Pokok</label>
@@ -72,7 +82,11 @@
 				          </div>
 				</div>
 </div>
+<?php include_once 'barang_satuan_tab.php';?>
 <script type="text/javascript">
+  function selectsatuan(){  
+    $("#ModalSatuan").modal({backdrop: 'static',keyboard: false});   
+  }
 	$(document).ready(function (){
 
                       $("#formBarang").on('submit', function(e){
@@ -97,7 +111,7 @@
 			                                              }else{
 
 			                                                $("#tablebarang").load('barang/barang_load.php');
-                                                                      $('.modal-body').css('opacity', '');
+                                                                      $('.modal-body').css('opasatuan', '');
 
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAdd').modal('hide');

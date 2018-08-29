@@ -3,7 +3,7 @@
         include_once '../../lib/fungsi.php';
 
         $id_delivery_order = trim($_POST['iddo']);
-     
+        $ppn = trim($_POST['ppn']);
         $hrn2= date('dmy' , strtotime($hrini));
         $kodeawal2 = 'SI_MH.';
         $kodeawal = 'SI_MH.'.$hrn2.'.';
@@ -38,10 +38,15 @@
             $diskontotal = $hsl['total_diskon_jual_barang'];
             $nettototal = $hsl['total_netto_jual_barang'];
 
-            $ppn = $nettototal*10/100;
-            $payment = $nettototal+$ppn;
-
-        
+            if ($ppn=='Y') {
+                $ppn = $nettototal*10/100;
+                $payment = $nettototal+$ppn;
+            }
+            else {
+                 $ppn = 0;
+                 $payment = $nettototal+$ppn;
+            }
+           
         $sqltbemp = "INSERT INTO t_kwitansi (no_kwitansi,fk_delivery_order,total_gross_barang,total_diskon_barang,total_netto_barang,total_ppn_kwitansi,total_kwitansi) VALUES ('$kodebaru','$id_delivery_order','$grosstotal','$diskontotal','$nettototal','$ppn','$payment')";
         //echo $sqltbemp;
             mysql_query($sqltbemp);

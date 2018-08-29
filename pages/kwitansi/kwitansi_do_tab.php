@@ -26,7 +26,7 @@
                                   $j=1;
                                     $sqlcatat = "SELECT p.*,c.* FROM t_delivery_order p 
                                     LEFT JOIN t_customer c on p.fk_customer=c.id_customer
-                                    LEFT JOIN t_kwitansi k on p.id_delivery_order=k.fk_delivery_order
+                                    LEFT JOIN ( SELECT * from t_kwitansi where tgl_batal='0000-00-00 00:00:00') AS k on p.id_delivery_order=k.fk_delivery_order
                                     WHERE p.tgl_batal='0000-00-00 00:00:00' AND k.fk_delivery_order IS NULL";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){

@@ -35,7 +35,8 @@
            <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
             <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="color:firebrick;padding: 5px 10px;">Finance <i class="fa fa-usd dropdown-toggle"></i></button> </a>
             <ul class="dropdown-menu">
-              <li class="header"><a href="?p=kwitansi">Kwitansi</a></li>   
+               <li class="header"><a href="?p=kwitansi">Kwitansi</a></li> 
+               <li class="header"><a href="?p=rekapkwitansi">Rekap Kwitansi</a></li>  
                <li class="header"><a href="?p=cash">Cash</a></li> 
                <li class="header"><a href="?p=bank">Bank</a></li> 
                           </ul>

@@ -1,18 +1,14 @@
 <!-- general form elements disabled -->
    <?php
     include_once '../../lib/config.php';
-    $idso=$_GET['idso'];
+    $idpo=$_GET['idpo'];
    ?>
 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Tambah Sales Order Barang <button type="button" class="close" aria-label="Close" onclick="$('#ModalAddBarang').modal('hide');"><span>&times;</span></button></h4>  
+                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Tambah Purchase Order  <button type="button" class="close" aria-label="Close" onclick="$('#ModalAddBarang').modal('hide');"><span>&times;</span></button></h4>  
                     </div>
-				            <!--<div class="box-header with-border">
-				              <h3 class="box-title">Horizontal Form</h3>
-				            </div>
-				             /.box-header -->
-				            <!-- form start -->
+				          
                     <div class="modal-body">
 				            <form class="form-horizontal" enctype="multibarang/form-data" novalidate id="formbarang">
                        
@@ -61,7 +57,7 @@
 				                <div class="form-group">
                            <div class="modal-footer">
 				                  <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="idso" name="idso" value="<?php echo $idso?>" required>
+                            <input type="hidden" class="form-control" id="idpo" name="idpo" value="<?php echo $idpo?>" required>
 				                    <button type="submit" class="btn btn-primary save_submit" name="Submit" value="SIMPAN">Simpan</button>
                                     <button type="button" class="btn btn-primary" onclick="$('#ModalAddBarang').modal('hide');">&nbsp;Batal&nbsp;</button>
 				                  </div>
@@ -73,8 +69,8 @@
 				</div>
 </div>
 <?php include_once 'barang_pilih.php';?>
-<script type="text/javascript">
 
+<script type="text/javascript">
   function pilihbarang(){ 
     $("#ModalPilihBarang").modal({backdrop: 'static', keyboard:false});   
   }
@@ -89,28 +85,22 @@
                             //alert(disposisine)                       ;
                            						$.ajax({
                                                   type: 'POST',
-                                                  url: 'so/barang_add_save.php',
+                                                  url: 'po/barang_add_save.php',
                                                   data: new FormData(this),
                                                   contentType: false,
                                                   cache: false,
                                                   processData:false,
                                                   success: function(data){  
-                                                      var hsl=data.trim();
-                                                    //  alert(hsl);
-                                                          if (hsl=='y'){
-                                                          alert('Barang Tidak Mencukupi');
-                                                          return false;
-                                                          exit();}
-                                                          else {
-                                                            $("#tableso").load('so/so_load.php');
-                                                      $("#sobarang").load('so/barang_load.php?idso=<?php echo $idso;?>');
+                                                      //var hsl=data.trim();
+                                                      //alert(hsl);
+                                                      //alert('po/po_detail_tab.php?idpo=<?php //echo $idpo;?>');
+                                                      $("#tablepo").load('po/po_load.php');
+			                                                $("#pobarang").load('po/barang_load.php?idpo=<?php echo $idpo;?>');
                                                                       $('.modal-body').css('opacity', '');
 
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAddBarang').modal('hide');
-                                                            $("#tablesodetail").load('so/so_detail_tab.php?idso=<?php echo $idso;?>');
-                                                          }
-                                                      
+                                                            $("#tablepodetail").load('po/po_detail_tab.php?idpo=<?php echo $idpo;?>');
 			                                            }
                                                       
                                                 });
