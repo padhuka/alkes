@@ -74,6 +74,7 @@
 </div>
 <?php include_once 'barang_pilih.php';?>
 <script type="text/javascript">
+
   function pilihbarang(){ 
     $("#ModalPilihBarang").modal({backdrop: 'static', keyboard:false});   
   }
@@ -94,16 +95,22 @@
                                                   cache: false,
                                                   processData:false,
                                                   success: function(data){  
-                                                      //var hsl=data.trim();
-                                                      //alert(hsl);
-                                                      //alert('so/so_detail_tab.php?idso=<?php //echo $idso;?>');
-                                                      $("#tableso").load('so/so_load.php');
-			                                                $("#sobarang").load('so/barang_load.php?idso=<?php echo $idso;?>');
+                                                      var hsl=data.trim();
+                                                    //  alert(hsl);
+                                                          if (hsl=='y'){
+                                                          alert('Barang Tidak Mencukupi');
+                                                          return false;
+                                                          exit();}
+                                                          else {
+                                                            $("#tableso").load('so/so_load.php');
+                                                      $("#sobarang").load('so/barang_load.php?idso=<?php echo $idso;?>');
                                                                       $('.modal-body').css('opacity', '');
 
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAddBarang').modal('hide');
                                                             $("#tablesodetail").load('so/so_detail_tab.php?idso=<?php echo $idso;?>');
+                                                          }
+                                                      
 			                                            }
                                                       
                                                 });

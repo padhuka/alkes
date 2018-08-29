@@ -35,18 +35,17 @@
                                        LEFT join t_delivery_order o ON o.id_delivery_order=od.fk_delivery_order
                                         LEFT join t_barang g ON od.fk_barang=g.id_barang
                                        WHERE o.tgl_batal='0000-00-00 00:00:00' AND od.fk_barang='$id_barang' GROUP BY od.fk_barang) as STOK WHERE tipe='keluar') AS PX ) AS X         
-                                       ON FX.fk_barang=X.fk_barang"
-		   
-            $stock =  mysql_fetch_array(mysql_query($checkstock)); 
-            echo $stock; 
-            echo $qty;
+                                       ON FX.fk_barang=X.fk_barang";
+            $qstock =  mysql_fetch_array(mysql_query($checkstock)); 
+            $stock = $qstock['qty'];
 
-            if ($qty >= $stock) {
-            $sqltbemp = "INSERT INTO t_penjualan_detail (fk_penjualan,fk_barang,gross_jual_barang,diskon_jual_barang,netto_jual_barang,qty) VALUES ('$idso','$id_barang','$hargajual','$hargadiskon','$total','$qty')";
+            if ($stock < $qty) {
+              echo 'y';
+            }
+            else {
+              $sqltbemp = "INSERT INTO t_penjualan_detail (fk_penjualan,fk_barang,gross_jual_barang,diskon_jual_barang,netto_jual_barang,qty) VALUES ('$idso','$id_barang','$hargajual','$hargadiskon','$total','$qty')";
             mysql_query($sqltbemp);
-            
-            //echo 'n';
-            //jml barang
+   
             $sqlbarang= "SELECT sum(gross_jual_barang*qty) AS totjualbarang,sum(diskon_jual_barang*qty) AS totdiskonbarang,sum(netto_jual_barang) AS totestimasibarang FROM t_penjualan_detail WHERE fk_penjualan = '$idso'";
             $hbarang= mysql_fetch_array(mysql_query($sqlbarang));
             //jml barang
@@ -57,12 +56,6 @@
 
             $updatebarang = "UPDATE t_penjualan set total_gross_jual_barang='$totgrosbarang', total_diskon_jual_barang='$totdiskonbarang', total_netto_jual_barang='$totnettobarang' WHERE id_penjualan='$idso'";
             mysql_query($updatebarang);
-
             }
-            else {
-                echo "Barang Tidak Mencukupi";
-            }
-
-           
 
 ?>
