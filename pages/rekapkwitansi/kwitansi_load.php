@@ -38,11 +38,11 @@
           
            function open_addkwitansi(x){
               $.ajax({
-                    url: "po/barang_add.php?idrkrk="+x,
+                    url: "rekapkwitansi/kwitansi_add.php?idrk="+x,
                     type: "GET",
                       success: function (ajaxData){
-                        $("#ModalAddBarang").html(ajaxData);
-                        $("#ModalAddBarang").modal({backdrop: 'static', keyboard:false});
+                        $("#ModalAddKwitansi").html(ajaxData);
+                        $("#ModalAddKwitansi").modal({backdrop: 'static', keyboard:false});
                       }
                     });
               }

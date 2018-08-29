@@ -27,7 +27,8 @@
                         <tr>
                          
                           <td ><?php echo $catat['id_rekapkwitansi'];?></td>
-                          <td ><?php echo date('d-m-Y', strtotime($catat['tgl']));?></td>           <td ><?php echo $catat['keterangan'];?></td>                         
+                          <td ><?php echo date('d-m-Y', strtotime($catat['tgl']));?></td>           
+                          <td ><?php echo $catat['keterangan'];?></td>                         
                           <td >
                                         
                                          <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_rekapkwitansi']; ?>" onclick="open_del(idrekapkwitansi='<?php echo $catat['id_rekapkwitansi']; ?>');"><span>Batal</span></button> 
