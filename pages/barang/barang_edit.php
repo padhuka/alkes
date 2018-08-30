@@ -7,7 +7,11 @@
     $resemp = mysql_query( $sqlemp );
     $emp = mysql_fetch_array( $resemp );
 
-    $namasatuan=mysql_query("SELECT * FROM t_city WHERE id_city='$emp[fk_city]'");
+    $namagroup=mysql_query("SELECT * FROM t_group WHERE id_group='$emp[fk_group]'");
+    $groupselect=mysql_fetch_array($namagroup);
+    $groupnm=$groupselect['nama'];
+
+    $namasatuan=mysql_query("SELECT * FROM t_satuan WHERE id_satuan='$emp[fk_satuan]'");
     $satuanselect=mysql_fetch_array($namasatuan);
     $satuannm=$satuanselect['nama'];
   ?>
@@ -46,6 +50,17 @@
                           </div>
                         <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectsatuan();">Pilih</button>
                         </div>
+                          <div class="form-group">
+                          <div class="col-sm-3">
+                            <label for="group">Group</label>
+                          </div>
+                          <div class="col-sm-7">
+                            <input type="hidden" class="form-control" id="group" name="group" value="<?php echo $emp['fk_group'];?>" readonly>
+                            <input type="text" class="form-control" id="groupnm" name="groupnm"  value="<?php echo $groupnm;?>"  readonly>
+                          </div>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectgroup();">Pilih</button>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-sm-3">
                           <label for="hargapokokbarang">Harga Pokok</label>
@@ -94,9 +109,13 @@
 
 </div>
 <?php include_once 'barang_satuan_tab.php';?>
+<?php include_once 'barang_group_tab.php';?>
 <script type="text/javascript">
   function selectsatuan(){  
     $("#ModalSatuan").modal('show',{backdrop: 'true'});   
+  }
+   function selectgroup(){  
+    $("#ModalGroup").modal('show',{backdrop: 'true'});   
   }
 	$(document).ready(function (){
 
