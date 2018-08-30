@@ -3,33 +3,36 @@
 
     include_once '../../lib/config.php';
     include_once '../../lib/fungsi.php';
-    $idpo= $_GET['idpo'];
+    $idrekapkwitansi= $_GET['idrekapkwitansi'];
 
    ?>
 <div class="modal-dialog">
            <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Delivery Order <button type="button" class="close" aria-label="Close" onclick="$('#ModalPoPrint').modal('hide');"><span>&times;</span></button></h4>                    
+                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Rekap Kwitansi <button type="button" class="close" aria-label="Close" onclick="$('#ModalrekapkwitansiPrint').modal('hide');"><span>&times;</span></button></h4>                    
                     </div>
                   <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT * FROM t_pembelian e 
-                                                  left join t_supplier c
-                                                  on e.fk_supplier=c.id_supplier
-                                                  where e.id_pembelian='$idpo'";
+                                    $sqlcatat = "SELECT A.*,B.*,D.*, E.tgl AS tglrk FROM t_rekapkwitansi E
+                                                  LEFT JOIN t_rekapkwitansi_detail A ON E.id_rekapkwitansi=A.fk_rekapkwitansi
+                                                  LEFT JOIN t_kwitansi B ON A.fk_kwitansi=B.no_kwitansi
+                                                  LEFT JOIN t_delivery_order C ON B.fk_delivery_order=C.id_delivery_order
+                                                  LEFT JOIN t_customer D ON C.fk_customer=D.id_customer
+                                                  WHERE  E.id_rekapkwitansi='$idrekapkwitansi'";
+                                                  echo $sqlcatat;
                                     $rescatat = mysql_query( $sqlcatat );
                                     $catat = mysql_fetch_array( $rescatat )
                                 ?>
                     <div class="modal-body">
-                      <div class="modal-title-detail" align="center"><h4><u>Detail Purchase Order</u></h4><h5><?php echo $catat['id_pembelian'];?></h5></div>
+                      <div class="modal-title-detail" align="center"><h4><u>Detail Rekap Kwitansi</u></h4><h5><?php echo $catat['fk_rekapkwitansi'];?></h5></div>
                       <div class="row">
                        <div class="col-sm-10">
                            <table id="poshow" class="">
                            <td>
                              <th class="col-sm-8">
-                            <tr> <th>No Purchase Order</th> <td > : <?php echo $catat['id_pembelian'];?></td></tr>
-                            <tr> <th>Tanggal</th> <td > : <?php echo $catat['tgl'];?></td></tr>
-                            <tr> <th>Nama Supplier</th>  <td > : <?php echo $catat['nama'];?></td></tr>
+                            <tr> <th>No. RK</th> <td > : <?php echo $catat['fk_rekapkwitansi'];?></td></tr>
+                            <tr> <th>Tanggal</th> <td > : <?php echo date('d-m-Y', strtotime($catat['tglrk']));?></td></tr>
+                            <tr> <th>Nama Customer</th>  <td > : <?php echo $catat['nama'];?></td></tr>
                             </th>
                            </td>
                           </table>
@@ -48,10 +51,10 @@
                 <?php
                                     $j=1;
                                     $jml=0;
-                                    $sqlcatat = "SELECT ep.*,p.nama FROM t_pembelian_detail  ep
-                                    LEFT JOIN t_barang p ON ep.fk_barang=p.id_barang
-                                    WHERE fk_pembelian='$idpo' ORDER BY id ASC";
+                                    $sqlcatat = "SELECT * FROM t_rekapkwitansi_detail
+                                    WHERE fk_rekapkwitansi='$idrekapkwitansi' ORDER BY fk_rekapkwitansi ASC";
                                     $rescatat = mysql_query( $sqlcatat );
+                                    echo $sqlcatat;
                                     while($catat = mysql_fetch_array( $rescatat )){
                                       $jml=$jml+$catat['netto_beli_barang'];
                                 ?>
@@ -76,7 +79,7 @@
                        <div class="form-group">
                       <div class="modal-footer">
                       <div class="but"><a href="po/po_cetak.php?idpo=<?php echo $idpo;?>" target="blank"><button type="button" class="btn btn-primary" name="close" onclick="cetak();">Print</button></a>
-                                    <button type="button" class="btn btn-primary" name="close" onclick="$('#ModalPoPrint').modal('hide');">Close</button>
+                                    <button type="button" class="btn btn-primary" name="close" onclick="$('#ModalrekapkwitansiPrint').modal('hide');">Close</button>
                      </div>
                      </div>
                      </div>

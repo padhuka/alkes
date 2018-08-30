@@ -20,9 +20,8 @@
                                     $j=1;
                                     $sqlcatat = "SELECT * FROM t_rekapkwitansi 
                                     WHERE tgl_batal='0000-00-00 00:00:00' ORDER BY id_rekapkwitansi DESC";
-                                    $rescatat = mysql_query( $sqlcatat );
-                                    while($catat = mysql_fetch_array( $rescatat )){
-
+                                    $rescatat = mysql_query($sqlcatat);
+                                    while($catat = mysql_fetch_array($rescatat)){
                                 ?>
                         <tr>
                          
@@ -33,7 +32,7 @@
                                         
                                          <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_rekapkwitansi']; ?>" onclick="open_del(idrekapkwitansi='<?php echo $catat['id_rekapkwitansi']; ?>');"><span>Batal</span></button> 
 
-                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_rekapkwitansi']; ?>" onclick="cetak_rekapkwitansi(idrekapkwitansi='<?php echo $catat['id_rekapkwitansi']; ?>');"><span>Cetak</span></button>
+                                         <button type="button" class="btn btn btn-default btn-circle" id="<?php echo $catat['id_rekapkwitansi']; ?>" onclick="cetak_rekapkwitansi('<?php echo $catat['id_rekapkwitansi']; ?>');"><span>Cetak</span></button>
 
                                     </td>
                         </tr>
