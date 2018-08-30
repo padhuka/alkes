@@ -68,10 +68,9 @@
                                                       $("#tablerekapkwitansi").load('rekapkwitansi/rekapkwitansi_load.php');
 			                                                $("#tablekwitansi").load('rekapkwitansi/kwitansi_load.php?idrk=<?php echo $idrk;?>');
                                                                       $('.modal-body').css('opacity', '');
-
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAddKwitansi').modal('hide');
-                                                            $("#kwitansidetail").load('rekapkwitansi/rekapkwitansi_detail_tab.php?idrk=<?php echo $idrk;?>');
+                                                            // $("#tablerkdetail").load('rekapkwitansi/rekapkwitansi_detail_tab.php?idrk=<?php //echo $idrk;?>');
 			                                            }
                                                       
                                                 });
