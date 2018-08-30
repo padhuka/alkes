@@ -5,6 +5,7 @@
         $id_baranghid = trim($_POST['id_baranghid']);
 		$nama = trim($_POST['nama']);
         $satuan = trim($_POST['satuan']);
+        $group = trim($_POST['group']);
         $namahid = trim($_POST['namahid']);  
         $harga_pokok = trim($_POST['hargapokok']);
         $harga_jual = trim($_POST['hargajual']); 
@@ -18,7 +19,7 @@
         if ($row){
             echo 'y';
         }else{
-		        $sqltbemp = "UPDATE t_barang SET id_barang='$id_barang',nama='$nama',fk_satuan='$satuan',harga_pokok='$harga_pokok',harga_jual='$harga_jual',diskon='$diskon', ppn='$ppn' WHERE id_barang='$id_barang'";
+		        $sqltbemp = "UPDATE t_barang SET id_barang='$id_barang',nama='$nama',fk_satuan='$satuan',fk_group='$group',harga_pokok='$harga_pokok',harga_jual='$harga_jual',diskon='$diskon', ppn='$ppn' WHERE id_barang='$id_barang'";
         		mysql_query($sqltbemp);
            // echo 'n';
         }

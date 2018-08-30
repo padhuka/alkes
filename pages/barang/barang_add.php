@@ -37,6 +37,16 @@
                           </div>
                         <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectsatuan();">Pilih</button>
                         </div>
+                          <div class="form-group">
+                          <div class="col-sm-3">
+                            <label for="group">Group</label>
+                          </div>
+                          <div class="col-sm-7">
+                            <input type="hidden" class="form-control" id="group" name="group" readonly>
+                            <input type="group" class="form-control" id="gropupnm" name="groupnm" readonly>
+                          </div>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectgroup();">Pilih</button>
+                        </div>
                         <div class="form-group">
                             <div class="col-sm-3">
                           <label for="hargapokokbarang">Harga Pokok</label>
@@ -83,9 +93,13 @@
 				</div>
 </div>
 <?php include_once 'barang_satuan_tab.php';?>
+<?php include_once 'barang_group_tab.php';?>
 <script type="text/javascript">
   function selectsatuan(){  
     $("#ModalSatuan").modal({backdrop: 'static',keyboard: false});   
+  }
+   function selectgroup(){  
+    $("#ModalGroup").modal({backdrop: 'static',keyboard: false});   
   }
 	$(document).ready(function (){
 

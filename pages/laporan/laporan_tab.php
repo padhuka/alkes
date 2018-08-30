@@ -74,6 +74,25 @@
                             </div> </td></tr></table>
                             </td><td align="center" style="font-weight: bold; font-size: 14px;"><span style="cursor: pointer;" onclick="eksporbank()">Generate</span></strong></span></td>
                     </tr>
+
+                    <tr>
+
+                            <td width="30%" >&nbsp;<label style="font-size: 16px;">Laporan SO</label></td><td>
+                              <table border="0"><tr><td>Periode :</td><td><div class="input-group date">
+                            <div class="input-group date">
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                              </div>
+                              <input type="text" class="form-control pull-right" id="tglso1" name="tglso1" required value="<?php echo $harinow;?>">
+                            </div></td><td>-</td><td><div class="input-group date">
+                            <div class="input-group date">
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                              </div>
+                              <input type="text" class="form-control pull-right" id="tglso2" name="tglso2" required value="<?php echo $harinow;?>">
+                            </div> </td></tr></table>
+                            </td><td align="center" style="font-weight: bold; font-size: 14px;"><span style="cursor: pointer;" onclick="eksporso()">Generate</span></strong></span></td>
+                    </tr>
                 </table>
               </div>
             </div>
@@ -94,6 +113,8 @@
     $('#tglbank2').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
     $('#tglpkb1').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
     $('#tglpkb2').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
+    $('#tglso1').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
+    $('#tglso2').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
     function eksporcash(){
       var x =$('#tglcash1').val(); var y= $('#tglcash2').val();
       //alert("laporan/ekspor_cash.php?tgl1="+x+"&tgl2="+y);
@@ -107,7 +128,10 @@
       var x =$('#tglpiutang1').val(); var y= $('#tglpiutang2').val();      
       window.location = "laporan/ekspor_piutang.php?tgl1="+x+"&tgl2="+y;
     }
-    
+    function eksporso(){
+      var x =$('#tglso1').val(); var y= $('#tglso2').val();      
+      window.location = "laporan/ekspor_so.php?tgl1="+x+"&tgl2="+y;
+    }
   </script>
   <style type="text/css">
 .btn {
