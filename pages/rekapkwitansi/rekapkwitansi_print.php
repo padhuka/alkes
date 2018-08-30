@@ -19,7 +19,6 @@
                                                   LEFT JOIN t_delivery_order C ON B.fk_delivery_order=C.id_delivery_order
                                                   LEFT JOIN t_customer D ON C.fk_customer=D.id_customer
                                                   WHERE  E.id_rekapkwitansi='$idrekapkwitansi'";
-                                                  echo $sqlcatat;
                                     $rescatat = mysql_query( $sqlcatat );
                                     $catat = mysql_fetch_array( $rescatat )
                                 ?>
@@ -54,7 +53,6 @@
                                     $sqlcatat = "SELECT * FROM t_rekapkwitansi_detail
                                     WHERE fk_rekapkwitansi='$idrekapkwitansi' ORDER BY fk_rekapkwitansi ASC";
                                     $rescatat = mysql_query( $sqlcatat );
-                                    echo $sqlcatat;
                                     while($catat = mysql_fetch_array( $rescatat )){
                                       $jml=$jml+$catat['netto_beli_barang'];
                                 ?>
