@@ -16,7 +16,7 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT * from t_rekapkwitansi_detail ORDER BY id ASC";
+                                    $sqlcatat = "SELECT * from t_rekapkwitansi_detail WHERE fk_rekapkwitansi='$idrk'";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
