@@ -10,7 +10,7 @@
   //EST.BR.020818.000001
         $kodeawal2 = 'DO_BR.';
         $kodeawal = 'DO_BR.'.$hrn2.'.';
-        $sqljur = "SELECT * FROM t_delivery_order WHERE id_delivery_order LIKE '$kodeawal2%' ORDER BY id_delivery_order DESC";
+        $sqljur = "SELECT * FROM t_delivery_order ORDER BY tgl DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );
         if (empty($jur['id_delivery_order'])){

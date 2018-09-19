@@ -15,7 +15,7 @@
         $kodeawal2 = 'SO_MH.';
         $kodeawal = 'SO_MH.'.$hrn2.'.';
         //$sqljur = "SELECT * FROM t_penjualan WHERE id_penjualan LIKE '$kodeawal%' ORDER BY id_penjualan DESC";
-        $sqljur = "SELECT * FROM t_penjualan WHERE id_penjualan LIKE '$kodeawal2%' ORDER BY id_penjualan DESC";
+        $sqljur = "SELECT * FROM t_penjualan ORDER BY tgl DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );
         if (empty($jur['id_penjualan'])){

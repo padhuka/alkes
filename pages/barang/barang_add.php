@@ -27,6 +27,7 @@
 				                    <input type="text" class="form-control" id="nama" name="nama" required>
 				                  </div>
 				                </div>
+                        
                           <div class="form-group">
                           <div class="col-sm-3">
                             <label for="satuan">Satuan</label>
@@ -37,6 +38,7 @@
                           </div>
                         <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectsatuan();">Pilih</button>
                         </div>
+
                           <div class="form-group">
                           <div class="col-sm-3">
                             <label for="group">Group</label>
@@ -47,6 +49,8 @@
                           </div>
                         <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectgroup();">Pilih</button>
                         </div>
+
+
                         <div class="form-group">
                             <div class="col-sm-3">
                           <label for="hargapokokbarang">Harga Pokok</label>

@@ -12,7 +12,7 @@
         $kodeawal2 = 'PO_MH.';
         $kodeawal = 'PO_MH.'.$hrn2.'.';
 
-        $sqljur = "SELECT * FROM t_pembelian WHERE id_pembelian LIKE '$kodeawal2%' ORDER BY id_pembelian DESC";
+        $sqljur = "SELECT * FROM t_pembelian ORDER BY tgl DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );
         if (empty($jur['id_pembelian'])){
