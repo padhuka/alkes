@@ -6,7 +6,7 @@
       
                 <thead class="thead-light">
                 <tr>
-                          <th>Kode Barang</th>
+                          <th>Kode</th>
                           <th>Nama</th>
                           <th>Satuan</th>
                           <th>Group</th>
@@ -22,8 +22,8 @@
                                     $j=1;
                                     $sqlcatat = "SELECT b.*,s.nama as satuan,g.nama as gr FROM t_barang b
                                     LEFT JOIN t_satuan s ON b.fk_satuan=s.id_satuan
-                                    LEFT JOIN t_group g ON b.fk_group=g.id_group
-                                    ORDER BY id_barang ASC";
+                                    LEFT JOIN t_group g ON b.fk_group=g.id_group ORDER BY nama ASC";
+                                    
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
