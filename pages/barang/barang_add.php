@@ -43,7 +43,7 @@
                           </div>
                           <div class="col-sm-7">
                             <input type="hidden" class="form-control" id="group" name="group" readonly>
-                            <input type="group" class="form-control" id="gropupnm" name="groupnm" readonly>
+                            <input type="group" class="form-control" id="groupnm" name="groupnm" readonly>
                           </div>
                         <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" onclick="selectgroup();">Pilih</button>
                         </div>
@@ -94,11 +94,12 @@
 </div>
 <?php include_once 'barang_satuan_tab.php';?>
 <?php include_once 'barang_group_tab.php';?>
+
 <script type="text/javascript">
   function selectsatuan(){  
     $("#ModalSatuan").modal({backdrop: 'static',keyboard: false});   
   }
-   function selectgroup(){  
+  function selectgroup(){  
     $("#ModalGroup").modal({backdrop: 'static',keyboard: false});   
   }
 	$(document).ready(function (){

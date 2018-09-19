@@ -11,7 +11,7 @@
                 <table id="satuan1" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                 <tr>
-                          <th>Kode Satuan/th>
+                          <th>Kode Satuan</th>
                           <th>Nama</th>
                           <th><button type="button" class="btn btn btn-default btn-circle open_add"><span>Tambah</span></button></th>
                 </tr>
@@ -27,7 +27,7 @@
                           <td ><?php echo $catat['id_satuan'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
                           <td >
-                                        <button type="button" class="btn btn btn-default btn-circle" onclick="pilih('<?php echo $catat['id_satuan'];?>','<?php echo $catat['nama'];?>');">Pilih</button>
+                                        <button type="button" class="btn btn btn-default btn-circle" onclick="select('<?php echo $catat['id_satuan'];?>','<?php echo $catat['nama'];?>');">pilih</button>
 
                                     </td>
                         </tr>
@@ -40,11 +40,14 @@
               </div>
               </div>
               <script type="text/javascript">
+               
                 $('#satuan1').DataTable();
-                function pilih(x,y){
-                              $("#satuan").val(x);
-                              $("#satuannm").val(y);
+                function select(a,b){
+                              // alert(a);
+                              $("#satuan").val(a);
+                              $("#satuannm").val(b);
                               $("#ModalSatuan").modal('hide');
+                              // alert('OK');
                            
                       }; 
               </script>
