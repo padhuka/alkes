@@ -113,7 +113,7 @@
                 
                        <div class="form-group">
                       <div class="modal-footer">
-                      <div class="but"><a href="po/po_cetak.php?idpo=<?php echo $idpo;?>" target="blank"><button type="button" class="btn btn-primary" name="close" onclick="cetak();">Print</button></a>
+                      <div class="but"><a href="rekapkwitansi/rekapkwitansi_cetak.php?idrekapkwitansi=<?php echo $idrekapkwitansi;?>" target="blank"><button type="button" class="btn btn-primary" name="close" onclick="cetak();">Print</button></a>
                                     <button type="button" class="btn btn-primary" name="close" onclick="$('#ModalrekapkwitansiPrint').modal('hide');">Close</button>
                      </div>
                      </div>
