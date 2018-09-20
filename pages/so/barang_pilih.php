@@ -15,7 +15,7 @@
                 <table id="barangestimasi" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                 <tr>
-                        
+                          <th>Kode</th>
                           <th>Nama</th>
                           <th>Harga Pokok</th>
                           <th>Harga Jual</th>
@@ -34,7 +34,7 @@
                                       $hartot= $catat['harga_jual']-$diskon;
                                 ?>
                         <tr>
-                        
+                           <td><?php echo $catat['id_barang'];?></td>
                           <td><?php echo $catat['nama'];?></td>
                           <td><?php echo rupiah2($catat['harga_pokok']);?></td>
                           <td><?php echo rupiah2($catat['harga_jual']);?></td>

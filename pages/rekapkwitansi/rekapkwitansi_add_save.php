@@ -10,7 +10,7 @@
         $kodeawal2 = 'RK_MH.';
         $kodeawal = 'RK_MH.'.$hrn2.'.';
 
-        $sqljur = "SELECT * FROM t_rekapkwitansi WHERE id_rekapkwitansi LIKE '$kodeawal2%' ORDER BY id_rekapkwitansi DESC";
+        $sqljur = "SELECT * FROM t_rekapkwitansi ORDER BY tgl DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );
         if (empty($jur['id_rekapkwitansi'])){
