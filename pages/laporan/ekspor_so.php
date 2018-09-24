@@ -65,10 +65,10 @@ header("Content-Disposition: attachment; filename=reportso.xls");
                 </thead>
                 <tbody>
                 <?php
-                                    $tgl1=$_GET['tgl1'];
-                                    $tgl2=$_GET['tgl2'];
+                                    $tgl_transaksi1=$_GET['tgl1'];
+                                    $tgl_transaksi2=$_GET['tgl2'];
                                     $j=1;
-                                    $sqlcatat = "SELECT p.tgl,a.id_area as AREA,a.nama as BRANCH,mk.nama as MARKETING,DATE_FORMAT(k.tgl_kwitansi,'%d.%m.%Y') as BILLING_DATE,
+                                    $sqlcatat = "SELECT p.tgl_transaksi,a.id_area as AREA,a.nama as BRANCH,mk.nama as MARKETING,DATE_FORMAT(k.tgl_kwitansi,'%d.%m.%Y') as BILLING_DATE,
                                     k.no_kwitansi as BILL_DOCUMENT,d.id_delivery_order as DELIVERY_NO,p.id_penjualan as SALES_ORDER,
                                     c.id_customer as END_USER,c.nama as END_USER_NAME,c.alamat as CUSTOMER_ADDRESS,ct.nama as CUST_CITY , c.npwp as NPWP,
                                     b.id_barang as MATERIAL_NAME,b.nama as MATDESCRIP,s.nama SALES_UNIT,
@@ -91,12 +91,12 @@ header("Content-Disposition: attachment; filename=reportso.xls");
                                     LEFT JOIN t_mayor my ON my.id_mayor=m.fk_mayor
                                     LEFT JOIN t_divisi dv ON dv.id_divisi=my.fk_divisi
                                     LEFT JOIN t_delivery_order d ON  d.fk_penjualan=p.id_penjualan
-                                    LEFT JOIN t_kwitansi k ON k.fk_delivery_order=d.id_delivery_order WHERE p.tgl_batal='0000:00:00 00:00:00' AND substring(p.tgl,1,10)>='$tgl1' AND substring(p.tgl,1,10)<='$tgl2'";
+                                    LEFT JOIN t_kwitansi k ON k.fk_delivery_order=d.id_delivery_order WHERE p.tgl_batal='0000:00:00 00:00:00' AND substring(p.tgl_transaksi,1,10)>='$tgl_transaksi1' AND substring(p.tgl_transaksi,1,10)<='$tgl_transaksi2'";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
                         <tr>                      
-                          <td ><?php echo date('d-m-Y' , strtotime($catat['tgl']));?></td>
+                          <td ><?php echo date('d-m-Y' , strtotime($catat['tgl_transaksi']));?></td>
                           <td ><?php echo $catat['AREA'];?></td>
                           <td ><?php echo $catat['BRANCH'];?></td>
                           <td ><?php echo $catat['MARKETING'];?></td>  
