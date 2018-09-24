@@ -13,5 +13,7 @@
         $updateEs = "UPDATE t_penjualan SET fk_customer='$customer',fk_marketing='$marketing',keterangan='$keterangan' WHERE id_penjualan='$idso'";
         mysql_query($updateEs);
         echo $idso;
+         // $sqlstatus= "INSERT INTO t_status_so(fk_penjualan) VALUES ('$idso')";
+         //        mysql_query($sqlstatus);   
         //echo $updateEs;      
 ?>

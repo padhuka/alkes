@@ -8,8 +8,8 @@
         //$kodeawal = 'est_'.$hrini.'_';
         $hrn2= date('dmy' , strtotime($hrini));
   //EST.BR.020818.000001
-        $kodeawal2 = 'DO_BR.';
-        $kodeawal = 'DO_BR.'.$hrn2.'.';
+        $kodeawal2 = 'DO_MH.';
+        $kodeawal = 'DO_MH.'.$hrn2.'.';
         $sqljur = "SELECT * FROM t_delivery_order ORDER BY tgl DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );
