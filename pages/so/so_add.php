@@ -20,7 +20,7 @@
                     <form class="form-horizontal" enctype="multipart/form-data" novalidate id="formso">
                         <div class="form-group">
                           <div class="col-sm-3">
-                            <label for="kodeestimasi">Tgl Masuk</label>
+                            <label for="kodeestimasi">Tgl SO</label>
                           </div>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="tgl1" name="tgl1" value="<?php echo tampilTanggal($harinow);?>" readonly>
@@ -152,8 +152,8 @@
     font-weight: bold;
   }
   .modal-content {
-    /*height: auto;
-     width: 700px;*/
+    height: 450px;
+     width: auto;
   }
   .modal-dialog {
     margin-bottom: 0px;
