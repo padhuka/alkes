@@ -145,6 +145,10 @@
     text-align: center;
     font-weight: bold;
   }
+  .modal-content {
+    height: 450px;
+     width: auto;
+  }
   .modal-dialog {
     margin-bottom: 0px;
     border: 3px;
