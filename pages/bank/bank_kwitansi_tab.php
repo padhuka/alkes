@@ -3,7 +3,7 @@
    ?>
      <div id="ModalBankKwitansi" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
      <div class="modal-dialog">
-      <div class="col-md-12">
+      <div class="col-md-14">
                 <div class="modal-content">
                     <div class="modal-header">
                          
@@ -51,7 +51,17 @@
               </div>
               </div> 
               <script type="text/javascript">
-                $('#bankkwitansi').DataTable();
+                $('#bankkwitansi').DataTable({
+                  "pageLength": 5,
+                    "language": {
+                      "search": "Cari",
+                      "lengthMenu": "Lihat _MENU_ baris per halaman",
+                      "zeroRecords": "Maaf, Tidak di temukan - data",
+                      "info": "Terlihat halaman _PAGE_ of _PAGES_",
+                      "infoEmpty": "Tidak ada data di database"
+                  }
+
+                });
 
                function selectKwitansi(a,b){
                               $("#nokwitansi").val(a);
@@ -71,9 +81,9 @@
     font-weight: bold;
     font-family: monospace;
   }
-  .modal-content {
+ /* .modal-content {
     height: 650px;
-  }
+  }*/
   .row {
     margin-left: 0px;
     margin-right: 0px;

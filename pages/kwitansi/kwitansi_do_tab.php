@@ -47,7 +47,17 @@
                 </tfoot>
               </table>
               <script type="text/javascript">
-                $('#pkbwitansi').DataTable();
+                $('#pkbwitansi').DataTable({
+                  "pageLength": 5,
+                    "language": {
+                      "search": "Cari",
+                      "lengthMenu": "Lihat _MENU_ baris per halaman",
+                      "zeroRecords": "Maaf, Tidak di temukan - data",
+                      "info": "Terlihat halaman _PAGE_ of _PAGES_",
+                      "infoEmpty": "Tidak ada data di database"
+                  }
+
+                });
 
                function selectDon(a,b,c,d,e,f,g){
                               $("#tgl").html(a);

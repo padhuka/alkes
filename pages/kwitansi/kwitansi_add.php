@@ -172,4 +172,8 @@
     border: 3px;
     width: 800px;
   }
+  .modal-content {
+    height: 500px;
+     width: auto;
+  }
 </style>

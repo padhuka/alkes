@@ -184,4 +184,8 @@
     margin-bottom: 0px;
     border: 3px;
   }
+   .modal-content {
+    height: 500px;
+    width: auto;
+  }
 </style>

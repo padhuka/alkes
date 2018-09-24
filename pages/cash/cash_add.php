@@ -24,9 +24,11 @@
                             <div class="input-group-addon">
                               <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" class="form-control pull-right" id="tgltransaksi" name="tgltransaksi" required value="<?php echo $harinow;?>">
+                            <input type="text" class="form-control pull-right" id="tgltransaksi" name="tgltransaksi" required value="<?php echo $harinow;?>" >
                           </div>
                           </div>
+
+
                         </div> 
                   
                     
@@ -143,5 +145,9 @@
   .modal-dialog {
     margin-bottom: 0px;
     border: 3px;
+  }
+   .modal-content {
+    height: 500px;
+    width: auto;
   }
 </style>
