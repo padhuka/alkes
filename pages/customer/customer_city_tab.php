@@ -40,7 +40,17 @@
               </div>
               </div>
               <script type="text/javascript">
-                $('#city1').DataTable();
+                $('#city1').DataTable({
+                  "pageLength": 5,
+                    "language": {
+                      "search": "Cari",
+                      "lengthMenu": "Lihat _MENU_ baris per halaman",
+                      "zeroRecords": "Maaf, Tidak di temukan - data",
+                      "info": "Terlihat halaman _PAGE_ of _PAGES_",
+                      "infoEmpty": "Tidak ada data di database"
+                  }
+
+                });
                 function pilih(x,y){
                               $("#city").val(x);
                               $("#citynm").val(y);
