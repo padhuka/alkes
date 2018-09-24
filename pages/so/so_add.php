@@ -20,13 +20,27 @@
                     <form class="form-horizontal" enctype="multipart/form-data" novalidate id="formso">
                         <div class="form-group">
                           <div class="col-sm-3">
+                            <label for="tgltransaksi">Tgl SO</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group date">
+                            <div class="input-group-addon">
+                              <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right" id="tgltransaksi" name="tgltransaksi" required value="<?php echo $harinow;?>" >
+                          </div>
+                          </div>
+                        </div> 
+<!-- 
+                        <div class="form-group">
+                          <div class="col-sm-3">
                             <label for="kodeestimasi">Tgl SO</label>
                           </div>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="tgl1" name="tgl1" value="<?php echo tampilTanggal($harinow);?>" readonly>
                             <input type="hidden" class="form-control" id="tgl" name="tgl" value="<?php echo $harinow;?>" readonly>
                           </div>
-                        </div>
+                        </div> -->
                         
                         <div class="form-group">
                           <div class="col-sm-3">
@@ -87,6 +101,10 @@
 <?php include_once 'so_customer_tab.php';?>
 <?php include_once 'so_marketing_tab.php';?>
 <script type="text/javascript">
+  $('#tgltransaksi').datepicker({       
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+      });
   function selectCustomer(){ 
     $("#ModalCustomer").modal({backdrop: 'static',keyboard:false});   
   }

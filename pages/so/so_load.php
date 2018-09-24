@@ -7,7 +7,7 @@
                 <thead class="thead-light">
                 <tr>
                           <th>No</th>
-                          <th>Tgl</th>
+                          <th>Tgl Transaksi</th>
                           <th>Customer</th>            
                           <th>Marketing</th>            
                           <th>Total SO</th>
@@ -37,7 +37,7 @@
                         <tr>
                           <td><button type="button" class="btn btn-link" id="<?php echo $catat['id_penjualan']; ?>" onclick="open_so(idso='<?php echo $catat['id_penjualan']; ?>');"><span><?php echo ($catat['id_penjualan']);?></span></button></td>
                        
-                          <td ><?php echo date('d-m-Y' , strtotime($catat['tgl']));?></td>
+                          <td ><?php echo date('d-m-Y' , strtotime($catat['tgl_transaksi']));?></td>
                           <td ><?php echo $catat['nmcust'];?></td>
                           <td ><?php echo $catat['nmmarketing'];?></td>
                           <td ><?php echo rupiah2($catat['total_netto_jual_barang']);?></td>

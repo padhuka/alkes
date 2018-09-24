@@ -22,6 +22,21 @@
                     <!-- form start -->
                     <div class="modal-body">
                     <form class="form-horizontal" enctype="multipart/form-data" novalidate id="formsoe">
+
+                          <div class="form-group">
+                          <div class="col-sm-3">
+                            <label for="tgltransaksi">Tgl SO</label>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group date">
+                            <div class="input-group-addon">
+                              <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right" id="tgltransaksi" name="tgltransaksi" required value="<?php echo tampilTanggal(date('Y-m-d' , strtotime($catat['tgl_transaksi'])));?>" >
+                          </div>
+                          </div>
+                        </div> 
+                      <!--   
                         <div class="form-group">
                           <div class="col-sm-3">
                             <label for="kodeestimasi">Tgl Masuk</label>
@@ -30,7 +45,7 @@
                             <input type="text" class="form-control" id="tgl1" name="tgl1" value="<?php echo tampilTanggal(date('Y-m-d' , strtotime($catat['tgl'])));?>" readonly>
                             <input type="hidden" class="form-control" id="tgl" name="tgl" value="<?php echo $harinow;?>" readonly>
                           </div>
-                        </div>
+                        </div> -->
                         
                         <div class="form-group">
                           <div class="col-sm-3">
@@ -91,6 +106,10 @@
 <?php include_once 'so_customer_edit_tab.php';?>
 <?php include_once 'so_marketing_tabE.php';?>
 <script type="text/javascript">
+ $('#tgltransaksi').datepicker({       
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+      }).datepicker('setDate','today');
   function EselectCustomer(){ 
     $("#ModalCustEdit").modal({backdrop: 'static',keyboard:false});   
   }

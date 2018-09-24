@@ -25,7 +25,7 @@
                         <table id="estimasishow" class="table table-condensed table-bordered table-striped table-hover">
                           <td>
                          <th class="col-sm-6">
-                        <tr> <th>Tgl Masuk</th> <td ><?php echo tampilTanggal(substr($hes['tgl'],0,10));?></td></tr>
+                        <tr> <th>Tgl SO</th> <td ><?php echo tampilTanggal(substr($hes['tgl_transaksi'],0,10));?></td></tr>
                         <tr> <th>Customer</th>  <td ><?php echo $hes['nama'];?></td></tr>
                         <tr> <th>Keterangan</th> <td ><?php echo $hes['keterangan'];?></td></tr>
                         </th>

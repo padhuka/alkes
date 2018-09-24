@@ -4,7 +4,7 @@
          //$ip = ; // Ambil IP Address dari User
         //$id_penjualan = trim($_POST['id_penjualan']);
         $customer = trim($_POST['customer']);;
-        $tgl = trim($_POST['tgl']);
+        $tgltransaksi = trim($_POST['tgltransaksi']);
         $keterangan = trim($_POST['keterangan']);
         $marketing = trim($_POST['marketing']);
         
@@ -41,7 +41,7 @@
         $kodebaru = $kodeawal.$kodeakhir;     
 
         
-            $sqltbemp = "INSERT INTO t_penjualan (id_penjualan,fk_customer,fk_marketing,keterangan,tgl) VALUES ('$kodebaru','$customer','$marketing','$keterangan','$tgl')";
+            $sqltbemp = "INSERT INTO t_penjualan (id_penjualan,tgl_transaksi,fk_customer,fk_marketing,keterangan) VALUES ('$kodebaru','$tgltransaksi','$customer','$marketing','$keterangan')";
             mysql_query($sqltbemp);
             echo $kodebaru; 
 
