@@ -79,7 +79,7 @@
                           <td><?php echo $catatp['id_barang'];?></td>
                           <td><?php echo $catatp['nama'];?></td>
                           <td><?php echo rupiah2($catatp['gross_jual_barang']);?></td>
-                          <td>1</td>
+                          <td><?php echo $catatp['qty'];?></td>
                           <td><?php echo $catatp['diskon_jual_barang'];?></td>
                           <td align="right"><?php echo rupiah2($catatp['netto_jual_barang']);?></td>
                         </tr>

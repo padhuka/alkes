@@ -31,7 +31,7 @@
                          <th class="col-sm-6">
                         <tr> <th>No Kwitansi</th> <td ><?php echo $catat['no_kwitansi'];?></td></tr>
                         <tr> <th>Tgl</th> <td ><?php echo date('d-m-Y' , strtotime($catat['tgl_kwitansi']));?></td></tr>
-                        <tr> <th>Nama Customer</th>  <td ><?php echo $catat['nama'];?></td></tr>
+                        <tr> <th>Nama Customer </th>  <td ><?php echo $catat['nama'];?></td></tr>
                         </th>
                        </td>
                       </table>
