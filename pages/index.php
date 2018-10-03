@@ -29,11 +29,14 @@
                         case 'cash' : include_once 'cash/cash_tab.php'; break;
                         case 'bank' : include_once 'bank/bank_tab.php'; break;
                         case 'laporan' : include_once 'laporan/laporan_tab.php'; break;
-                        ##BARANG##
+                        ## BARANG ##
                         case 'sales' : include_once 'so/so_tab.php'; break;
                         case 'purchase' : include_once 'po/po_tab.php'; break;
                         case 'delivery' : include_once 'do/do_tab.php'; break;
                         case 'stock' : include_once 'stock/stock_tab.php'; break;
+                        ## ORDER ##
+                        case 'backup' : include_once 'backup/backup_tab.php'; break;
+                        
                       }
         ?>
 

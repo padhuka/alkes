@@ -63,6 +63,8 @@
               <li class="header"><a href="?p=mayor">Mayor</a></li>
               <li class="header"><a href="?p=minor">Minor</a></li>
               <li class="header"><a href="?p=group">Group</a></li>
+              <li class="header"><a href="">-----------------------</a></li>
+              <li class="header"><a href="?p=backup">Backup</a></li>
             </ul>
           </li><?php } ?>
 
