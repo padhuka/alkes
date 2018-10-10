@@ -31,7 +31,7 @@
                                 <table style="font-weight: bold;">
                                     <tr><td><img src="../../file/logomh.png"></td><td></td><td>
                                       PT. MH Medika<br>
-                                      Jl. Sumbing Rt.03 Rw.09 Mojosongo<br>
+                                      Jl. Sumbing Rt.03 Rw.09 Mojosongo
                                       Surakarta Tlp. 0271-9224110, 081229875951<br>
                                     </td></tr>
                                     <tr><td>No. Faktur</td><td>:</td><td><?php echo $no_kwitansi;?></td></tr>
@@ -47,10 +47,10 @@
                                         <td>
                                           <table cellpadding="0" cellspacing="0" border="1"><tr><td>
                                             Kepada :<br>
-                                            <?php echo $catat['nmcustomer'];?><br><br>
-                                            <?php echo $catat['alamatcustomer'];?><br>
-                                            <?php echo $catat['telpcustomer'];?><br>
-                                            NPWP : <?php echo $catat['npwpcus'];?><br>
+                                            <?php echo $catat['nmcustomer'];?><br>
+                                            <?php echo $catat['alamatcustomer'];?>,
+                                            <?php echo $catat['telpcustomer'];?>,
+                                            NPWP : <?php echo $catat['npwpcus'];?>
                                             </td></tr></table>
                                         </td>
                                     </tr>
