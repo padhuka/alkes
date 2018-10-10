@@ -14,6 +14,15 @@
   <title></title>
 </head>
 <body onload="javascript:window.print()">
+  <style type="text/css">
+  table {
+   font-size: 11px;
+}
+th, td {
+   font-size: 11px;
+    
+}
+</style>
                   <?php //onload="javascript:window.print()"
                                     $j=1;
                                     $sqlcatat = "SELECT e.*, c.npwp AS npwpcus,c.alamat AS alamatcustomer,c.no_telp AS telpcustomer,c.nama AS nmcustomer FROM t_kwitansi e
