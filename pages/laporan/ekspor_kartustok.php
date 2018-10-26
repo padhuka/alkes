@@ -31,6 +31,7 @@ header("Content-Disposition: attachment; filename=kartustock.xls");
                           <th>No</th>
                           <th>Kode </th>
                           <th>Nama</th>
+                           <th>HPP</th>
                           <th>Stock Akhir</th>
                        
                 </tr>
@@ -41,27 +42,27 @@ header("Content-Disposition: attachment; filename=kartustock.xls");
                                    
                                    
                                     $j=1;
-                                    $sqlcatat = "SELECT FX.fk_barang,FX.nama,(FX.qty - ifnull(X.qty,0)) as qty FROM (
+                                    $sqlcatat = " SELECT FX.fk_barang,FX.nama,FX.harga_pokok as hpp,(FX.qty - ifnull(X.qty,0)) as qty FROM (
                                        SELECT * FROM
                                        (
-                                       SELECT pd.fk_barang,b.nama, sum(pd.qty) as qty,cast('masuk' as char(5))as tipe from t_pembelian_detail pd
+                                       SELECT pd.fk_barang,b.nama,b.harga_pokok, sum(pd.qty) as qty,cast('masuk' as char(5))as tipe from t_pembelian_detail pd
                                        LEFT  join t_pembelian p ON p.id_pembelian=pd.fk_pembelian  
                                        LEFT  join t_barang b ON pd.fk_barang=b.id_barang
                                        WHERE p.tgl_batal='0000-00-00 00:00:00' GROUP BY pd.fk_barang
                                       UNION
-                                       SELECT od.fk_barang,g.nama,sum(od.qty) as qty,cast('keluar' as char(6))as tipe from t_delivery_order_detail od
+                                       SELECT od.fk_barang,g.nama,g.harga_pokok,sum(od.qty) as qty,cast('keluar' as char(6))as tipe from t_delivery_order_detail od
                                        LEFT join t_delivery_order o ON o.id_delivery_order=od.fk_delivery_order
                                        LEFT join t_barang g ON od.fk_barang=g.id_barang
                                        WHERE o.tgl_batal='0000-00-00 00:00:00' GROUP BY od.fk_barang) as STOK WHERE tipe='masuk') AS FX
                                        LEFT JOIN  (SELECT * FROM (
                                         SELECT * FROM
                                        (
-                                       SELECT pd.fk_barang,b.nama,sum(pd.qty) as qty,cast('masuk' as char(5))as tipe from t_pembelian_detail pd
+                                       SELECT pd.fk_barang,b.nama,b.harga_pokok,sum(pd.qty) as qty,cast('masuk' as char(5))as tipe from t_pembelian_detail pd
                                        LEFT  join t_pembelian p ON p.id_pembelian=pd.fk_pembelian  
                                        LEFT  join t_barang b ON pd.fk_barang=b.id_barang
                                        WHERE p.tgl_batal='0000-00-00 00:00:00' GROUP BY pd.fk_barang
                                       UNION
-                                       SELECT od.fk_barang,g.nama,sum(od.qty)  as qty,cast('keluar' as char(6))as tipe from t_delivery_order_detail od
+                                       SELECT od.fk_barang,g.nama,g.harga_pokok,sum(od.qty)  as qty,cast('keluar' as char(6))as tipe from t_delivery_order_detail od
                                        LEFT join t_delivery_order o ON o.id_delivery_order=od.fk_delivery_order
                                         LEFT join t_barang g ON od.fk_barang=g.id_barang
                                        WHERE o.tgl_batal='0000-00-00 00:00:00' GROUP BY od.fk_barang) as STOK WHERE tipe='keluar') AS PX ) AS X         
@@ -74,6 +75,7 @@ header("Content-Disposition: attachment; filename=kartustock.xls");
                           <th><?php echo $j++;?></th>   
                           <td ><?php echo $catat['fk_barang'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
+                          <td ><?php echo $catat['hpp'];?></td>
                           <td ><?php echo $catat['qty'];?></td>
                         </tr>
 
