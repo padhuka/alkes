@@ -23,6 +23,7 @@ header("Content-Disposition: attachment; filename=reportcash.xls");
                                   </tr>                                 
                                 </table>
                                     <span style="font-size: 20px;font-weight: bold;"><center>Laporan Cash</center></span>
+                                     <span style="font-size: 20px;font-weight: bold;"><center><?php echo $_GET['tgl1']; echo $_GET['tgl2'];?></center></span>
                                 <br>
       <table id="cash" border="1">
                 <thead class="thead-light">

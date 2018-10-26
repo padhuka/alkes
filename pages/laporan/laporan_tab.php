@@ -93,6 +93,11 @@
                             </div> </td></tr></table>
                             </td><td align="center" style="font-weight: bold; font-size: 14px;"><span style="cursor: pointer;" onclick="eksporso()">Generate</span></strong></span></td>
                     </tr>
+                    <tr>
+                        <td width="30%" >&nbsp;<label style="font-size: 16px;">Kartu Stock</label></td><td>
+                              
+                            </td><td align="center" style="font-weight: bold; font-size: 14px;"><span style="cursor: pointer;" onclick="eksporkartustock()">Generate</span></strong></span></td>
+                    </tr>
                 </table>
               </div>
             </div>
@@ -131,6 +136,10 @@
     function eksporso(){
       var x =$('#tglso1').val(); var y= $('#tglso2').val();      
       window.location = "laporan/ekspor_so.php?tgl1="+x+"&tgl2="+y;
+    }
+      function eksporkartustock(){
+     // var x =$('#tglpiutang1').val(); var y= $('#tglpiutang2').val();      
+      window.location = "laporan/ekspor_kartustok.php";
     }
   </script>
   <style type="text/css">
