@@ -22,7 +22,7 @@ header("Content-Disposition: attachment; filename=reportpiutang.xls");
                                     </td>                                   
                                   </tr>                                   
                                 </table>
-                                    <span style="font-size: 20px;font-weight: bold;"><center>Laporan Piutang</center></span>
+                                    <span style="font-size: 20px;font-weight: bold;"><center>Laporan Piutang</center></span><span style="font-size: 20px;font-weight: bold;"><center><?php echo $_GET['tgl1']; echo '  '.$_GET['tgl2'];?></center></span>
                                 <br>
       <table id="tablepkb1" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
@@ -54,7 +54,8 @@ header("Content-Disposition: attachment; filename=reportpiutang.xls");
                                                  SELECT MAX(id)
                                                  FROM t_status_so
                                                  GROUP BY fk_penjualan
-                                                 ) AND status !='LUNAS') AS s ON s.fk_penjualan=p.id_penjualan";
+                                                 ) AND status !='LUNAS') AS s ON s.fk_penjualan=p.id_penjualan
+                                            WHERE substring(tgl_kwitansi,1,10)>='$tgl1' AND  substring(tgl_kwitansi,1,10)<='$tgl2'";
                                    	$rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                      {

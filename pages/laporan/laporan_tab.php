@@ -34,7 +34,19 @@
                     </tr>
                     <tr>
                         <td width="30%" >&nbsp;<label style="font-size: 16px;">Piutang</label></td><td>
-                              
+                              <table border="0"><tr><td>Periode :</td><td><div class="input-group date">
+                            <div class="input-group date">
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                              </div>
+                              <input type="text" class="form-control pull-right" id="tglpiutang1" name="tglpiutang1" required value="<?php echo $harinow;?>">
+                            </div></td><td>-</td><td><div class="input-group date">
+                            <div class="input-group date">
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                              </div>
+                              <input type="text" class="form-control pull-right" id="tglpiutang2" name="tglpiutang2" required value="<?php echo $harinow;?>">
+                            </div> </td></tr></table>
                             </td><td align="center" style="font-weight: bold; font-size: 14px;"><span style="cursor: pointer;" onclick="eksporpiutang()">Generate</span></strong></span></td>
                     </tr>
                     <tr>
@@ -112,6 +124,8 @@
     <!-- /.content -->
   </div>
   <script type="text/javascript">
+    $('#tglpiutang1').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
+    $('#tglpiutang2').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
     $('#tglcash1').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
     $('#tglcash2').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
     $('#tglbank1').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
