@@ -15,6 +15,7 @@
                 <thead class="thead-light">
                 <tr>
                           <th>No Kwitansi</th>
+                          <th>Customer</th>
                           <th>Nilai</th>
                           <th></th>
                 </tr>
@@ -23,7 +24,9 @@
                 <tbody>
                 <?php
                                    $j=1;
-                                   $sqlcatat = "SELECT k.no_kwitansi as no_kwitansi,k.total_kwitansi as nilai from t_kwitansi k
+                                   $sqlcatat = "SELECT k.no_kwitansi as no_kwitansi,k.total_kwitansi as nilai,s.nama as nama from t_kwitansi k
+                                   LEFT JOIN t_delivery_order o ON o.id_delivery_order=k.fk_delivery_order
+                                   LEFT JOIN t_customer s ON s.id_customer=o.fk_customer
                                    LEFT JOIN t_bank b ON k.no_kwitansi=b.no_ref 
                                    LEFT JOIN t_cash c ON k.no_kwitansi=c.no_ref 
                                    WHERE b.no_ref IS NULL AND c.no_ref IS NULL";
@@ -34,6 +37,7 @@
                        
                        
                           <td ><?php echo $catat['no_kwitansi'];?></td>
+                          <td ><?php echo $catat['nama'];?></td>
                           <td ><?php echo $catat['nilai'];?></td>
                        
                           <td >
