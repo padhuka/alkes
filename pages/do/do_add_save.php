@@ -49,7 +49,7 @@
             $qpanelest=mysql_query($sqlpanelest);
             while($hpanelest=mysql_fetch_array($qpanelest)){
 
-                $sqlpanelpkb = "INSERT INTO t_delivery_order_detail (fk_delivery_order,fk_barang,gross_jual_barang,diskon_jual_barang,netto_jual_barang,qty) VALUES ('$kodebaru','$hpanelest[fk_barang]','$hpanelest[gross_jual_barang]','$hpanelest[diskon_jual_barang]','$hpanelest[netto_jual_barang]','$hpanelest[qty]')";
+                $sqlpanelpkb = "INSERT INTO t_delivery_order_detail (fk_delivery_order,fk_barang,gross_jual_barang,diskon_jual_barang,diskon_persen,netto_jual_barang,qty) VALUES ('$kodebaru','$hpanelest[fk_barang]','$hpanelest[gross_jual_barang]','$hpanelest[diskon_jual_barang]','$hpanelest[diskon_persen]','$hpanelest[netto_jual_barang]','$hpanelest[qty]')";
                 mysql_query($sqlpanelpkb);
 
             }

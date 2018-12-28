@@ -43,7 +43,7 @@
               echo 'y';
             }
             else {
-              $sqltbemp = "INSERT INTO t_penjualan_detail (fk_penjualan,fk_barang,gross_jual_barang,diskon_jual_barang,netto_jual_barang,qty) VALUES ('$idso','$id_barang','$hargajual','$hargadiskon','$total','$qty')";
+              $sqltbemp = "INSERT INTO t_penjualan_detail (fk_penjualan,fk_barang,gross_jual_barang,diskon_jual_barang,diskon_persen,netto_jual_barang,qty) VALUES ('$idso','$id_barang','$hargajual','$hargadiskon','$diskon','$total','$qty')";
             mysql_query($sqltbemp);
    
             $sqlbarang= "SELECT sum(gross_jual_barang*qty) AS totjualbarang,sum(diskon_jual_barang*qty) AS totdiskonbarang,sum(netto_jual_barang) AS totestimasibarang FROM t_penjualan_detail WHERE fk_penjualan = '$idso'";
