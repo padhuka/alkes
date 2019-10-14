@@ -15,10 +15,10 @@ header("Content-Disposition: attachment; filename=reportpiutang.xls");
       ?>
       <table width="100%" align="center" border="0">
                                   <tr>
-                                    <td width="50%"><u style="font-size: 20px;"><strong>PT. MH Medika</strong><br>
+                                    <td width="50%"><u style="font-size: 20px;"><strong>PT. Nusa Asia Medika</strong><br>
                                     </u>
-                                      Jl. Sumbing Rt.03 Rw.09 Mojosongo<br>
-                                      Surakarta Tlp. 0271-9224110, 081229875951<br>
+                                      Jl. Rukun CBD, Green Lake City F. No.15<br>
+                                      Ketapang, Tangerang Telp (021) 3030-6595<br>
                                     </td>                                   
                                   </tr>                                   
                                 </table>

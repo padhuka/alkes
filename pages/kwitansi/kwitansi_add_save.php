@@ -5,8 +5,8 @@
         $id_delivery_order = trim($_POST['iddo']);
         $ppn = trim($_POST['ppn']);
         $hrn2= date('dmy' , strtotime($hrini));
-        $kodeawal2 = 'SI_MH.';
-        $kodeawal = 'SI_MH.'.$hrn2.'.';
+        $kodeawal2 = 'SI_NAM.';
+        $kodeawal = 'SI_NAM.'.$hrn2.'.';
         $sqljur = "SELECT * FROM t_kwitansi ORDER BY tgl_kwitansi DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );

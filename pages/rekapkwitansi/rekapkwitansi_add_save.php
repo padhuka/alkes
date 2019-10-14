@@ -7,8 +7,8 @@
 
         $hrn2= date('dmy' , strtotime($hrini));
 
-        $kodeawal2 = 'RK_MH.';
-        $kodeawal = 'RK_MH.'.$hrn2.'.';
+        $kodeawal2 = 'RK_NAM.';
+        $kodeawal = 'RK_NAM.'.$hrn2.'.';
 
         $sqljur = "SELECT * FROM t_rekapkwitansi ORDER BY tgl DESC";
         $resultjur = mysql_query( $sqljur );

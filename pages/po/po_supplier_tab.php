@@ -42,7 +42,16 @@
               </div>
               </div> 
                 <script type="text/javascript">
-                $('#tableSup').DataTable();
+                $('#tableSup').DataTable({
+                   "language": {
+                      "search": "Cari",
+                      "lengthMenu": "Lihat _MENU_ baris per halaman",
+                      "zeroRecords": "Maaf, Tidak di temukan - data",
+                      "info": "Terlihat halaman _PAGE_ of _PAGES_",
+                      "infoEmpty": "Tidak ada data di database"
+                  },
+                   "pageLength": 4,
+                });
                function selectSupp(a,b){
                               $("#supplier").val(a);
                               $("#suppliernm").val(b);
@@ -64,15 +73,6 @@
     text-align: center;
     font-weight: bold;
     font-family: monospace;
-  }
-  .modal-content {
-     height: auto;
-     width: auto;
-  }
-  .row {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top:10px;
   }
   .modal-title {
     margin:0;

@@ -8,8 +8,8 @@
         //$kodeawal = 'est_'.$hrini.'_';
         $hrn2= date('dmy' , strtotime($hrini));
   //EST.BR.020818.000001
-        $kodeawal2 = 'DO_MH.';
-        $kodeawal = 'DO_MH.'.$hrn2.'.';
+        $kodeawal2 = 'DO_NAM.';
+        $kodeawal = 'DO_NAM.'.$hrn2.'.';
         $sqljur = "SELECT * FROM t_delivery_order ORDER BY tgl DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );
@@ -41,7 +41,7 @@
 
             $sqltbemp = "INSERT INTO t_delivery_order (id_delivery_order,fk_customer,fk_penjualan,total_gross_jual_barang,total_diskon_jual_barang,total_netto_jual_barang) VALUES ('$kodebaru','$hest[fk_customer]','$hest[id_penjualan]','$hest[total_gross_jual_barang]','$hest[total_diskon_jual_barang]','$hest[total_netto_jual_barang]')";
             mysql_query($sqltbemp);
-            echo $sqltbemp;
+           // echo $sqltbemp;
             //echo $kodebaru.'-'.$warnanm;
             //insert panel pkb
             

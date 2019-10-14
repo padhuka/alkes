@@ -9,8 +9,8 @@
 
         $hrn2= date('dmy' , strtotime($hrini));
 
-        $kodeawal2 = 'PO_MH.';
-        $kodeawal = 'PO_MH.'.$hrn2.'.';
+        $kodeawal2 = 'PO_NAM.';
+        $kodeawal = 'PO_NAM.'.$hrn2.'.';
 
         $sqljur = "SELECT * FROM t_pembelian ORDER BY tgl DESC";
         $resultjur = mysql_query( $sqljur );

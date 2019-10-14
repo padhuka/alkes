@@ -39,9 +39,13 @@ th, td {
                             <td width="50%">
                                 <table style="font-weight: bold;">
                                     <tr><td><img src="../../file/logomh.png"></td><td></td><td>
-                                      PT. MH Medika<br>
-                                      Jl. Sumbing Rt.03 Rw.09 Mojosongo
-                                      Surakarta Tlp. 0271-9224110, 081229875951<br>
+                                      NUSA ASIA MEDIKA<br>
+                                      Jl.Rukun CBD, Green Lake City F No.15
+                                      Ketapang Kota Tangerang <br>
+                                      Telp. (021) 3030-6595 <br> 
+                                      Email : sales@nusaasia.com <br>
+                                      Npwp : 76.117.774.0-416.000
+                                      <br>
                                     </td></tr>
                                     <tr><td>No. Faktur</td><td>:</td><td><?php echo $no_kwitansi;?></td></tr>
                                     <tr><td>No. DO</td><td>:</td><td><?php echo $iddelivery_order;?></td></tr>
@@ -97,8 +101,8 @@ th, td {
                            
                         <tr><td colspan="5" align="left" rowspan="3"><strong>
                           Rekening Pembayaran :<br>
-                          Bank Jateng A/C : 1-002-00467<br>
-                          A/N : PT. MH. MEDIKA
+                          Bank BCA No Rek : 4971130100<br>
+                          A/N : PT. Nusa Asia Medika 
                         </strong></td><td>Sub Total Jasa</td><td align="right"><?php echo rupiah2($catat['total_netto_barang']);?></td></tr>
                         <tr><td>PPN 10%</td><td align="right"><?php echo rupiah2($catat['total_ppn_kwitansi']);?></td></tr>
                         <tr><td><strong>Total Bayar</strong></td><td align="right"><?php echo rupiah2($catat['total_kwitansi']);?></td></tr>
